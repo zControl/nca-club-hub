@@ -17,6 +17,21 @@ function ColorsTile() {
     <Tile title="Colors" description="These are the basic colors of the app">
       <div className="px-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <ColorBox
+          label="NCA Red"
+          bgColor="bg-nca-red"
+          textColor="text-nca-red-foreground"
+        />
+        <ColorBox
+          label="NCA Blue"
+          bgColor="bg-nca-blue"
+          textColor="text-nca-blue-foreground"
+        />
+        <ColorBox
+          label="NCA Sky"
+          bgColor="bg-nca-sky"
+          textColor="text-nca-sky-foreground"
+        />
+        <ColorBox
           label="Background"
           bgColor="bg-background"
           textColor="text-foreground"
