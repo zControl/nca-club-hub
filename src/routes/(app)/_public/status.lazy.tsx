@@ -1,7 +1,7 @@
 import { PageContainer } from "@/components/common/PageContainer";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
-export const Route = createLazyFileRoute("/(app)/status")({
+export const Route = createLazyFileRoute("/(app)/_public/status")({
   component: StatusPage,
 });
 
