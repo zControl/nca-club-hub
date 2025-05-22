@@ -1,9 +1,6 @@
-import { createLazyFileRoute } from '@tanstack/react-router'
+import { RebelRecCupPage } from "@/pages/rebelrec/RebelRecCupPage";
+import { createLazyFileRoute } from "@tanstack/react-router";
 
-export const Route = createLazyFileRoute('/(app)/_public/rebelrec/cup')({
-  component: RouteComponent,
-})
-
-function RouteComponent() {
-  return <div>Hello "/(public)/rebelrec/cup"!</div>
-}
+export const Route = createLazyFileRoute("/(app)/_public/rebelrec/cup")({
+  component: RebelRecCupPage,
+});

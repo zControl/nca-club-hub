@@ -1,9 +1,6 @@
-import { createLazyFileRoute } from '@tanstack/react-router'
+import { MissionPage } from "@/pages/mission/MissionPage";
+import { createLazyFileRoute } from "@tanstack/react-router";
 
-export const Route = createLazyFileRoute('/(app)/_public/mission')({
-  component: RouteComponent,
-})
-
-function RouteComponent() {
-  return <div>Hello "/(public)/mission"!</div>
-}
+export const Route = createLazyFileRoute("/(app)/_public/mission")({
+  component: MissionPage,
+});

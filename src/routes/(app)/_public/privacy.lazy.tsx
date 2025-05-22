@@ -2,7 +2,7 @@ import { HeaderContainer } from "@/components/common/HeaderContainer";
 import { PageContainer } from "@/components/common/PageContainer";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
-export const Route = createLazyFileRoute("/(app)/privacy")({
+export const Route = createLazyFileRoute("/(app)/_public/privacy")({
   component: PrivacyPage,
 });
 

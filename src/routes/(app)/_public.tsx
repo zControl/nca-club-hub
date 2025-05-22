@@ -1,15 +1,6 @@
-import { AppHeader } from "@/components/common/AppHeader";
-import { createFileRoute, Outlet } from "@tanstack/react-router";
+import { BasicLayout } from "@/components/layout/BasicLayout";
+import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(app)/_public")({
-  component: PublicLayout,
+  component: BasicLayout,
 });
-
-function PublicLayout() {
-  return (
-    <>
-      <AppHeader />
-      <Outlet />
-    </>
-  );
-}

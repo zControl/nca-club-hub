@@ -1,9 +1,16 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
 
-export const Route = createFileRoute('/(app)/_public/public/')({
-  component: RouteComponent,
-})
+export const Route = createFileRoute("/(app)/_public/public/")({
+  component: PublicRedirect,
+});
 
-function RouteComponent() {
-  return <div>Hello "/(app)/_public/public/"!</div>
+function PublicRedirect() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate({ to: "/" });
+  }, [navigate]);
+
+  return null;
 }

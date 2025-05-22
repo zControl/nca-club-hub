@@ -1,9 +1,6 @@
-import { createLazyFileRoute } from '@tanstack/react-router'
+import { FieldsPage } from "@/pages/fields/FieldsPage";
+import { createLazyFileRoute } from "@tanstack/react-router";
 
-export const Route = createLazyFileRoute('/(app)/_public/fields')({
-  component: RouteComponent,
-})
-
-function RouteComponent() {
-  return <div>Hello "/(public)/fields"!</div>
-}
+export const Route = createLazyFileRoute("/(app)/_public/fields")({
+  component: FieldsPage,
+});
