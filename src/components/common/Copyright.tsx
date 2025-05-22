@@ -1,13 +1,14 @@
 export default function Copyright() {
   return (
     <div className="mt-2">
-      <h3>
-        {"Copyright © "}
+      <p className="text-xs">
+        {"© Copyright "}
+        {new Date().getFullYear()}
+        {" | "}
         <a href="http://ncalliancefc.com">
           North County Alliance Football Club
-        </a>{" "}
-        {new Date().getFullYear()}.
-      </h3>
+        </a>
+      </p>
     </div>
   );
 }

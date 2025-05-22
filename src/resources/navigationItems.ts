@@ -47,7 +47,7 @@ export const clubItems: NavigationItems[] = [
     },
     {
       title: "Schedule",
-      short: "schedule",
+      short: "Schedule",
       href: "/schedule",
       description: "Events and Yearly Calendar",
     },
@@ -69,7 +69,7 @@ export const clubItems: NavigationItems[] = [
     {
       title: "Registration",
       short: "Registration",
-      href: "/rebelrec/register",
+      href: "/rebelrec/registration",
       description: "Register to secure your spot.",
     },
     {
