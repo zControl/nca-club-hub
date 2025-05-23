@@ -1,25 +1,28 @@
 import { useNavigate } from "@tanstack/react-router";
-import { FrownIcon } from "lucide-react";
-import { Button } from "../ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { XCircleIcon } from "lucide-react";
+import { Button } from "../../ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../../ui/card";
 import { PageContainer } from "./PageContainer";
 
-export const NotFound = () => {
+export const UnauthorizedPage = () => {
   const navigate = useNavigate();
   return (
-    <PageContainer title="Not Found" description="Not Found">
+    <PageContainer title="Unauthorized" description="Unauthorized">
       <div className="flex items-center justify-center flex-1">
         <Card>
           <CardHeader className="bg-destructive text-destructive-foreground text-center py-4">
-            <CardTitle className="text-4xl font-semibold">404</CardTitle>
+            <CardTitle className="text-4xl font-semibold">Nope!</CardTitle>
           </CardHeader>
           <CardContent className="p-6 text-center">
             <div>
-              <FrownIcon size={140} className="text-destructive mx-auto my-4" />
+              <XCircleIcon
+                size={140}
+                className="text-destructive mx-auto my-4"
+              />
             </div>
-            <h2 className="text-2xl font-semibold mb-2">Page Not Found</h2>
+            <h2 className="text-2xl font-semibold mb-2">Unauthorized</h2>
             <p className="text-card-foreground mb-6">
-              Sorry, the page you're looking for doesn't exist.
+              You are not allowed to view this page.
             </p>
             <div className="flex justify-center space-x-4">
               <Button variant="outline" onClick={() => window.history.back()}>

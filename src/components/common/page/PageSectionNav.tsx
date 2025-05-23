@@ -1,5 +1,5 @@
+import { Button } from "@/components/ui/button";
 import { useRouter } from "@tanstack/react-router";
-import { Button } from "../ui/button";
 
 export interface PageSection {
   id: string;

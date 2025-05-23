@@ -1,4 +1,5 @@
-import Copyright from "@/components/common/Copyright";
+import Copyright from "@/components/common/footer/Copyright";
+import { ButtonLink } from "@/components/composites/ButtonLink";
 import { SocialButtons } from "@/features/contact/components/SocialButtons";
 import {
   clubItems,
@@ -10,7 +11,7 @@ import { Link } from "@tanstack/react-router";
 
 function FooterHeading({ text }: { text: string }) {
   return (
-    <h4 className="px-2 mb-2 font-bold text-xl text-ncaPrimary-foreground underline">
+    <h4 className="px-2 mb-2 font-bold text-xl text-nca-blue underline">
       {text}
     </h4>
   );
@@ -18,19 +19,19 @@ function FooterHeading({ text }: { text: string }) {
 
 function FooterNavList({ items }: { items: NavigationItems[] }) {
   return (
-    <ul className="w-[200px] px-2">
+    <div>
       {items.map((item) => (
-        <li key={item.title} className="hover:text-ncaGold">
-          <Link to={item.href}>{item.short}</Link>
-        </li>
+        <ButtonLink href={item.href} key={item.title} className="text-nca-blue">
+          {item.short}
+        </ButtonLink>
       ))}
-    </ul>
+    </div>
   );
 }
 
 function FooterNavLinks() {
   return (
-    <div className="md:flex md:flex-row md:justify-evenly sm:flex-col sm:justify-center mb-6">
+    <div className="md:flex md:flex-row md:justify-evenly sm:flex-col sm:justify-center mb-6 p-2">
       <div>
         <FooterHeading text="The Club" />
         <FooterNavList items={clubItems} />
@@ -40,11 +41,11 @@ function FooterNavLinks() {
         <FooterNavList items={competitiveItems} />
       </div>
       <div>
-        <FooterHeading text="Recreaction" />
+        <FooterHeading text="Recreation" />
         <FooterNavList items={recreationItems} />
       </div>
       <div>
-        <FooterHeading text="Connect" />
+        <FooterHeading text="Socials" />
         <SocialButtons />
       </div>
     </div>
@@ -52,7 +53,7 @@ function FooterNavLinks() {
 }
 export const AppFooter = () => {
   return (
-    <footer className="bg-accent text-accent-foreground p-2">
+    <footer className="bg-nca-sky p-2">
       <FooterNavLinks />
       <div className="container mx-auto w-1/2">
         <div className="flex flex-wrap justify-center text-xs gap-4">

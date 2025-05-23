@@ -1,5 +1,5 @@
-import { AppFooter } from "@/components/common/AppFooter";
-import { AppHeader } from "@/components/common/AppHeader";
+import { AppFooter } from "@/components/common/footer/AppFooter";
+import { AppHeader } from "@/components/common/header/AppHeader";
 import { Outlet } from "@tanstack/react-router";
 
 export function BasicLayout() {

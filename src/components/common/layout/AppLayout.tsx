@@ -1,5 +1,8 @@
-import { AppFooter } from "./AppFooter";
-import { HeaderContainer, type HeaderContainerProps } from "./HeaderContainer";
+import { AppFooter } from "@/components/common/footer/AppFooter";
+import {
+  HeaderContainer,
+  type HeaderContainerProps,
+} from "@/components/common/header/HeaderContainer";
 
 interface AppLayoutProps extends HeaderContainerProps {
   children: React.ReactNode;

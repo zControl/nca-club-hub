@@ -1,4 +1,4 @@
-import { PageContainer } from "@/components/common/PageContainer";
+import { PageContainer } from "@/components/common/page/PageContainer";
 import { EmailUsCard } from "@/features/contact/components/EmailUsCard";
 import { MailingListSignupForm } from "@/features/contact/components/MailingListSignupForm";
 import { SocialButtons } from "@/features/contact/components/SocialButtons";

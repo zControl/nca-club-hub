@@ -1,4 +1,4 @@
-import { PageSections } from "@/components/common/PageSections";
+import { PageSections } from "@/components/common/page/PageSections";
 
 function SidebarTile() {
   return <div>sidebar tile</div>;

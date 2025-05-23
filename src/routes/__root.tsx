@@ -1,7 +1,7 @@
-import { ErrorPage } from "@/components/common/ErrorPage";
-import { NotFound } from "@/components/common/NotFound";
+import { ErrorPage } from "@/components/common/error/ErrorPage";
 import { Toaster } from "@/components/ui/sonner";
 import type { AuthContext } from "@/features/auth/AuthContext";
+import { NotFoundPage } from "@/pages/NotFoundPage";
 import type { QueryClient } from "@tanstack/react-query";
 import { createRootRouteWithContext, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
@@ -14,7 +14,7 @@ interface AppRouterContext {
 
 export const Route = createRootRouteWithContext<AppRouterContext>()({
   component: RootLayout,
-  notFoundComponent: NotFound,
+  notFoundComponent: NotFoundPage,
   errorComponent: ErrorPage,
 });
 

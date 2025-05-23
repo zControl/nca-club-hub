@@ -1,4 +1,4 @@
-import { PageSections } from "@/components/common/PageSections";
+import { PageSections } from "@/components/common/page/PageSections";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 

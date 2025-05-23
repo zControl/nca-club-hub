@@ -1,4 +1,4 @@
-import { HeaderContainer } from "@/components/common/HeaderContainer";
+import { HeaderContainer } from "@/components/common/header/HeaderContainer";
 import { Link } from "@tanstack/react-router";
 
 function HeaderLogo() {
@@ -31,7 +31,7 @@ export const AppHeader = () => {
       logo={<HeaderLogo />}
       mobileMenu={renderMobileNavigation()}
       navigation={renderNavigation()}
-      actions={<div className="flex items-center gap-4">{renderActions()}</div>}
+      actions={renderActions()}
     />
   );
 };

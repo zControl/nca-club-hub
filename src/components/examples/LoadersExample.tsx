@@ -1,4 +1,4 @@
-import { PageSections } from "@/components/common/PageSections";
+import { PageSections } from "@/components/common/page/PageSections";
 import { LoadingBox, LoadingRows } from "@/components/composites/Loading";
 import { Tile } from "@/components/composites/Tile";
 import { Separator } from "@/components/ui/separator";

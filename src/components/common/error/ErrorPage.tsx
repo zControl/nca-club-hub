@@ -1,4 +1,4 @@
-import { PageContainer } from "./PageContainer";
+import { PageContainer } from "../page/PageContainer";
 
 export const ErrorPage = () => {
   return (

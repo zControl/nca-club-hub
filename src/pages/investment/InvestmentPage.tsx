@@ -1,5 +1,5 @@
-import { PageContainer } from "@/components/common/PageContainer";
-import { PageSections } from "@/components/common/PageSections";
+import { PageContainer } from "@/components/common/page/PageContainer";
+import { PageSections } from "@/components/common/page/PageSections";
 import { ClubFees } from "@/pages/investment/components/ClubFees";
 import { TeamPlacement } from "@/pages/investment/components/TeamPlacement";
 export function InvestmentPage() {

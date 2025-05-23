@@ -1,4 +1,4 @@
-import { PageContainer } from "@/components/common/PageContainer";
+import { PageContainer } from "@/components/common/page/PageContainer";
 export function KitPage() {
   return (
     <PageContainer

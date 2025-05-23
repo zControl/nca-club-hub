@@ -1,5 +1,4 @@
-import { AppLayout } from "@/components/common/AppLayout";
-import { NotFound } from "@/components/common/NotFound";
+import { AppLayout } from "@/components/common/layout/AppLayout";
 import { ThemeToggle } from "@/components/common/theme/ThemeToggle";
 import {
   Sidebar,
@@ -12,6 +11,7 @@ import {
   SidebarProvider,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { NotFoundPage } from "@/pages/NotFoundPage";
 import {
   createFileRoute,
   Link,
@@ -35,7 +35,7 @@ import {
 
 export const Route = createFileRoute("/(test)/_examples")({
   component: ExamplesLayout,
-  notFoundComponent: NotFound,
+  notFoundComponent: NotFoundPage,
 });
 
 const basics = [

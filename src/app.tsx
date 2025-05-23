@@ -26,10 +26,7 @@ declare module "@tanstack/react-router" {
   }
 }
 
-// Render the router provider
-// This is where you can "useAuth" to provide a router context
-// const auth = useAuth();
-// return <RouterProvider router={router} context={{ auth }} />
+// Create the router provider
 function AppRouter() {
   const auth = useAuth();
   return <RouterProvider router={router} context={{ auth }} />;

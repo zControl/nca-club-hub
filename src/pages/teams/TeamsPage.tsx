@@ -1,4 +1,4 @@
-import { PageContainer } from "@/components/common/PageContainer";
+import { PageContainer } from "@/components/common/page/PageContainer";
 import { TeamListTile } from "@/pages/teams/components/TeamListTile";
 export function TeamsPage() {
   return (
