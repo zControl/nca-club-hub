@@ -1,4 +1,7 @@
 import { HeaderContainer } from "@/components/common/header/HeaderContainer";
+import { NavMenuFull } from "@/components/common/header/NavMenuFull";
+import { NavMenuMobile } from "@/components/common/header/NavMenuMobile";
+import { UserActions } from "@/components/common/header/UserActions";
 import { Link } from "@tanstack/react-router";
 
 function HeaderLogo() {
@@ -14,24 +17,12 @@ function HeaderLogo() {
   );
 }
 export const AppHeader = () => {
-  const renderNavigation = () => {
-    return <div>Navigation</div>;
-  };
-
-  const renderMobileNavigation = () => {
-    return <div>Mobile Navigation</div>;
-  };
-
-  const renderActions = () => {
-    return <div>Actions</div>;
-  };
-
   return (
     <HeaderContainer
       logo={<HeaderLogo />}
-      mobileMenu={renderMobileNavigation()}
-      navigation={renderNavigation()}
-      actions={renderActions()}
+      mobileMenu={<NavMenuMobile />}
+      navigation={<NavMenuFull />}
+      actions={<UserActions />}
     />
   );
 };
