@@ -1,4 +1,4 @@
-import { PageContainer } from "@/components/common/PageContainer";
+import { PageContainer } from "@/components/common/page/PageContainer";
 import { AboutTryoutsTile } from "@/pages/tryouts/components/AboutTryoutsTile";
 import { TryoutExpectationsTile } from "@/pages/tryouts/components/TryoutExpectationsTile";
 export function TryoutsPage() {

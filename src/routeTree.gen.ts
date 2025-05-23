@@ -48,6 +48,7 @@ const appPublicRebelrecLazyImport = createFileRoute(
 )()
 const appPublicPrivacyLazyImport = createFileRoute('/(app)/_public/privacy')()
 const appPublicMissionLazyImport = createFileRoute('/(app)/_public/mission')()
+const appPublicKitLazyImport = createFileRoute('/(app)/_public/kit')()
 const appPublicJoinLazyImport = createFileRoute('/(app)/_public/join')()
 const appPublicInvestmentLazyImport = createFileRoute(
   '/(app)/_public/investment',
@@ -240,6 +241,14 @@ const appPublicMissionLazyRoute = appPublicMissionLazyImport
   .lazy(() =>
     import('./routes/(app)/_public/mission.lazy').then((d) => d.Route),
   )
+
+const appPublicKitLazyRoute = appPublicKitLazyImport
+  .update({
+    id: '/kit',
+    path: '/kit',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() => import('./routes/(app)/_public/kit.lazy').then((d) => d.Route))
 
 const appPublicJoinLazyRoute = appPublicJoinLazyImport
   .update({
@@ -587,6 +596,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof appPublicJoinLazyImport
       parentRoute: typeof appPublicImport
     }
+    '/(app)/_public/kit': {
+      id: '/(app)/_public/kit'
+      path: '/kit'
+      fullPath: '/kit'
+      preLoaderRoute: typeof appPublicKitLazyImport
+      parentRoute: typeof appPublicImport
+    }
     '/(app)/_public/mission': {
       id: '/(app)/_public/mission'
       path: '/mission'
@@ -808,6 +824,7 @@ interface appPublicRouteChildren {
   appPublicFieldsLazyRoute: typeof appPublicFieldsLazyRoute
   appPublicInvestmentLazyRoute: typeof appPublicInvestmentLazyRoute
   appPublicJoinLazyRoute: typeof appPublicJoinLazyRoute
+  appPublicKitLazyRoute: typeof appPublicKitLazyRoute
   appPublicMissionLazyRoute: typeof appPublicMissionLazyRoute
   appPublicPrivacyLazyRoute: typeof appPublicPrivacyLazyRoute
   appPublicRebelrecLazyRoute: typeof appPublicRebelrecLazyRoute
@@ -830,6 +847,7 @@ const appPublicRouteChildren: appPublicRouteChildren = {
   appPublicFieldsLazyRoute: appPublicFieldsLazyRoute,
   appPublicInvestmentLazyRoute: appPublicInvestmentLazyRoute,
   appPublicJoinLazyRoute: appPublicJoinLazyRoute,
+  appPublicKitLazyRoute: appPublicKitLazyRoute,
   appPublicMissionLazyRoute: appPublicMissionLazyRoute,
   appPublicPrivacyLazyRoute: appPublicPrivacyLazyRoute,
   appPublicRebelrecLazyRoute: appPublicRebelrecLazyRoute,
@@ -940,6 +958,7 @@ export interface FileRoutesByFullPath {
   '/fields': typeof appPublicFieldsLazyRoute
   '/investment': typeof appPublicInvestmentLazyRoute
   '/join': typeof appPublicJoinLazyRoute
+  '/kit': typeof appPublicKitLazyRoute
   '/mission': typeof appPublicMissionLazyRoute
   '/privacy': typeof appPublicPrivacyLazyRoute
   '/rebelrec': typeof appPublicRebelrecLazyRoute
@@ -982,6 +1001,7 @@ export interface FileRoutesByTo {
   '/fields': typeof appPublicFieldsLazyRoute
   '/investment': typeof appPublicInvestmentLazyRoute
   '/join': typeof appPublicJoinLazyRoute
+  '/kit': typeof appPublicKitLazyRoute
   '/mission': typeof appPublicMissionLazyRoute
   '/privacy': typeof appPublicPrivacyLazyRoute
   '/rebelrec': typeof appPublicRebelrecLazyRoute
@@ -1029,6 +1049,7 @@ export interface FileRoutesById {
   '/(app)/_public/fields': typeof appPublicFieldsLazyRoute
   '/(app)/_public/investment': typeof appPublicInvestmentLazyRoute
   '/(app)/_public/join': typeof appPublicJoinLazyRoute
+  '/(app)/_public/kit': typeof appPublicKitLazyRoute
   '/(app)/_public/mission': typeof appPublicMissionLazyRoute
   '/(app)/_public/privacy': typeof appPublicPrivacyLazyRoute
   '/(app)/_public/rebelrec_': typeof appPublicRebelrecLazyRoute
@@ -1073,6 +1094,7 @@ export interface FileRouteTypes {
     | '/fields'
     | '/investment'
     | '/join'
+    | '/kit'
     | '/mission'
     | '/privacy'
     | '/rebelrec'
@@ -1114,6 +1136,7 @@ export interface FileRouteTypes {
     | '/fields'
     | '/investment'
     | '/join'
+    | '/kit'
     | '/mission'
     | '/privacy'
     | '/rebelrec'
@@ -1159,6 +1182,7 @@ export interface FileRouteTypes {
     | '/(app)/_public/fields'
     | '/(app)/_public/investment'
     | '/(app)/_public/join'
+    | '/(app)/_public/kit'
     | '/(app)/_public/mission'
     | '/(app)/_public/privacy'
     | '/(app)/_public/rebelrec_'
@@ -1240,6 +1264,7 @@ export const routeTree = rootRoute
         "/(app)/_public/fields",
         "/(app)/_public/investment",
         "/(app)/_public/join",
+        "/(app)/_public/kit",
         "/(app)/_public/mission",
         "/(app)/_public/privacy",
         "/(app)/_public/rebelrec_",
@@ -1317,6 +1342,10 @@ export const routeTree = rootRoute
     },
     "/(app)/_public/join": {
       "filePath": "(app)/_public/join.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/kit": {
+      "filePath": "(app)/_public/kit.lazy.tsx",
       "parent": "/(app)/_public"
     },
     "/(app)/_public/mission": {

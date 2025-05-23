@@ -1,5 +1,5 @@
-import { PageContainer } from "@/components/common/PageContainer";
-import { PageSections } from "@/components/common/PageSections";
+import { PageContainer } from "@/components/common/page/PageContainer";
+import { PageSections } from "@/components/common/page/PageSections";
 import { AboutLinks } from "@/pages/about/components/AboutLinks";
 import { AboutUs } from "@/pages/about/components/AboutUs";
 import { Leagues } from "@/pages/about/components/Leagues";

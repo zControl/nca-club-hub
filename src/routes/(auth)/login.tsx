@@ -1,4 +1,4 @@
-import { PageContainer } from "@/components/common/PageContainer";
+import { PageContainer } from "@/components/common/page/PageContainer";
 import { LoginForm } from "@/features/auth/components/LoginForm";
 import { createFileRoute } from "@tanstack/react-router";
 

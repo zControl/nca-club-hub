@@ -1,5 +1,5 @@
-import { HeaderContainer } from "@/components/common/HeaderContainer";
-import { PageContainer } from "@/components/common/PageContainer";
+import { HeaderContainer } from "@/components/common/header/HeaderContainer";
+import { PageContainer } from "@/components/common/page/PageContainer";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/(app)/_public/privacy")({

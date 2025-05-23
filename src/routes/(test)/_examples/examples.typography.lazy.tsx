@@ -1,5 +1,5 @@
-import { PageContainer } from "@/components/common/PageContainer";
-import { TypographyExample } from "@/examples/TypographyExample";
+import { PageContainer } from "@/components/common/page/PageContainer";
+import { TypographyExample } from "@/components/examples/TypographyExample";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute(

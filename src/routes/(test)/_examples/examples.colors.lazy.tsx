@@ -1,5 +1,5 @@
-import { PageContainer } from "@/components/common/PageContainer";
-import { ColorsExample } from "@/examples/ColorsExample";
+import { PageContainer } from "@/components/common/page/PageContainer";
+import { ColorsExample } from "@/components/examples/ColorsExample";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/(test)/_examples/examples/colors")({

@@ -1,4 +1,4 @@
-import { PageContainer } from "@/components/common/PageContainer";
+import { PageContainer } from "@/components/common/page/PageContainer";
 export function RebelRecPage() {
   return (
     <PageContainer title="RebelRec" description="Local youth recreation soccer">

@@ -47,7 +47,7 @@ export const clubItems: NavigationItems[] = [
     },
     {
       title: "Schedule",
-      short: "schedule",
+      short: "Schedule",
       href: "/schedule",
       description: "Events and Yearly Calendar",
     },
@@ -62,15 +62,15 @@ export const clubItems: NavigationItems[] = [
   export const recreationItems: NavigationItems[] = [
     {
       title: "About Rebel Rec",
-      short: "About",
+      short: "Rebel Rec",
       href: "/rebelrec",
       description: "See what everyone is talking about!",
     },
     {
-      title: "Registration",
-      short: "Registration",
-      href: "/rebelrec/register",
-      description: "Register to secure your spot.",
+      title: "Rebel Rec Cup",
+      short: "Rebel Rec Cup",
+      href: "/rebelrec/cup",
+      description: "Exciting end of season tournament.",
     },
     {
       title: "Frequently Asked Questions",
@@ -79,9 +79,9 @@ export const clubItems: NavigationItems[] = [
       description: "Get answers about the program.",
     },
     {
-      title: "Rebel Rec Cup",
-      short: "Rebel Rec Cup",
-      href: "/rebelrec/cup",
-      description: "Exciting end of season tournament.",
+      title: "Registration",
+      short: "Registration",
+      href: "/rebelrec/registration",
+      description: "Register to secure your spot.",
     },
   ];

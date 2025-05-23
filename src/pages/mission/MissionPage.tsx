@@ -1,4 +1,4 @@
-import { PageContainer } from "@/components/common/PageContainer";
+import { PageContainer } from "@/components/common/page/PageContainer";
 import { GoalsTile } from "@/pages/mission/components/GoalsTile";
 import { MissionTile } from "@/pages/mission/components/MissionTile";
 export function MissionPage() {
