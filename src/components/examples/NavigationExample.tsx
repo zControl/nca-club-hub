@@ -4,29 +4,56 @@ import {
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuLinkItem
 } from "@/components/ui/navigation-menu";
 
 import {
-  BrainCircuit,
-  Cable,
-  ClipboardList,
-  Container,
-  Network,
-  SmartphoneCharging, ChevronDown, Plus, Copy, CopyCheck, CopyPlus
+  ChevronDown,
+  Copy,
+  CopyCheck,
+  CopyPlus,
+  IceCream2Icon,
+  IceCreamBowlIcon,
+  Plus,
 } from "lucide-react";
 
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Command, CommandGroup, CommandItem, CommandList } from "@/components/ui/command";
 import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandGroup,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import type { NavigationItem } from "@/components/navigation/types/navigationItem";
 import { ActionModal } from "@/components/composites/ActionModal";
-import { NavBarVertical } from "@/components/navigation/NavbarVertical";
-import { NavbarTrigger } from "../navigation/NavbarTrigger";
+import { NavBarVertical } from "@/components/composites/NavbarVertical";
+import { NavbarList, NavbarTrigger } from "@/components/ui/navbar";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import type { NavigationItem } from "@/types/navigation";
+
+const mockNavigationItems: NavigationItem[] = [
+  {
+    title: "Title 1",
+    href: "/title1",
+    description: "This is the title 1 description.",
+    tooltip: "TT Title 1",
+    icon: <IceCream2Icon />,
+  },
+  {
+    title: "Title 2",
+    href: "/title2",
+    description: "This is the title 2 description.",
+    tooltip: "TT Title 2",
+    icon: <IceCreamBowlIcon />,
+  },
+];
 
 const TabbedItemsExampleContent = () => {
+  // TODO: Make this into a resuable component
   return (
     <div className="grid grid-cols-1 w-[340px]">
       <Tabs defaultValue="tab-1" className="w-full p-2">
@@ -49,63 +76,8 @@ const TabbedItemsExampleContent = () => {
   );
 };
 
-const NavigationExampleMockContent: NavigationItem[] = [
-  {
-    title: "Info",
-    href: "/info",
-    description: "This is the info page that has information about this project.",
-    tooltip: "Information",
-    icon: <Container />
-  },
-  {
-    title: "Network",
-    href: "/network",
-    description: "This is the network page that has network information.",
-    tooltip: "Network",
-    icon: <Network />
-  },
-  {
-    title: "Systems",
-    href: "/systems",
-    description: "This is the systems page that has system information.",
-    tooltip: "Systems",
-    icon: <BrainCircuit />
-  },
-  {
-    title: "Points",
-    href: "/points",
-    description: "This is the points page that has information about all the points.",
-    tooltip: "Points",
-    icon: <Cable />
-  },
-  {
-    title: "Panels",
-    href: "/panels",
-    description: "This is the panels page that shows the enclosures and panels on the project.",
-    tooltip: "Panels",
-    icon: <SmartphoneCharging />
-  },
-  {
-    title: "BOM",
-    href: "/bom",
-    description: "This is the BOM page that shows the bill of materials.",
-    tooltip: "BOM",
-    icon: <ClipboardList />
-  }
-];
-
-export { TabbedItemsExampleContent, NavigationExampleMockContent };
-
-function SidebarTile() {
-  return <div>sidebar tile</div>;
-}
-
-function BreadcrumbTile() {
-  return <div>breadcrum tile</div>;
-}
-
-//! This is just for example, we would make this into a resuable component.
 export const PopoverCommandExample = () => {
+  // TODO: Make this into a resuable component
   return (
     <nav className="flex flex-row justify-start items-center space-x-2">
       <Popover>
@@ -163,7 +135,10 @@ export const PopoverCommandExample = () => {
                     onCancel={() => console.log("Cancel")}
                     onConfirm={() => console.log("Confirm")}
                   >
-                    <p>Form to select the template and then customize the properties</p>
+                    <p>
+                      Form to select the template and then customize the
+                      properties
+                    </p>
                   </ActionModal>
                 </CommandItem>
                 <CommandItem>
@@ -191,34 +166,14 @@ export const PopoverCommandExample = () => {
   );
 };
 
-function NavbarHorizontalTile() {
+function NavbarHorizontalManual() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavbarTrigger>Link List</NavbarTrigger>
-          <NavigationMenuContent>
-            <ul className="grid grid-cols-1">
-              {NavigationExampleMockContent.map((item) => (
-                <NavigationMenuLinkItem
-                  key={item.title}
-                  title={item.title}
-                  href={item.href}
-                ></NavigationMenuLinkItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
           <NavbarTrigger>Item List</NavbarTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {NavigationExampleMockContent.map((item) => (
-                <NavigationMenuLinkItem key={item.title} title={item.title} href={item.href}>
-                  {item.description}
-                </NavigationMenuLinkItem>
-              ))}
-            </ul>
+            <NavbarList items={mockNavigationItems} />
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
@@ -226,9 +181,6 @@ function NavbarHorizontalTile() {
           <NavigationMenuContent>
             <TabbedItemsExampleContent />
           </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Button variant={"secondary"}>Button</Button>{" "}
         </NavigationMenuItem>
         <NavigationMenuItem>
           <PopoverCommandExample />
@@ -239,24 +191,24 @@ function NavbarHorizontalTile() {
 }
 
 function NavbarVerticalTile() {
-  return <NavBarVertical items={NavigationExampleMockContent} />;
-};
+  return <NavBarVertical items={mockNavigationItems} />;
+}
 function ContextMenuTile() {
   return <div>menubar tile</div>;
 }
 
-function TabContentTile() {
-  return <div>tab content tile</div>;
-}
-
-
 const sections = [
-  { id: "sidebar", title: "Sidebar", children: <SidebarTile /> },
-  { id: "breadcrumb", title: "Breadcrumb", children: <BreadcrumbTile /> },
-  { id: "navbar-horizontal", title: "Navbar Horizontal", children: <NavbarHorizontalTile /> },
-  { id: "navbar-vertical", title: "Navbar Vertical", children: <NavbarVerticalTile /> },
+  {
+    id: "navbar-horizontal-manual",
+    title: "Navbar Horizontal Manual",
+    children: <NavbarHorizontalManual />,
+  },
+  {
+    id: "navbar-vertical",
+    title: "Navbar Vertical",
+    children: <NavbarVerticalTile />,
+  },
   { id: "context-menu", title: "Context Menu", children: <ContextMenuTile /> },
-  { id: "tab-content", title: "Tab Content", children: <TabContentTile /> },
 ];
 export const NavigationExample = () => {
   return <PageSections sections={sections} />;

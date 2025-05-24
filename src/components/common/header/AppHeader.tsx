@@ -1,6 +1,6 @@
 import { HeaderContainer } from "@/components/common/header/HeaderContainer";
-import { NavMenuFull } from "@/components/common/header/NavMenuFull";
-import { NavMenuMobile } from "@/components/common/header/NavMenuMobile";
+import { NavMenuFull } from "@/components/common/header/HeaderNavFull";
+import { NavMenuMobile } from "@/components/common/header/HeaderNavMobile";
 import { UserActions } from "@/components/common/header/UserActions";
 import { Link } from "@tanstack/react-router";
 

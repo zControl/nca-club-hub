@@ -1,8 +1,9 @@
-import { JSX } from "react";
+import { type JSX } from "react";
 
 export interface NavigationItem {
-  title: string;
   href: string;
+  title: string;
+  short?: string;
   description?: string;
   tooltip?: string;
   icon?: JSX.Element;

@@ -22,7 +22,7 @@ import {
   clubItems,
   competitiveItems,
   recreationItems,
-} from "@/resources/navigationItems";
+} from "@/components/common/header/headerItems";
 
 export function NavMenuMobile() {
   return (
@@ -39,7 +39,7 @@ export function NavMenuMobile() {
         </SheetHeader>
         <Accordion type="multiple" className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger className=" w-full bg-ncaPrimary text-ncaLightGray px-4">
+            <AccordionTrigger className=" w-full px-4">
               The Club
             </AccordionTrigger>
             <AccordionContent>
@@ -53,7 +53,7 @@ export function NavMenuMobile() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger className=" w-full bg-ncaPrimary text-ncaLightGray px-4">
+            <AccordionTrigger className=" w-full px-4">
               Competitive Programs
             </AccordionTrigger>
             <AccordionContent>
@@ -67,7 +67,7 @@ export function NavMenuMobile() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger className=" w-full bg-ncaPrimary text-ncaLightGray px-4">
+            <AccordionTrigger className=" w-full px-4">
               Rebel Rec
             </AccordionTrigger>
             <AccordionContent>
@@ -81,7 +81,7 @@ export function NavMenuMobile() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
-            <AccordionTrigger className=" w-full bg-ncaPrimary text-ncaLightGray px-4">
+            <AccordionTrigger className=" w-full px-4">
               Resources
             </AccordionTrigger>
             <AccordionContent>

@@ -1,17 +1,17 @@
+import { NavbarTrigger } from "@/components/ui/navbar";
 import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuItem,
-    NavigationMenuLinkItem,
-    NavigationMenuList,
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLinkItem,
+  NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import type { NavigationItem } from "@/types/navigation";
 
-import { NavbarTrigger } from "./NavbarTrigger";
-import type { NavigationItem } from "./types/navigationItem";
-
+//! This component isn't actually useful, since the triggers and items will be different.
 const NavBarHorizontal = ({
   triggers,
-  items
+  items,
 }: {
   triggers: NavigationItem[];
   items: NavigationItem[];
