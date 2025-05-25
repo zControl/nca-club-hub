@@ -5,8 +5,8 @@ export function FooterNavList({ items }: { items: NavigationItem[] }) {
   return (
     <div>
       {items.map((item) => (
-        <ButtonLink href={item.href} key={item.title}>
-          {item.short}
+        <ButtonLink href={item.href} key={item.href}>
+          {item.title}
         </ButtonLink>
       ))}
     </div>
