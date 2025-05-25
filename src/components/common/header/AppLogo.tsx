@@ -1,13 +1,14 @@
 import { Link } from "@tanstack/react-router";
 
-const AppLogo = () => {
+export function AppLogo() {
   return (
-    <Link to="/">
-      <div className="flex items-center space-x-2">
-        <p className="text-xl font-semibold">APP LOGO</p>
-      </div>
+    <Link to={"/"}>
+      <img
+        src={"/logos/nca-logo-blue-red.png"}
+        alt="North County Alliance Red Blue Logo"
+        height="128"
+        width="128"
+      />
     </Link>
   );
-};
-
-export { AppLogo };
+}

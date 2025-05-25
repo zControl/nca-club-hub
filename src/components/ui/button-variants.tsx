@@ -20,6 +20,8 @@ const buttonVariants = cva(
           "border border-ring bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "underline-offset-4 hover:text-highlight",
+        ghostHighlight:
+          "hover:bg-highlight/20 hover:text-highlight hover:border hover:border-highlight",
       },
       size: {
         default: "h-9 px-4 py-2",

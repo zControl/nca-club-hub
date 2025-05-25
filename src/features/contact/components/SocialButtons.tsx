@@ -15,7 +15,7 @@ export const SocialButtons = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <a href={"https://www.facebook.com/ncalliancefc/"}>
-              <Button size="sm" variant="outline">
+              <Button size="icon" variant="ghostHighlight">
                 <FacebookIcon strokeWidth={2} />
               </Button>
             </a>
@@ -27,7 +27,7 @@ export const SocialButtons = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <a href={"https://www.twitter.com/ncalliancefc/"}>
-              <Button size="sm" variant="outline">
+              <Button size="icon" variant="ghostHighlight">
                 <TwitterIcon strokeWidth={2} />
               </Button>
             </a>
@@ -39,7 +39,7 @@ export const SocialButtons = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <a href={"https://www.instagram.com/ncalliancefc/"}>
-              <Button size="sm" variant="outline">
+              <Button size="icon" variant="ghostHighlight">
                 <InstagramIcon strokeWidth={2} />
               </Button>
             </a>
