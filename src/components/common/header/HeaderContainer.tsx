@@ -20,7 +20,7 @@ export const HeaderContainer = ({
           <div className="hidden md:block">{name}</div>
         </div>
         <div className="hidden md:flex mr-2">{actions}</div>
-        <nav className="block md:hidden">{mobileMenu}</nav>
+        <nav className="block md:hidden pt-4 mr-2">{mobileMenu}</nav>
       </div>
       <nav className="hidden md:flex w-full justify-center bg-background border-b-nca-red border-b-4 pt-6 pb-2">
         {navigation}

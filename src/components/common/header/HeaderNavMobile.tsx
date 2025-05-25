@@ -5,10 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Grip } from "lucide-react";
-
-import { ButtonLink } from "@/components/composites/ButtonLink";
+import { MenuIcon } from "lucide-react";
 
 import {
   Sheet,
@@ -23,19 +20,19 @@ import {
   competitiveItems,
   recreationItems,
 } from "@/components/common/header/headerItems";
+import { NavbarList } from "@/components/ui/navbar";
 
 export function NavMenuMobile() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Grip />
+        <Button variant="ghostHighlight" size="icon">
+          <MenuIcon />
         </Button>
       </SheetTrigger>
       <SheetContent side="top">
         <SheetHeader>
-          <SheetTitle>Mobile Menus</SheetTitle>
-          <Separator />
+          <SheetTitle>Mobile Menu</SheetTitle>
         </SheetHeader>
         <Accordion type="multiple" className="w-full">
           <AccordionItem value="item-1">
@@ -43,13 +40,7 @@ export function NavMenuMobile() {
               The Club
             </AccordionTrigger>
             <AccordionContent>
-              <ul>
-                {clubItems.map((item) => (
-                  <ButtonLink href={item.href} key={item.title}>
-                    {item.short}
-                  </ButtonLink>
-                ))}
-              </ul>
+              <NavbarList items={clubItems} />
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
@@ -57,13 +48,7 @@ export function NavMenuMobile() {
               Competitive Programs
             </AccordionTrigger>
             <AccordionContent>
-              <ul>
-                {competitiveItems.map((item) => (
-                  <ButtonLink href={item.href} key={item.title}>
-                    {item.short}
-                  </ButtonLink>
-                ))}
-              </ul>
+              <NavbarList items={competitiveItems} />
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
@@ -71,24 +56,18 @@ export function NavMenuMobile() {
               Rebel Rec
             </AccordionTrigger>
             <AccordionContent>
-              <ul>
-                {recreationItems.map((item) => (
-                  <ButtonLink href={item.href} key={item.title}>
-                    {item.short}
-                  </ButtonLink>
-                ))}
-              </ul>
+              <NavbarList items={recreationItems} />
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-4">
+          <AccordionItem value="item-3">
             <AccordionTrigger className=" w-full px-4">
-              Resources
+              <a
+                href="/resources"
+                className="block select-none space-y-1 rounded-md leading-none no-underline outline-none transition-colors hover:bg-highlight/40 hover:text-accent-foreground focus:bg-highlight/40 focus:text-accent-foreground"
+              >
+                Resources
+              </a>
             </AccordionTrigger>
-            <AccordionContent>
-              <ul>
-                <ButtonLink href="/resources">Parent Resources</ButtonLink>
-              </ul>
-            </AccordionContent>
           </AccordionItem>
         </Accordion>
       </SheetContent>
