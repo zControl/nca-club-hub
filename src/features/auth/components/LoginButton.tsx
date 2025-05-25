@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 
 export const LoginButton = () => {
   return (
-    <Button variant={"ghost"}>
+    <Button variant={"ghostHighlight"}>
       <Link to="/login">Login</Link>
     </Button>
   );

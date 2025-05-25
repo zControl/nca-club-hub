@@ -1,66 +1,13 @@
 import Copyright from "@/components/common/footer/Copyright";
-import { ButtonLink } from "@/components/composites/ButtonLink";
-import { SocialButtons } from "@/features/contact/components/SocialButtons";
-import {
-  clubItems,
-  competitiveItems,
-  recreationItems,
-  type NavigationItems,
-} from "@/resources/navigationItems";
-import { Link } from "@tanstack/react-router";
+import { FooterLegal } from "@/components/common/footer/FooterLegal";
+import { FooterMenuLinks } from "@/components/common/footer/FooterMenuLinks";
 
-function FooterHeading({ text }: { text: string }) {
-  return (
-    <h4 className="px-2 mb-2 font-bold text-xl text-nca-blue underline">
-      {text}
-    </h4>
-  );
-}
-
-function FooterNavList({ items }: { items: NavigationItems[] }) {
-  return (
-    <div>
-      {items.map((item) => (
-        <ButtonLink href={item.href} key={item.title} className="text-nca-blue">
-          {item.short}
-        </ButtonLink>
-      ))}
-    </div>
-  );
-}
-
-function FooterNavLinks() {
-  return (
-    <div className="md:flex md:flex-row md:justify-evenly sm:flex-col sm:justify-center mb-6 p-2">
-      <div>
-        <FooterHeading text="The Club" />
-        <FooterNavList items={clubItems} />
-      </div>
-      <div>
-        <FooterHeading text="Competitive" />
-        <FooterNavList items={competitiveItems} />
-      </div>
-      <div>
-        <FooterHeading text="Recreation" />
-        <FooterNavList items={recreationItems} />
-      </div>
-      <div>
-        <FooterHeading text="Socials" />
-        <SocialButtons />
-      </div>
-    </div>
-  );
-}
 export const AppFooter = () => {
   return (
     <footer className="bg-nca-sky p-2">
-      <FooterNavLinks />
+      <FooterMenuLinks />
       <div className="container mx-auto w-1/2">
-        <div className="flex flex-wrap justify-center text-xs gap-4">
-          <Link to="/terms">Terms</Link>
-          <Link to="/privacy">Privacy</Link>
-          <Link to="/status">Status</Link>
-        </div>
+        <FooterLegal />
         <div className="flex justify-center items-center">
           <Copyright />
         </div>
