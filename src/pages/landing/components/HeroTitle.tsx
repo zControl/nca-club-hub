@@ -1,8 +1,15 @@
+import { Hero } from "@/components/ui/hero";
+import { SectionDescription, SectionTitle } from "@/components/ui/typography";
+
 export function HeroTitle() {
   return (
-    <div>
-      <div>NORTH COUNTY ALLIANCE FC</div>
-      <div>High Quality Select Soccer at an unbelievable price</div>
-    </div>
+    <>
+      <Hero className="h-40">
+        <SectionTitle>Welcome to the Rebels</SectionTitle>
+        <SectionDescription>
+          We are the alliance football club.
+        </SectionDescription>
+      </Hero>
+    </>
   );
 }

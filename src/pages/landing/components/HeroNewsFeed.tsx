@@ -1,7 +1,9 @@
+import { Hero } from "@/components/ui/hero";
+
 export function HeroNewsFeed() {
   return (
-    <div>
-      <div>News Feed</div>
-    </div>
+    <Hero className="h-40">
+      <div>This is where we can embed the facebook feed.</div>
+    </Hero>
   );
 }

@@ -45,7 +45,7 @@ export function RebelRecFaqAccordian() {
         <Accordion type="single" collapsible>
           <AccordionItem value="what-is-it">
             <AccordionTrigger>
-              <Header3>What is recreational soccer?"</Header3>
+              <Header3>What is recreational soccer?</Header3>
             </AccordionTrigger>
             <AccordionContent>
               <Paragraph>
@@ -105,7 +105,7 @@ export function RebelRecFaqAccordian() {
           </AccordionItem>
           <AccordionItem value="divisions">
             <AccordionTrigger>
-              <Header3>How are the age division split up?</Header3>
+              <Header3>How are the age divisions split up?</Header3>
             </AccordionTrigger>
             <AccordionContent>
               <Paragraph>
@@ -168,7 +168,7 @@ export function RebelRecFaqAccordian() {
           </AccordionItem>
           <AccordionItem value="coaches">
             <AccordionTrigger>
-              <Header3>Who are the coahes</Header3>
+              <Header3>Who are the coaches?</Header3>
             </AccordionTrigger>
             <AccordionContent>
               <Paragraph>

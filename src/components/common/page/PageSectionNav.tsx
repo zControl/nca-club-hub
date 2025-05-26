@@ -20,21 +20,16 @@ export const PageSectionNav = ({ sections }: PageSectionNavProps) => {
     });
   };
   return (
-    <nav className="px-4 py-2">
-      <p className="text-left text-sm font-semibold mb-2">On this page</p>
-      <ul>
-        {sections.map((section) => (
-          <li key={section.id}>
-            <Button
-              variant={"link"}
-              key={section.id}
-              onClick={() => handleNavigation(section.id)}
-            >
-              {section.title}
-            </Button>
-          </li>
-        ))}
-      </ul>
+    <nav className="sticky top-0 z-10 px-4 py-2 flex flex-row space-x-2 items-center justify-center">
+      {sections.map((section) => (
+        <Button
+          variant={"primary"}
+          key={section.id}
+          onClick={() => handleNavigation(section.id)}
+        >
+          {section.title}
+        </Button>
+      ))}
     </nav>
   );
 };
