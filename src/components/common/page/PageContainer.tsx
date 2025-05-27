@@ -21,14 +21,7 @@ export const PageContainer = ({
       {title && <title>{title}</title>}
       {description && <meta name="description" content={description} />}
       {keywords && <meta name="keywords" content={keywords} />}
-      <main
-        className={cn(
-          "max-w-[1680px] mx-auto p-1 md:p-2 lg:p-4 flex-1",
-          className,
-        )}
-      >
-        {children}
-      </main>
+      <main className={cn("w-full mx-auto flex-1", className)}>{children}</main>
     </>
   );
 };

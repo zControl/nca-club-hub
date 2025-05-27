@@ -1,4 +1,4 @@
-import { PageSectionNav, type PageSection } from "./PageSectionNav";
+import { type PageSection } from "./PageSectionNav";
 
 interface PageSectionsProps {
   sections: PageSection[];
@@ -23,11 +23,6 @@ export const PageSections = ({
               {section.children}
             </section>
           ))}
-        </div>
-      </div>
-      <div className="hidden lg:block">
-        <div className="sticky top-4 max-w-56 min-w-32">
-          <PageSectionNav sections={sections} />
         </div>
       </div>
     </div>

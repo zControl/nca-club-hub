@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 import * as React from "react";
 
-export type CoinProps = React.HTMLAttributes<HTMLDivElement> & {
+interface CoinProps extends React.HTMLAttributes<HTMLDivElement> {
   value: number;
-};
+}
 
 export function Coin({ className, value, ...props }: CoinProps) {
   return (
@@ -23,5 +23,3 @@ export function Coin({ className, value, ...props }: CoinProps) {
     </div>
   );
 }
-
-Coin.displayName = "Coin";

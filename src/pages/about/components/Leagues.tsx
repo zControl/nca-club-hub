@@ -1,5 +1,6 @@
-import { ImageBlock } from "@/components/composites/ImageBlock";
+import { Button } from "@/components/ui/button";
 import { Header3, Paragraph, TextBlock } from "@/components/ui/typography";
+import { Link } from "@tanstack/react-router";
 
 export function Leagues() {
   return (
@@ -16,18 +17,8 @@ export function Leagues() {
             olympic teams.
           </Paragraph>
           <div className="flex flex-row justify-center space-x-16">
-            <ImageBlock
-              alt="US Youth Soccer"
-              src="/leagues/us-youth-soccer.png"
-              width="300"
-              height="200"
-            />
-            <ImageBlock
-              alt="US Club Soccer"
-              src="/leagues/us-club-soccer.png"
-              width="300"
-              height="200"
-            />
+            <img alt="US Youth Soccer" src="/leagues/us-youth-soccer.png" />
+            <img alt="US Club Soccer" src="/leagues/us-club-soccer.png" />
           </div>
 
           <Header3>League Associations</Header3>
@@ -39,18 +30,15 @@ export function Leagues() {
             opposite association but may play in the same non-league
             tournaments.
           </Paragraph>
+          <p>TODO: Scale these images to make them the same size.</p>
           <div className="flex flex-row justify-center space-x-16">
-            <ImageBlock
+            <img
               alt="Washington Youth Soccer"
               src="/leagues/wa-regional-club-league.png"
-              width="300"
-              height="200"
             />
-            <ImageBlock
+            <img
               alt="Washington Premier League"
               src="/leagues/wa-premier-league.png"
-              width="300"
-              height="200"
             />
           </div>
           <TextBlock className="text-2xl font-semibold">
@@ -58,6 +46,18 @@ export function Leagues() {
             Soccer. Our teams play regular season games in the Washington
             Premier League in addition to selected tournaments."
           </TextBlock>
+          <div className="px-12 py-6 flex flex-row space-x-8 justify-center">
+            <Link to={"/join"}>
+              <Button className="text-xl" variant="primary" size="lg">
+                Join Us
+              </Button>
+            </Link>
+            <Link to={"/teams"}>
+              <Button className="text-xl" variant="primary" size="lg">
+                View Active Teams
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </>

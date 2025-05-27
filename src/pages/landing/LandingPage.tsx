@@ -5,7 +5,6 @@ import { ConnectForm } from "@/pages/landing/components/ConnectForm";
 import { HeroAppButtons } from "@/pages/landing/components/HeroAppButtons";
 import { HeroCarousel } from "@/pages/landing/components/HeroCarousel";
 import { HeroFaq } from "@/pages/landing/components/HeroFaq";
-import { HeroInfoCards } from "@/pages/landing/components/HeroInfoCards";
 import { HeroNewsFeed } from "@/pages/landing/components/HeroNewsFeed";
 import { HeroSponsors } from "@/pages/landing/components/HeroSponsors";
 import { HeroTitle } from "@/pages/landing/components/HeroTitle";
@@ -19,14 +18,14 @@ export function LandingPage() {
         description="This is the landing page of the app.  Welcome home."
         keywords="app, landing, page, family, board, famboard"
       >
-        <div className="flex-grow">
-          <HeroTitle />
+        <div className="flex flex-col">
+          {/* <HeroNewsFlash /> */}
           <HeroCarousel />
-          <HeroNewsFeed />
-          <HeroSponsors />
+          <HeroTitle />
           <HeroAppButtons />
-          <HeroInfoCards />
+          <HeroNewsFeed />
           <HeroFaq />
+          <HeroSponsors />
           <ConnectForm />
         </div>
       </PageContainer>
