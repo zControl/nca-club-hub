@@ -1,4 +1,4 @@
-import { SectionDescription, SectionTitle } from "@/components/ui/typography";
+import { Header2, SectionDescription } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 import type React from "react";
 
@@ -26,9 +26,7 @@ export function Hero({
       style={{ backgroundImage: `url(${backgroundImageUrl})` }}
       {...props}
     >
-      {sectionTitle && (
-        <SectionTitle className="text-3xl">{sectionTitle}</SectionTitle>
-      )}
+      {sectionTitle && <Header2>{sectionTitle}</Header2>}
       {sectionDescription && (
         <SectionDescription>{sectionDescription}</SectionDescription>
       )}

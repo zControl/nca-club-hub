@@ -22,16 +22,34 @@ export function HeroCarousel() {
     >
       <CarouselContent>
         <CarouselItem>
-          <CarouselImageItem src="/hero/hero-1.webp" alt="Carousel Item 1" />
+          <CarouselImageItem
+            src="/hero/hero-carousel-1.webp"
+            alt="Carousel Item 1"
+          />
         </CarouselItem>
         <CarouselItem>
-          <CarouselImageItem src="/hero/hero-2.webp" alt="Carousel Item 2" />
+          <CarouselImageItem
+            src="/hero/hero-carousel-2.webp"
+            alt="Carousel Item 2"
+          />
         </CarouselItem>
         <CarouselItem>
-          <CarouselImageItem src="/hero/hero-3.webp" alt="Carousel Item 3" />
+          <CarouselImageItem
+            src="/hero/hero-carousel-3.webp"
+            alt="Carousel Item 3"
+          />
         </CarouselItem>
         <CarouselItem>
-          <CarouselImageItem src="/hero/hero-4.webp" alt="Carousel Item 4" />
+          <CarouselImageItem
+            src="/hero/hero-carousel-4.webp"
+            alt="Carousel Item 4"
+          />
+        </CarouselItem>
+        <CarouselItem>
+          <CarouselImageItem
+            src="/hero/hero-carousel-5.webp"
+            alt="Carousel Item 5"
+          />
         </CarouselItem>
       </CarouselContent>
     </Carousel>

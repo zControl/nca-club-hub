@@ -5,12 +5,16 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Hero } from "@/components/ui/hero";
+import { Header2 } from "@/components/ui/typography";
 export function HeroFaq() {
   return (
-    <Hero sectionTitle="Frequently Asked Questions">
+    <Hero className="bg-nca-blue">
+      <Header2 className="text-nca-blue-foreground">
+        Frequently Asked Questions
+      </Header2>
       <Accordion
         type="multiple"
-        className="w-full max-w-7xl border-4 border-nca-red px-4 rounded-none mx-auto"
+        className="w-full max-w-7xl bg-card border-nca-red px-4 mx-auto"
       >
         <AccordionItem value="item-1">
           <AccordionTrigger>First FAQ Question</AccordionTrigger>

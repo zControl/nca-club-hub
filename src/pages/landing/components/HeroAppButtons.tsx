@@ -4,33 +4,30 @@ import { Hero } from "@/components/ui/hero";
 export function HeroAppButtons() {
   return (
     <Hero className="bg-nca-red">
-      <p className="text-nca-red-foreground">
-        TODO: Replace with actual app buttons
-      </p>
-      <div className="py-8 px-4 w-full flex flex-col sm:flex-row justify-evenly">
+      <div className="py-4 px-4 w-full flex flex-col sm:flex-row justify-evenly">
         <ImageButton
           url="/tryouts"
-          src="/logos/nca-logo-blue-red.png"
+          src="/hero/button-200x200-1.webp"
           alt="NCA Red Blue Logo"
           text="Tryouts"
         />
         <ImageButton
           url="/investment"
-          src="/logos/nca-logo-blue-red.png"
-          alt="NCA Red Blue Logo"
+          src="/hero/button-200x200-2.webp"
+          alt="NCA Investment"
           text="Investment"
         />
         <ImageButton
           url="/rebelrec"
-          src="/logos/nca-logo-blue-red.png"
+          src="hero/button-200x200-3.webp"
           alt="Rebel Rec Logo"
           text="Rec Soccer"
         />
         <ImageButton
           url="/about"
-          src="/logos/nca-logo-blue-red.png"
-          alt="NCA Red Blue Logo"
-          text="Camps (coming soon)"
+          src="hero/button-200x200-4.webp"
+          alt="NCA Camps"
+          text="Camps"
         />
       </div>
     </Hero>

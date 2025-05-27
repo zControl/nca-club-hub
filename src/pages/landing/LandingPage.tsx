@@ -18,14 +18,14 @@ export function LandingPage() {
         description="This is the landing page of the app.  Welcome home."
         keywords="app, landing, page, family, board, famboard"
       >
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col">
           {/* <HeroNewsFlash /> */}
           <HeroCarousel />
           <HeroTitle />
           <HeroAppButtons />
           <HeroNewsFeed />
-          <HeroSponsors />
           <HeroFaq />
+          <HeroSponsors />
           <ConnectForm />
         </div>
       </PageContainer>
