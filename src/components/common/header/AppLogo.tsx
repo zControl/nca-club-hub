@@ -6,8 +6,8 @@ export function AppLogo() {
       <img
         src={"/logos/nca-logo-blue-red.png"}
         alt="North County Alliance Red Blue Logo"
-        height="128"
-        width="128"
+        height="96"
+        width="96"
       />
     </Link>
   );

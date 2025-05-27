@@ -108,10 +108,10 @@ const BlockQuote = ({ children, className }: ParagraphProps) => {
 
 const TextBlock = ({ children, className }: ParagraphProps) => {
   const baseClasses =
-    "p-4 m-2 border-2 border max-w-2xl text-center rounded-lg bg-accent";
+    "flex justify-around p-4 m-2 border-2 border text-center rounded-lg bg-accent";
   return (
-    <div className="flex justify-around w-full">
-      <p className={cn(baseClasses, className)}>{children}</p>
+    <div className={cn(baseClasses, className)}>
+      <p>{children}</p>
     </div>
   );
 };

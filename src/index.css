@@ -1,9 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-roboto: "Roboto", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -86,7 +90,7 @@
   --sidebar-ring: oklch(0.705 0.015 286.067);
   --warning: oklch(0.7697 0.1645 70.61);
   --highlight: oklch(0.6613 0.1704 256.31);
-  --header: oklch(0.9193 0 0);
+  --header: oklch(0.8748 0 0);
   --header-foreground: oklch(0.1507 0 0);
   --nca-red: oklch(0.6205 0.2378 27.82);
   --nca-red-foreground: oklch(1 0 285.823);
@@ -130,7 +134,7 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
   --warning: oklch(0.7697 0.1645 70.61);
   --highlight: oklch(0.6613 0.1704 256.31);
-  --header: oklch(0.9193 0 0);
+  --header: oklch(0.2398 0.005 0);
   --header-foreground: oklch(0.1507 0 0);
   //--nca-red: oklch(0.399 0.1641 29.23);
   --nca-red: oklch(0.6205 0.2378 27.82);
@@ -146,6 +150,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-montserrat;
   }
 }

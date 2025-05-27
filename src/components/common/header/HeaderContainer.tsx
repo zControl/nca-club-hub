@@ -13,16 +13,18 @@ export const HeaderContainer = ({
   actions,
 }: HeaderContainerProps) => {
   return (
-    <header className="bg-background">
-      <div className="flex flex-row justify-between ml-6">
-        <div className="flex flex-row items-center space-x-2 pt-4">
-          <div>{logo}</div>
-          <div className="hidden md:block">{name}</div>
+    <header className="bg-header">
+      <div className="flex flex-row justify-between">
+        <div className="hidden md:flex flex-row items-center space-x-2 p-2">
+          <div className="p-2">{logo}</div>
+          <div>{name}</div>
         </div>
-        <div className="hidden md:flex mr-2">{actions}</div>
-        <nav className="block md:hidden pt-4 mr-2">{mobileMenu}</nav>
+        <div className="hidden md:flex justify-end items-start mr-2 pt-1">
+          {actions}
+        </div>
+        <nav className="block md:hidden p-4">{mobileMenu}</nav>
       </div>
-      <nav className="hidden md:flex w-full justify-center bg-background border-b-nca-red border-b-4 pt-6 pb-2">
+      <nav className="hidden md:flex w-full items-baseline-last justify-center bg-header border-b-nca-red border-b-4">
         {navigation}
       </nav>
     </header>
