@@ -8,11 +8,19 @@ export const ThemeToggle = () => {
   return (
     <>
       {theme === "light" ? (
-        <Button size="icon" variant="ghost" onClick={() => setTheme("dark")}>
+        <Button
+          size="icon"
+          variant="ghostHighlight"
+          onClick={() => setTheme("dark")}
+        >
           <MoonIcon />
         </Button>
       ) : (
-        <Button size="icon" variant="ghost" onClick={() => setTheme("light")}>
+        <Button
+          size="icon"
+          variant="ghostHighlight"
+          onClick={() => setTheme("light")}
+        >
           <SunIcon />
         </Button>
       )}

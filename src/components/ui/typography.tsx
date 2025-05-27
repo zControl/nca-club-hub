@@ -10,6 +10,7 @@ const headingVariants = cva("m-2", {
       secondary: "text-secondary",
       muted: "text-muted-foreground",
       accent: "text-accent-foreground",
+      highlight: "text-highlight",
     },
   },
   defaultVariants: {
@@ -59,7 +60,7 @@ const Header4 = ({ children, className, color }: HeadingProps) => {
 };
 
 const SectionTitle = ({ children, className, color }: HeadingProps) => {
-  const baseClasses = "pt-2 font-semibold leading-none tracking-tight";
+  const baseClasses = "pt-2 font-semibold leading-none tracking-wide";
   return (
     <div className={cn(baseClasses, headingVariants({ color, className }))}>
       {children}
@@ -68,7 +69,7 @@ const SectionTitle = ({ children, className, color }: HeadingProps) => {
 };
 
 const SectionDescription = ({ children, className, color }: HeadingProps) => {
-  const baseClasses = "pb-4 text-sm text-muted-foreground";
+  const baseClasses = "pb-4 text-sm";
   return (
     <div className={cn(baseClasses, headingVariants({ color, className }))}>
       {children}
@@ -107,10 +108,10 @@ const BlockQuote = ({ children, className }: ParagraphProps) => {
 
 const TextBlock = ({ children, className }: ParagraphProps) => {
   const baseClasses =
-    "p-4 m-2 border-2 border max-w-2xl text-center rounded-lg bg-accent";
+    "flex justify-around p-4 m-2 border-2 border text-center rounded-lg bg-accent";
   return (
-    <div className="flex justify-around w-full">
-      <p className={cn(baseClasses, className)}>{children}</p>
+    <div className={cn(baseClasses, className)}>
+      <p>{children}</p>
     </div>
   );
 };
