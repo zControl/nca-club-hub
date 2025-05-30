@@ -1,25 +1,25 @@
-import { Header3, Paragraph, TextBlock } from "@/components/ui/typography";
+import { Tile } from "@/components/composites/Tile";
+import { Paragraph, TextBlock } from "@/components/ui/typography";
 
 export function MissionTile() {
   return (
-    <>
-      <div className="p-4 flex flex-row justify-around items-top space-x-6">
-        <div className="max-w-4xl">
-          <Header3 color="secondary">The Mission</Header3>
-          <Paragraph>
-            North County Alliance Football Club is a registered nonprofit
-            organization with the State of Washington dedicated to the
-            development of youth soccer in Whatcom County."
-          </Paragraph>
-          <TextBlock>
-            Our mission is to create THE soccer club of choice in Whatcom
-            County. We strive to create a culture where multi-sport athletes can
-            thrive in a competitive environment. We promote effort, teamwork,
-            and sportsmanship. We succeed when our players develop a lifelong
-            love for the worlds most beautiful game."
-          </TextBlock>
-        </div>
-      </div>
-    </>
+    <Tile
+      title="Mission"
+      menu="Learn More"
+      description="Our mission statement reflects our goals and core values."
+    >
+      <Paragraph>
+        North County Alliance Football Club is a registered nonprofit
+        organization with the State of Washington dedicated to the development
+        of youth soccer in Whatcom County."
+      </Paragraph>
+      <TextBlock>
+        Our mission is to create THE soccer club of choice in Whatcom County. We
+        strive to create a culture where multi-sport athletes can thrive in a
+        competitive environment. We promote effort, teamwork, and sportsmanship.
+        We succeed when our players develop a lifelong love for the worlds most
+        beautiful game."
+      </TextBlock>
+    </Tile>
   );
 }

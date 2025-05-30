@@ -3,6 +3,7 @@ import { Tile } from "@/components/composites/Tile";
 import { Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Image } from "@/components/ui/image";
 import { LabeledValue } from "@/components/ui/labeled-value";
 import { Separator } from "@/components/ui/separator";
 import { Spinner } from "@/components/ui/spinner";
@@ -121,6 +122,28 @@ function LabeledValueTile() {
   );
 }
 
+function ImageTile() {
+  return (
+    <Tile
+      title="Image"
+      description="A basic image that handles source and auto scales the size to fill the container."
+    >
+      <Image
+        src="/leagues/wa-premier-league.png"
+        alt="Image-Premier"
+        height={200}
+        width={200}
+      />
+      <Image
+        src="/leagues/wa-regional-club-league.png"
+        alt="Image-RCL"
+        height={200}
+        width={200}
+      />
+    </Tile>
+  );
+}
+
 const sections = [
   { id: "avatar", title: "Avatar", children: <AvatarTile /> },
   { id: "badge", title: "Badge", children: <BadgeTile /> },
@@ -131,6 +154,7 @@ const sections = [
     title: "Labeled Value",
     children: <LabeledValueTile />,
   },
+  { id: "image", title: "Image", children: <ImageTile /> },
 ];
 
 export const BasicExample = () => {

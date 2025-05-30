@@ -86,7 +86,6 @@ function CardTile() {
           </CardFooter>
         </Card>
       </div>
-      <Separator className="my-4" />
     </Tile>
   );
 }
