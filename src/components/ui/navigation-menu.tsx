@@ -4,7 +4,7 @@ import { ChevronDownIcon } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { ButtonLink } from "../composites/ButtonLink";
+import { LinkButton } from "../composites/LinkButton";
 
 function NavigationMenu({
   className,
@@ -66,14 +66,14 @@ function NavigationMenuLinkItem({
   href,
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Link>) {
   return (
-    <ButtonLink href={href ?? ""}>
+    <LinkButton href={href ?? ""}>
       <CustomNavigationMenuLink>
         <div className="font-medium leading-none">{title}</div>
         <div className="line-clamp-2 text-sm leading-snug text-muted-foreground">
           {children}
         </div>
       </CustomNavigationMenuLink>
-    </ButtonLink>
+    </LinkButton>
   );
 }
 NavigationMenuLinkItem.displayName = "NavigationMenuLinkItem";

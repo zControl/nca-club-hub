@@ -95,7 +95,7 @@ type ParagraphProps = {
 const Paragraph = ({ children, className }: ParagraphProps) => {
   const baseClasses =
     "mx-2 mt-2 text-lg text-left rtl:text-right text-foreground";
-  return <p className={cn(baseClasses, className)}>{children}</p>;
+  return <div className={cn(baseClasses, className)}>{children}</div>;
 };
 
 const BlockQuote = ({ children, className }: ParagraphProps) => {

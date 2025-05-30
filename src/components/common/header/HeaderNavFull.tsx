@@ -3,7 +3,7 @@ import {
   competitiveItems,
   recreationItems,
 } from "@/components/common/header/headerItems";
-import { ButtonLink } from "@/components/composites/ButtonLink";
+import { LinkButton } from "@/components/composites/LinkButton";
 import { NavbarList, NavbarTrigger } from "@/components/ui/navbar";
 import {
   NavigationMenu,
@@ -35,10 +35,10 @@ export function NavMenuFull() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <ButtonLink href="/join">Join</ButtonLink>
+          <LinkButton href="/join">Join</LinkButton>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <ButtonLink href="/resources">Resources</ButtonLink>
+          <LinkButton href="/resources">Resources</LinkButton>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

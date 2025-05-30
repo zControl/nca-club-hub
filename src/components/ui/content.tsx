@@ -12,7 +12,7 @@ export function Content({
   ...props
 }: ContentProps) {
   return (
-    <div className={cn("w-full", wrapperClassName)} {...props}>
+    <div className={cn("w-full py-6", wrapperClassName)} {...props}>
       <div className={cn("mx-auto max-w-6xl", contentClassName)}>
         {children}
       </div>
