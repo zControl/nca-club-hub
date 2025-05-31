@@ -5,6 +5,7 @@ import { ConnectForm } from "@/pages/landing/components/ConnectForm";
 import { HeroAppButtons } from "@/pages/landing/components/HeroAppButtons";
 import { HeroCarousel } from "@/pages/landing/components/HeroCarousel";
 import { HeroFaq } from "@/pages/landing/components/HeroFaq";
+import { HeroInfoCards } from "@/pages/landing/components/HeroInfoCards";
 import { HeroNewsFeed } from "@/pages/landing/components/HeroNewsFeed";
 import { HeroSponsors } from "@/pages/landing/components/HeroSponsors";
 import { HeroTitle } from "@/pages/landing/components/HeroTitle";
@@ -23,6 +24,7 @@ export function LandingPage() {
           <HeroCarousel />
           <HeroTitle />
           <HeroAppButtons />
+          <HeroInfoCards />
           <HeroNewsFeed />
           <HeroFaq />
           <HeroSponsors />

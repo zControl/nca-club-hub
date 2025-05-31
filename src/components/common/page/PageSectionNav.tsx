@@ -3,13 +3,15 @@ import { useRouter } from "@tanstack/react-router";
 
 export interface PageSection {
   id: string;
-  title: string;
+  title?: string;
   children: React.ReactNode;
 }
 
 interface PageSectionNavProps {
   sections: PageSection[];
 }
+
+// TODO: Add Active Indicator, style full width background.
 
 export const PageSectionNav = ({ sections }: PageSectionNavProps) => {
   const router = useRouter();

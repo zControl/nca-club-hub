@@ -4,7 +4,7 @@ import { Hero } from "@/components/ui/hero";
 export function HeroInfoCards() {
   return (
     <Hero className="bg-nca-blue">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-12 py-6">
+      <div className="flex flex-col md:flex-row items-center justify-around gap-8 px-12 py-6">
         <CardButton
           header="Girls Teams"
           subText="Girls are cool."

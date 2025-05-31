@@ -1,27 +1,34 @@
 import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
 import { useNavigate } from "@tanstack/react-router";
+import { type VariantProps } from "class-variance-authority";
 
-interface ButtonLinkProps {
+interface LinkButtonProps extends VariantProps<typeof buttonVariants> {
   href: string;
   children: React.ReactNode;
   icon?: React.ReactNode;
   className?: string;
 }
 
-export const ButtonLink = ({
+export const LinkButton = ({
   href,
   children,
   icon,
   className,
-}: ButtonLinkProps) => {
+  variant = "link",
+  size,
+  ...props
+}: LinkButtonProps) => {
   const navigate = useNavigate();
 
   return (
     <Button
-      variant="link"
+      variant={variant}
+      size={size}
       className={cn("flex items-center mx-0 p-2 text-lg", className)}
       onClick={() => navigate({ to: href })}
+      {...props}
     >
       {icon}
       {children}

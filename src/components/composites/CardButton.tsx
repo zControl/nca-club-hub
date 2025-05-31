@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Header3, Paragraph } from "@/components/ui/typography";
 import { Link } from "@tanstack/react-router";
 
@@ -19,12 +19,14 @@ export const CardButton = ({
   return (
     <Card className="border-nca-red border-4">
       <Header3>{header} </Header3>
-      <Paragraph>{subText}</Paragraph>
-      <Link className="flex justify-center mt-4" to={buttonUrl}>
-        <Button variant="primary" size="lg">
-          {buttonText}
-        </Button>
-      </Link>
+      <CardContent>
+        <Paragraph>{subText}</Paragraph>
+        <Link className="flex justify-center mt-4" to={buttonUrl}>
+          <Button variant="primary" size="lg">
+            {buttonText}
+          </Button>
+        </Link>
+      </CardContent>
     </Card>
   );
 };

@@ -1,13 +1,13 @@
-import { ButtonLink } from "@/components/composites/ButtonLink";
+import { LinkButton } from "@/components/composites/LinkButton";
 import type { NavigationItem } from "@/types/navigation";
 
 export function FooterNavList({ items }: { items: NavigationItem[] }) {
   return (
     <div>
       {items.map((item) => (
-        <ButtonLink href={item.href} key={item.href}>
+        <LinkButton href={item.href} key={item.href}>
           {item.title}
-        </ButtonLink>
+        </LinkButton>
       ))}
     </div>
   );
