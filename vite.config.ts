@@ -9,6 +9,7 @@ export default defineConfig({
   plugins: [
     TanStackRouterVite({ target: 'react', autoCodeSplitting: true }),
     react(), tailwindcss()],
+  base: process.env.NODE_ENV === "production" ? "/nca-club-hub/" : "/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
