@@ -1,4 +1,4 @@
-import { Content } from "@/components/ui/Content";
+import { ContentPane } from "@/components/common/page/ ContentPane";
 import { Hero } from "@/components/ui/hero";
 import { TextBlock } from "@/components/ui/typography";
 
@@ -8,7 +8,7 @@ export function MissionTile() {
       backgroundImageUrl="/hero/hero-carousel-3.webp"
       className="opacity-90"
     >
-      <Content>
+      <ContentPane>
         <TextBlock className="max-w-4xl mx-auto text-2xl font-semibold">
           Our mission is to create THE soccer club of choice in Whatcom County.
           We aim to create a culture where multi-sport athletes can thrive in a
@@ -19,7 +19,7 @@ export function MissionTile() {
           organization with the State of Washington dedicated to the development
           of youth soccer in our community.
         </TextBlock>
-      </Content>
+      </ContentPane>
     </Hero>
   );
 }

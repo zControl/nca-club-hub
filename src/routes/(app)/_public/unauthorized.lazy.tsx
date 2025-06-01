@@ -1,4 +1,4 @@
-import { UnauthorizedPage } from "@/components/common/page/UnauthorizedPage";
+import { UnauthorizedPage } from "@/pages/UnauthorizedPage";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/(app)/_public/unauthorized")({
