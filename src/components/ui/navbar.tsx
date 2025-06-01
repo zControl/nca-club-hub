@@ -1,7 +1,10 @@
 import { type NavigationItem } from "@/types/navigation";
 import { useEffect, useRef, useState } from "react";
 
-import { NavigationMenuTrigger as OriginalNavigationMenuTrigger } from "@/components/ui/navigation-menu";
+import {
+  NavigationMenuLink,
+  NavigationMenuTrigger as OriginalNavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { Link } from "@tanstack/react-router";
 
 function NavbarTrigger({ children }: { children: React.ReactNode }) {
@@ -71,22 +74,24 @@ function NavbarList({ items }: { items: NavigationItem[] }) {
       <ul className="grid w-[400px] gap-3 p-4 md:w-[600px] md:grid-cols-2 lg:w-[700px] ">
         {items.map((item) => (
           <li key={item.title}>
-            <Link
-              to={item.href}
-              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-highlight/40 hover:text-accent-foreground focus:bg-highlight/40 focus:text-accent-foreground"
-            >
-              <div className="flex items-center gap-4">
-                <div>{item.icon}</div>
-                <div>
-                  <div className="text-md font-medium leading-none">
-                    {item.title}
+            <NavigationMenuLink asChild>
+              <Link
+                to={item.href}
+                className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-highlight/40 hover:text-accent-foreground focus:bg-highlight/40 focus:text-accent-foreground"
+              >
+                <div className="flex items-center gap-4">
+                  <div>{item.icon}</div>
+                  <div>
+                    <div className="text-md font-medium leading-none">
+                      {item.title}
+                    </div>
+                    <p className="line-clamp-2 text-md leading-snug">
+                      {item.description}
+                    </p>
                   </div>
-                  <p className="line-clamp-2 text-md leading-snug">
-                    {item.description}
-                  </p>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </NavigationMenuLink>
           </li>
         ))}
       </ul>
