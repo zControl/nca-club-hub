@@ -1,5 +1,5 @@
+import { ContentPane } from "@/components/common/page/ContentPane";
 import { Button } from "@/components/ui/button";
-import { Content } from "@/components/ui/Content";
 import {
   Header1,
   Header3,
@@ -10,7 +10,7 @@ import { Link } from "@tanstack/react-router";
 
 export function AboutUs() {
   return (
-    <Content wrapperClassName="bg-nca-blue" contentClassName="bg-card">
+    <ContentPane wrapperClassName="bg-nca-blue" contentClassName="bg-card">
       <Header1>How it started</Header1>
       <Paragraph>
         North County Alliance FC began with a group of enthusiastic parents
@@ -79,6 +79,6 @@ export function AboutUs() {
       <div className="w-full py-8 bg-primary text-center align-middle text-secondary text-4xl font-extrabold">
         LOCAL | COMPETITIVE | COMMITTED | COST-EFFECTIVE
       </div>
-    </Content>
+    </ContentPane>
   );
 }

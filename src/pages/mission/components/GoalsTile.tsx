@@ -1,5 +1,5 @@
+import { ContentPane } from "@/components/common/page/ContentPane";
 import { ImageInfoCard } from "@/components/composites/ImageInfoCard";
-import { Content } from "@/components/ui/Content";
 
 const goals = [
   {
@@ -41,7 +41,7 @@ const goals = [
 
 export function GoalsTile() {
   return (
-    <Content wrapperClassName="bg-nca-blue" contentClassName="bg-card p-6">
+    <ContentPane wrapperClassName="bg-nca-blue" contentClassName="bg-card p-6">
       {goals.map((goal, index) => (
         <ImageInfoCard
           key={goal.title}
@@ -55,6 +55,6 @@ export function GoalsTile() {
       <div className="flex justify-center">
         <div>Hello Bottom Of Goal Cards</div>
       </div>
-    </Content>
+    </ContentPane>
   );
 }

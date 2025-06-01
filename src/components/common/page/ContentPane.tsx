@@ -5,7 +5,7 @@ interface ContentProps extends React.HTMLAttributes<HTMLDivElement> {
   wrapperClassName?: string;
   contentClassName?: string;
 }
-export function Content({
+export function ContentPane({
   children,
   wrapperClassName,
   contentClassName,
