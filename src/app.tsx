@@ -11,6 +11,7 @@ const queryClient = new QueryClient();
 // Setup a router instance
 const router = createRouter({
   routeTree,
+  basepath: "/nca-club-hub/",
   context: {
     queryClient,
     auth: undefined!,
