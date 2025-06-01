@@ -1,4 +1,8 @@
 import { Hero } from "@/components/ui/hero";
+import sponsor1 from "/sponsors/sponsor_1.png";
+import sponsor2 from "/sponsors/sponsor_2.png";
+import sponsor3 from "/sponsors/sponsor_3.png";
+import sponsor4 from "/sponsors/sponsor_4.png";
 
 export function HeroSponsors() {
   return (
@@ -8,16 +12,16 @@ export function HeroSponsors() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 place-items-center">
         <div>
-          <img src="/sponsors/sponsor_1.png"></img>
+          <img src={sponsor1}></img>
         </div>
         <div>
-          <img src="/sponsors/sponsor_2.png"></img>
+          <img src={sponsor2}></img>
         </div>
         <div>
-          <img src="/sponsors/sponsor_3.png"></img>
+          <img src={sponsor3}></img>
         </div>
         <div>
-          <img src="/sponsors/sponsor_4.png"></img>
+          <img src={sponsor4}></img>
         </div>
       </div>
     </Hero>

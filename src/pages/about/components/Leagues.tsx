@@ -3,6 +3,11 @@ import { LinkText } from "@/components/composites/LinkText";
 import { Image } from "@/components/ui/image";
 import { Header3, Paragraph, TextBlock } from "@/components/ui/typography";
 
+import usclub from "/leagues/us-club-soccer.png";
+import usyouth from "/leagues/us-youth-soccer.png";
+import wpl from "/leagues/wa-premier-league.png";
+import rcl from "/leagues/wa-regional-club-league.png";
+
 export function Leagues() {
   return (
     <>
@@ -26,16 +31,8 @@ export function Leagues() {
             elite and olympic teams.
           </Paragraph>
           <div className="flex flex-col items-center  md:flex-row md:justify-evenly py-8">
-            <Image
-              alt="US Youth Soccer"
-              src="/leagues/us-youth-soccer.png"
-              responsive={true}
-            />
-            <Image
-              alt="US Club Soccer"
-              src="/leagues/us-club-soccer.png"
-              responsive={true}
-            />
+            <Image alt="US Youth Soccer" src={usyouth} responsive={true} />
+            <Image alt="US Club Soccer" src={usclub} responsive={true} />
           </div>
 
           <Header3>Washington State League Associations</Header3>
@@ -62,13 +59,13 @@ export function Leagues() {
           <div className="flex flex-col items-center md:flex-row md:justify-evenly py-8">
             <Image
               alt="Regional Club League"
-              src="/leagues/wa-regional-club-league.png"
+              src={rcl}
               height={180}
               width={180}
             />
             <Image
               alt="Washington Premier League"
-              src="/leagues/wa-premier-league.png"
+              src={wpl}
               height={200}
               width={200}
             />

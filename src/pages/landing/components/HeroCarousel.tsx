@@ -7,6 +7,12 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
+import image1 from "/hero/hero-carousel-1.webp";
+import image2 from "/hero/hero-carousel-2.webp";
+import image3 from "/hero/hero-carousel-3.webp";
+import image4 from "/hero/hero-carousel-4.webp";
+import image5 from "/hero/hero-carousel-5.webp";
+
 export function HeroCarousel() {
   return (
     <Carousel
@@ -22,34 +28,19 @@ export function HeroCarousel() {
     >
       <CarouselContent>
         <CarouselItem>
-          <CarouselImageItem
-            src="/hero/hero-carousel-1.webp"
-            alt="Carousel Item 1"
-          />
+          <CarouselImageItem src={image1} alt="Carousel Item 1" />
         </CarouselItem>
         <CarouselItem>
-          <CarouselImageItem
-            src="/hero/hero-carousel-2.webp"
-            alt="Carousel Item 2"
-          />
+          <CarouselImageItem src={image2} alt="Carousel Item 2" />
         </CarouselItem>
         <CarouselItem>
-          <CarouselImageItem
-            src="/hero/hero-carousel-3.webp"
-            alt="Carousel Item 3"
-          />
+          <CarouselImageItem src={image3} alt="Carousel Item 3" />
         </CarouselItem>
         <CarouselItem>
-          <CarouselImageItem
-            src="/hero/hero-carousel-4.webp"
-            alt="Carousel Item 4"
-          />
+          <CarouselImageItem src={image4} alt="Carousel Item 4" />
         </CarouselItem>
         <CarouselItem>
-          <CarouselImageItem
-            src="/hero/hero-carousel-5.webp"
-            alt="Carousel Item 5"
-          />
+          <CarouselImageItem src={image5} alt="Carousel Item 5" />
         </CarouselItem>
       </CarouselContent>
     </Carousel>

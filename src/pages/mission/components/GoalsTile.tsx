@@ -1,38 +1,43 @@
 import { ContentPane } from "@/components/common/page/ContentPane";
 import { ImageInfoCard } from "@/components/composites/ImageInfoCard";
 
+import goal1 from "/goals/goal-1.webp";
+import goal2 from "/goals/goal-2.webp";
+import goal3 from "/goals/goal-3.webp";
+import goal4 from "/goals/goal-4.webp";
+
 const goals = [
   {
     title: "Player Development",
-    img: "/goals/goal-1.webp",
+    img: goal1,
     description: "Foster individual technical and tactical skills",
     details:
       "Implement structured training programs that emphasize age-appripriate skill development including dribbling, passing, shooting, and ball control.  Focus on continuos improvement and development of each player's individual abilities.",
   },
   {
     title: "Team Unity",
-    img: "/goals/goal-2.webp",
+    img: goal2,
     description: "Build strong team dynamics and camaraderie",
     details:
       "Create a culture of encouragement, communication, and trust among players. Instill the values of giving maximum effort and supportive behavior on and off the field.  We celebrate each other's successes and learn from challenges together.",
   },
   {
     title: "Love of the Game",
-    img: "/goals/goal-3.webp",
+    img: goal3,
     description: "Maintain an engaging soccer environment",
     details:
       "Incorporate fun and engaging learning activities into training sessions. Encourage creativity and self-expression on the field, and celebrate the joy of playing soccer. Organize occasional fun events like parent-child matches or skills competitions to keep the atmosphere light and enjoyable.",
   },
   {
     title: "Sportsmanship",
-    img: "/goals/goal-4.webp",
+    img: goal4,
     description: "Teach the values of integrity and respect",
     details:
       "Teach players to respect teammates, opponents, coaches, referees, and the game itself. Implement a code of conduct that emphasizes fair play, positive communication, and gracious behavior in both victory and defeat.",
   },
   {
     title: "Access For All",
-    img: "/goals/goal-1.webp",
+    img: goal1,
     description: "Ensure competitve soccer is accessible to all",
     details:
       "Ensure families of all economic backgrounds have access to play competitive soccer. We offer scholarship programs to assist families that are in need.",
