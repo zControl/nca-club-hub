@@ -17,7 +17,9 @@ import { Route as IndexImport } from './routes/index'
 import { Route as testTestImport } from './routes/(test)/_test'
 import { Route as testExamplesImport } from './routes/(test)/_examples'
 import { Route as authLoginImport } from './routes/(auth)/login'
+import { Route as appPublicImport } from './routes/(app)/_public'
 import { Route as testTestTestImport } from './routes/(test)/_test/test_'
+import { Route as appPublicPublicIndexImport } from './routes/(app)/_public/public.index'
 import { Route as testTestTestAImport } from './routes/(test)/_test/test.a_'
 import { Route as testTestTestASomethingImport } from './routes/(test)/_test/test.a.something'
 import { Route as testTestTestABImport } from './routes/(test)/_test/test.a.b_'
@@ -26,13 +28,34 @@ import { Route as testTestTestABCImport } from './routes/(test)/_test/test.a.b.c
 // Create Virtual Routes
 
 const testImport = createFileRoute('/(test)')()
-const appUnauthorizedLazyImport = createFileRoute('/(app)/unauthorized')()
-const appTermsLazyImport = createFileRoute('/(app)/terms')()
-const appStatusLazyImport = createFileRoute('/(app)/status')()
-const appPrivacyLazyImport = createFileRoute('/(app)/privacy')()
+const appImport = createFileRoute('/(app)')()
 const testExamplesExamplesLazyImport = createFileRoute(
   '/(test)/_examples/examples_',
 )()
+const appPublicUnauthorizedLazyImport = createFileRoute(
+  '/(app)/_public/unauthorized',
+)()
+const appPublicTryoutsLazyImport = createFileRoute('/(app)/_public/tryouts')()
+const appPublicTermsLazyImport = createFileRoute('/(app)/_public/terms')()
+const appPublicTeamsLazyImport = createFileRoute('/(app)/_public/teams')()
+const appPublicStatusLazyImport = createFileRoute('/(app)/_public/status')()
+const appPublicScheduleLazyImport = createFileRoute('/(app)/_public/schedule')()
+const appPublicResourcesLazyImport = createFileRoute(
+  '/(app)/_public/resources',
+)()
+const appPublicRebelrecLazyImport = createFileRoute(
+  '/(app)/_public/rebelrec_',
+)()
+const appPublicPrivacyLazyImport = createFileRoute('/(app)/_public/privacy')()
+const appPublicMissionLazyImport = createFileRoute('/(app)/_public/mission')()
+const appPublicKitLazyImport = createFileRoute('/(app)/_public/kit')()
+const appPublicJoinLazyImport = createFileRoute('/(app)/_public/join')()
+const appPublicInvestmentLazyImport = createFileRoute(
+  '/(app)/_public/investment',
+)()
+const appPublicFieldsLazyImport = createFileRoute('/(app)/_public/fields')()
+const appPublicContactLazyImport = createFileRoute('/(app)/_public/contact')()
+const appPublicAboutLazyImport = createFileRoute('/(app)/_public/about')()
 const testExamplesExamplesTypographyLazyImport = createFileRoute(
   '/(test)/_examples/examples/typography',
 )()
@@ -66,6 +89,15 @@ const testExamplesExamplesColorsLazyImport = createFileRoute(
 const testExamplesExamplesBasicLazyImport = createFileRoute(
   '/(test)/_examples/examples/basic',
 )()
+const appPublicRebelrecRegistrationLazyImport = createFileRoute(
+  '/(app)/_public/rebelrec/registration',
+)()
+const appPublicRebelrecFaqLazyImport = createFileRoute(
+  '/(app)/_public/rebelrec/faq',
+)()
+const appPublicRebelrecCupLazyImport = createFileRoute(
+  '/(app)/_public/rebelrec/cup',
+)()
 
 // Create/Update Routes
 
@@ -74,43 +106,16 @@ const testRoute = testImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const appRoute = appImport.update({
+  id: '/(app)',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
-
-const appUnauthorizedLazyRoute = appUnauthorizedLazyImport
-  .update({
-    id: '/(app)/unauthorized',
-    path: '/unauthorized',
-    getParentRoute: () => rootRoute,
-  } as any)
-  .lazy(() => import('./routes/(app)/unauthorized.lazy').then((d) => d.Route))
-
-const appTermsLazyRoute = appTermsLazyImport
-  .update({
-    id: '/(app)/terms',
-    path: '/terms',
-    getParentRoute: () => rootRoute,
-  } as any)
-  .lazy(() => import('./routes/(app)/terms.lazy').then((d) => d.Route))
-
-const appStatusLazyRoute = appStatusLazyImport
-  .update({
-    id: '/(app)/status',
-    path: '/status',
-    getParentRoute: () => rootRoute,
-  } as any)
-  .lazy(() => import('./routes/(app)/status.lazy').then((d) => d.Route))
-
-const appPrivacyLazyRoute = appPrivacyLazyImport
-  .update({
-    id: '/(app)/privacy',
-    path: '/privacy',
-    getParentRoute: () => rootRoute,
-  } as any)
-  .lazy(() => import('./routes/(app)/privacy.lazy').then((d) => d.Route))
 
 const testTestRoute = testTestImport.update({
   id: '/_test',
@@ -128,6 +133,11 @@ const authLoginRoute = authLoginImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const appPublicRoute = appPublicImport.update({
+  id: '/_public',
+  getParentRoute: () => appRoute,
+} as any)
+
 const testExamplesExamplesLazyRoute = testExamplesExamplesLazyImport
   .update({
     id: '/examples_',
@@ -138,10 +148,162 @@ const testExamplesExamplesLazyRoute = testExamplesExamplesLazyImport
     import('./routes/(test)/_examples/examples_.lazy').then((d) => d.Route),
   )
 
+const appPublicUnauthorizedLazyRoute = appPublicUnauthorizedLazyImport
+  .update({
+    id: '/unauthorized',
+    path: '/unauthorized',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_public/unauthorized.lazy').then((d) => d.Route),
+  )
+
+const appPublicTryoutsLazyRoute = appPublicTryoutsLazyImport
+  .update({
+    id: '/tryouts',
+    path: '/tryouts',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_public/tryouts.lazy').then((d) => d.Route),
+  )
+
+const appPublicTermsLazyRoute = appPublicTermsLazyImport
+  .update({
+    id: '/terms',
+    path: '/terms',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() => import('./routes/(app)/_public/terms.lazy').then((d) => d.Route))
+
+const appPublicTeamsLazyRoute = appPublicTeamsLazyImport
+  .update({
+    id: '/teams',
+    path: '/teams',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() => import('./routes/(app)/_public/teams.lazy').then((d) => d.Route))
+
+const appPublicStatusLazyRoute = appPublicStatusLazyImport
+  .update({
+    id: '/status',
+    path: '/status',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() => import('./routes/(app)/_public/status.lazy').then((d) => d.Route))
+
+const appPublicScheduleLazyRoute = appPublicScheduleLazyImport
+  .update({
+    id: '/schedule',
+    path: '/schedule',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_public/schedule.lazy').then((d) => d.Route),
+  )
+
+const appPublicResourcesLazyRoute = appPublicResourcesLazyImport
+  .update({
+    id: '/resources',
+    path: '/resources',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_public/resources.lazy').then((d) => d.Route),
+  )
+
+const appPublicRebelrecLazyRoute = appPublicRebelrecLazyImport
+  .update({
+    id: '/rebelrec_',
+    path: '/rebelrec',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_public/rebelrec_.lazy').then((d) => d.Route),
+  )
+
+const appPublicPrivacyLazyRoute = appPublicPrivacyLazyImport
+  .update({
+    id: '/privacy',
+    path: '/privacy',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_public/privacy.lazy').then((d) => d.Route),
+  )
+
+const appPublicMissionLazyRoute = appPublicMissionLazyImport
+  .update({
+    id: '/mission',
+    path: '/mission',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_public/mission.lazy').then((d) => d.Route),
+  )
+
+const appPublicKitLazyRoute = appPublicKitLazyImport
+  .update({
+    id: '/kit',
+    path: '/kit',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() => import('./routes/(app)/_public/kit.lazy').then((d) => d.Route))
+
+const appPublicJoinLazyRoute = appPublicJoinLazyImport
+  .update({
+    id: '/join',
+    path: '/join',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() => import('./routes/(app)/_public/join.lazy').then((d) => d.Route))
+
+const appPublicInvestmentLazyRoute = appPublicInvestmentLazyImport
+  .update({
+    id: '/investment',
+    path: '/investment',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_public/investment.lazy').then((d) => d.Route),
+  )
+
+const appPublicFieldsLazyRoute = appPublicFieldsLazyImport
+  .update({
+    id: '/fields',
+    path: '/fields',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() => import('./routes/(app)/_public/fields.lazy').then((d) => d.Route))
+
+const appPublicContactLazyRoute = appPublicContactLazyImport
+  .update({
+    id: '/contact',
+    path: '/contact',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_public/contact.lazy').then((d) => d.Route),
+  )
+
+const appPublicAboutLazyRoute = appPublicAboutLazyImport
+  .update({
+    id: '/about',
+    path: '/about',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() => import('./routes/(app)/_public/about.lazy').then((d) => d.Route))
+
 const testTestTestRoute = testTestTestImport.update({
   id: '/test_',
   path: '/test',
   getParentRoute: () => testTestRoute,
+} as any)
+
+const appPublicPublicIndexRoute = appPublicPublicIndexImport.update({
+  id: '/public/',
+  path: '/public/',
+  getParentRoute: () => appPublicRoute,
 } as any)
 
 const testExamplesExamplesTypographyLazyRoute =
@@ -282,6 +444,39 @@ const testExamplesExamplesBasicLazyRoute = testExamplesExamplesBasicLazyImport
     ),
   )
 
+const appPublicRebelrecRegistrationLazyRoute =
+  appPublicRebelrecRegistrationLazyImport
+    .update({
+      id: '/rebelrec/registration',
+      path: '/rebelrec/registration',
+      getParentRoute: () => appPublicRoute,
+    } as any)
+    .lazy(() =>
+      import('./routes/(app)/_public/rebelrec.registration.lazy').then(
+        (d) => d.Route,
+      ),
+    )
+
+const appPublicRebelrecFaqLazyRoute = appPublicRebelrecFaqLazyImport
+  .update({
+    id: '/rebelrec/faq',
+    path: '/rebelrec/faq',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_public/rebelrec.faq.lazy').then((d) => d.Route),
+  )
+
+const appPublicRebelrecCupLazyRoute = appPublicRebelrecCupLazyImport
+  .update({
+    id: '/rebelrec/cup',
+    path: '/rebelrec/cup',
+    getParentRoute: () => appPublicRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(app)/_public/rebelrec.cup.lazy').then((d) => d.Route),
+  )
+
 const testTestTestARoute = testTestTestAImport.update({
   id: '/test/a_',
   path: '/test/a',
@@ -317,6 +512,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/(app)': {
+      id: '/(app)'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof appImport
+      parentRoute: typeof rootRoute
+    }
+    '/(app)/_public': {
+      id: '/(app)/_public'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof appPublicImport
+      parentRoute: typeof appRoute
+    }
     '/(auth)/login': {
       id: '/(auth)/login'
       path: '/login'
@@ -345,40 +554,124 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof testTestImport
       parentRoute: typeof testImport
     }
-    '/(app)/privacy': {
-      id: '/(app)/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof appPrivacyLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/(app)/status': {
-      id: '/(app)/status'
-      path: '/status'
-      fullPath: '/status'
-      preLoaderRoute: typeof appStatusLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/(app)/terms': {
-      id: '/(app)/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof appTermsLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/(app)/unauthorized': {
-      id: '/(app)/unauthorized'
-      path: '/unauthorized'
-      fullPath: '/unauthorized'
-      preLoaderRoute: typeof appUnauthorizedLazyImport
-      parentRoute: typeof rootRoute
-    }
     '/(test)/_test/test_': {
       id: '/(test)/_test/test_'
       path: '/test'
       fullPath: '/test'
       preLoaderRoute: typeof testTestTestImport
       parentRoute: typeof testTestImport
+    }
+    '/(app)/_public/about': {
+      id: '/(app)/_public/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof appPublicAboutLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/contact': {
+      id: '/(app)/_public/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof appPublicContactLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/fields': {
+      id: '/(app)/_public/fields'
+      path: '/fields'
+      fullPath: '/fields'
+      preLoaderRoute: typeof appPublicFieldsLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/investment': {
+      id: '/(app)/_public/investment'
+      path: '/investment'
+      fullPath: '/investment'
+      preLoaderRoute: typeof appPublicInvestmentLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/join': {
+      id: '/(app)/_public/join'
+      path: '/join'
+      fullPath: '/join'
+      preLoaderRoute: typeof appPublicJoinLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/kit': {
+      id: '/(app)/_public/kit'
+      path: '/kit'
+      fullPath: '/kit'
+      preLoaderRoute: typeof appPublicKitLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/mission': {
+      id: '/(app)/_public/mission'
+      path: '/mission'
+      fullPath: '/mission'
+      preLoaderRoute: typeof appPublicMissionLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/privacy': {
+      id: '/(app)/_public/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof appPublicPrivacyLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/rebelrec_': {
+      id: '/(app)/_public/rebelrec_'
+      path: '/rebelrec'
+      fullPath: '/rebelrec'
+      preLoaderRoute: typeof appPublicRebelrecLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/resources': {
+      id: '/(app)/_public/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof appPublicResourcesLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/schedule': {
+      id: '/(app)/_public/schedule'
+      path: '/schedule'
+      fullPath: '/schedule'
+      preLoaderRoute: typeof appPublicScheduleLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/status': {
+      id: '/(app)/_public/status'
+      path: '/status'
+      fullPath: '/status'
+      preLoaderRoute: typeof appPublicStatusLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/teams': {
+      id: '/(app)/_public/teams'
+      path: '/teams'
+      fullPath: '/teams'
+      preLoaderRoute: typeof appPublicTeamsLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/terms': {
+      id: '/(app)/_public/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof appPublicTermsLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/tryouts': {
+      id: '/(app)/_public/tryouts'
+      path: '/tryouts'
+      fullPath: '/tryouts'
+      preLoaderRoute: typeof appPublicTryoutsLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/unauthorized': {
+      id: '/(app)/_public/unauthorized'
+      path: '/unauthorized'
+      fullPath: '/unauthorized'
+      preLoaderRoute: typeof appPublicUnauthorizedLazyImport
+      parentRoute: typeof appPublicImport
     }
     '/(test)/_examples/examples_': {
       id: '/(test)/_examples/examples_'
@@ -393,6 +686,27 @@ declare module '@tanstack/react-router' {
       fullPath: '/test/a'
       preLoaderRoute: typeof testTestTestAImport
       parentRoute: typeof testTestImport
+    }
+    '/(app)/_public/rebelrec/cup': {
+      id: '/(app)/_public/rebelrec/cup'
+      path: '/rebelrec/cup'
+      fullPath: '/rebelrec/cup'
+      preLoaderRoute: typeof appPublicRebelrecCupLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/rebelrec/faq': {
+      id: '/(app)/_public/rebelrec/faq'
+      path: '/rebelrec/faq'
+      fullPath: '/rebelrec/faq'
+      preLoaderRoute: typeof appPublicRebelrecFaqLazyImport
+      parentRoute: typeof appPublicImport
+    }
+    '/(app)/_public/rebelrec/registration': {
+      id: '/(app)/_public/rebelrec/registration'
+      path: '/rebelrec/registration'
+      fullPath: '/rebelrec/registration'
+      preLoaderRoute: typeof appPublicRebelrecRegistrationLazyImport
+      parentRoute: typeof appPublicImport
     }
     '/(test)/_examples/examples/basic': {
       id: '/(test)/_examples/examples/basic'
@@ -471,6 +785,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof testExamplesExamplesTypographyLazyImport
       parentRoute: typeof testExamplesImport
     }
+    '/(app)/_public/public/': {
+      id: '/(app)/_public/public/'
+      path: '/public'
+      fullPath: '/public'
+      preLoaderRoute: typeof appPublicPublicIndexImport
+      parentRoute: typeof appPublicImport
+    }
     '/(test)/_test/test/a/b_': {
       id: '/(test)/_test/test/a/b_'
       path: '/test/a/b'
@@ -496,6 +817,67 @@ declare module '@tanstack/react-router' {
 }
 
 // Create and export the route tree
+
+interface appPublicRouteChildren {
+  appPublicAboutLazyRoute: typeof appPublicAboutLazyRoute
+  appPublicContactLazyRoute: typeof appPublicContactLazyRoute
+  appPublicFieldsLazyRoute: typeof appPublicFieldsLazyRoute
+  appPublicInvestmentLazyRoute: typeof appPublicInvestmentLazyRoute
+  appPublicJoinLazyRoute: typeof appPublicJoinLazyRoute
+  appPublicKitLazyRoute: typeof appPublicKitLazyRoute
+  appPublicMissionLazyRoute: typeof appPublicMissionLazyRoute
+  appPublicPrivacyLazyRoute: typeof appPublicPrivacyLazyRoute
+  appPublicRebelrecLazyRoute: typeof appPublicRebelrecLazyRoute
+  appPublicResourcesLazyRoute: typeof appPublicResourcesLazyRoute
+  appPublicScheduleLazyRoute: typeof appPublicScheduleLazyRoute
+  appPublicStatusLazyRoute: typeof appPublicStatusLazyRoute
+  appPublicTeamsLazyRoute: typeof appPublicTeamsLazyRoute
+  appPublicTermsLazyRoute: typeof appPublicTermsLazyRoute
+  appPublicTryoutsLazyRoute: typeof appPublicTryoutsLazyRoute
+  appPublicUnauthorizedLazyRoute: typeof appPublicUnauthorizedLazyRoute
+  appPublicRebelrecCupLazyRoute: typeof appPublicRebelrecCupLazyRoute
+  appPublicRebelrecFaqLazyRoute: typeof appPublicRebelrecFaqLazyRoute
+  appPublicRebelrecRegistrationLazyRoute: typeof appPublicRebelrecRegistrationLazyRoute
+  appPublicPublicIndexRoute: typeof appPublicPublicIndexRoute
+}
+
+const appPublicRouteChildren: appPublicRouteChildren = {
+  appPublicAboutLazyRoute: appPublicAboutLazyRoute,
+  appPublicContactLazyRoute: appPublicContactLazyRoute,
+  appPublicFieldsLazyRoute: appPublicFieldsLazyRoute,
+  appPublicInvestmentLazyRoute: appPublicInvestmentLazyRoute,
+  appPublicJoinLazyRoute: appPublicJoinLazyRoute,
+  appPublicKitLazyRoute: appPublicKitLazyRoute,
+  appPublicMissionLazyRoute: appPublicMissionLazyRoute,
+  appPublicPrivacyLazyRoute: appPublicPrivacyLazyRoute,
+  appPublicRebelrecLazyRoute: appPublicRebelrecLazyRoute,
+  appPublicResourcesLazyRoute: appPublicResourcesLazyRoute,
+  appPublicScheduleLazyRoute: appPublicScheduleLazyRoute,
+  appPublicStatusLazyRoute: appPublicStatusLazyRoute,
+  appPublicTeamsLazyRoute: appPublicTeamsLazyRoute,
+  appPublicTermsLazyRoute: appPublicTermsLazyRoute,
+  appPublicTryoutsLazyRoute: appPublicTryoutsLazyRoute,
+  appPublicUnauthorizedLazyRoute: appPublicUnauthorizedLazyRoute,
+  appPublicRebelrecCupLazyRoute: appPublicRebelrecCupLazyRoute,
+  appPublicRebelrecFaqLazyRoute: appPublicRebelrecFaqLazyRoute,
+  appPublicRebelrecRegistrationLazyRoute:
+    appPublicRebelrecRegistrationLazyRoute,
+  appPublicPublicIndexRoute: appPublicPublicIndexRoute,
+}
+
+const appPublicRouteWithChildren = appPublicRoute._addFileChildren(
+  appPublicRouteChildren,
+)
+
+interface appRouteChildren {
+  appPublicRoute: typeof appPublicRouteWithChildren
+}
+
+const appRouteChildren: appRouteChildren = {
+  appPublicRoute: appPublicRouteWithChildren,
+}
+
+const appRouteWithChildren = appRoute._addFileChildren(appRouteChildren)
 
 interface testExamplesRouteChildren {
   testExamplesExamplesLazyRoute: typeof testExamplesExamplesLazyRoute
@@ -570,13 +952,28 @@ export interface FileRoutesByFullPath {
   '/': typeof testExamplesRouteWithChildren
   '/login': typeof authLoginRoute
   '': typeof testTestRouteWithChildren
-  '/privacy': typeof appPrivacyLazyRoute
-  '/status': typeof appStatusLazyRoute
-  '/terms': typeof appTermsLazyRoute
-  '/unauthorized': typeof appUnauthorizedLazyRoute
   '/test': typeof testTestTestRoute
+  '/about': typeof appPublicAboutLazyRoute
+  '/contact': typeof appPublicContactLazyRoute
+  '/fields': typeof appPublicFieldsLazyRoute
+  '/investment': typeof appPublicInvestmentLazyRoute
+  '/join': typeof appPublicJoinLazyRoute
+  '/kit': typeof appPublicKitLazyRoute
+  '/mission': typeof appPublicMissionLazyRoute
+  '/privacy': typeof appPublicPrivacyLazyRoute
+  '/rebelrec': typeof appPublicRebelrecLazyRoute
+  '/resources': typeof appPublicResourcesLazyRoute
+  '/schedule': typeof appPublicScheduleLazyRoute
+  '/status': typeof appPublicStatusLazyRoute
+  '/teams': typeof appPublicTeamsLazyRoute
+  '/terms': typeof appPublicTermsLazyRoute
+  '/tryouts': typeof appPublicTryoutsLazyRoute
+  '/unauthorized': typeof appPublicUnauthorizedLazyRoute
   '/examples': typeof testExamplesExamplesLazyRoute
   '/test/a': typeof testTestTestARoute
+  '/rebelrec/cup': typeof appPublicRebelrecCupLazyRoute
+  '/rebelrec/faq': typeof appPublicRebelrecFaqLazyRoute
+  '/rebelrec/registration': typeof appPublicRebelrecRegistrationLazyRoute
   '/examples/basic': typeof testExamplesExamplesBasicLazyRoute
   '/examples/colors': typeof testExamplesExamplesColorsLazyRoute
   '/examples/containers': typeof testExamplesExamplesContainersLazyRoute
@@ -588,6 +985,7 @@ export interface FileRoutesByFullPath {
   '/examples/query': typeof testExamplesExamplesQueryLazyRoute
   '/examples/tables': typeof testExamplesExamplesTablesLazyRoute
   '/examples/typography': typeof testExamplesExamplesTypographyLazyRoute
+  '/public': typeof appPublicPublicIndexRoute
   '/test/a/b': typeof testTestTestABRoute
   '/test/a/something': typeof testTestTestASomethingRoute
   '/test/a/b/c': typeof testTestTestABCRoute
@@ -597,13 +995,28 @@ export interface FileRoutesByTo {
   '/': typeof testExamplesRouteWithChildren
   '/login': typeof authLoginRoute
   '': typeof testTestRouteWithChildren
-  '/privacy': typeof appPrivacyLazyRoute
-  '/status': typeof appStatusLazyRoute
-  '/terms': typeof appTermsLazyRoute
-  '/unauthorized': typeof appUnauthorizedLazyRoute
   '/test': typeof testTestTestRoute
+  '/about': typeof appPublicAboutLazyRoute
+  '/contact': typeof appPublicContactLazyRoute
+  '/fields': typeof appPublicFieldsLazyRoute
+  '/investment': typeof appPublicInvestmentLazyRoute
+  '/join': typeof appPublicJoinLazyRoute
+  '/kit': typeof appPublicKitLazyRoute
+  '/mission': typeof appPublicMissionLazyRoute
+  '/privacy': typeof appPublicPrivacyLazyRoute
+  '/rebelrec': typeof appPublicRebelrecLazyRoute
+  '/resources': typeof appPublicResourcesLazyRoute
+  '/schedule': typeof appPublicScheduleLazyRoute
+  '/status': typeof appPublicStatusLazyRoute
+  '/teams': typeof appPublicTeamsLazyRoute
+  '/terms': typeof appPublicTermsLazyRoute
+  '/tryouts': typeof appPublicTryoutsLazyRoute
+  '/unauthorized': typeof appPublicUnauthorizedLazyRoute
   '/examples': typeof testExamplesExamplesLazyRoute
   '/test/a': typeof testTestTestARoute
+  '/rebelrec/cup': typeof appPublicRebelrecCupLazyRoute
+  '/rebelrec/faq': typeof appPublicRebelrecFaqLazyRoute
+  '/rebelrec/registration': typeof appPublicRebelrecRegistrationLazyRoute
   '/examples/basic': typeof testExamplesExamplesBasicLazyRoute
   '/examples/colors': typeof testExamplesExamplesColorsLazyRoute
   '/examples/containers': typeof testExamplesExamplesContainersLazyRoute
@@ -615,6 +1028,7 @@ export interface FileRoutesByTo {
   '/examples/query': typeof testExamplesExamplesQueryLazyRoute
   '/examples/tables': typeof testExamplesExamplesTablesLazyRoute
   '/examples/typography': typeof testExamplesExamplesTypographyLazyRoute
+  '/public': typeof appPublicPublicIndexRoute
   '/test/a/b': typeof testTestTestABRoute
   '/test/a/something': typeof testTestTestASomethingRoute
   '/test/a/b/c': typeof testTestTestABCRoute
@@ -623,17 +1037,34 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/(app)': typeof appRouteWithChildren
+  '/(app)/_public': typeof appPublicRouteWithChildren
   '/(auth)/login': typeof authLoginRoute
   '/(test)': typeof testRouteWithChildren
   '/(test)/_examples': typeof testExamplesRouteWithChildren
   '/(test)/_test': typeof testTestRouteWithChildren
-  '/(app)/privacy': typeof appPrivacyLazyRoute
-  '/(app)/status': typeof appStatusLazyRoute
-  '/(app)/terms': typeof appTermsLazyRoute
-  '/(app)/unauthorized': typeof appUnauthorizedLazyRoute
   '/(test)/_test/test_': typeof testTestTestRoute
+  '/(app)/_public/about': typeof appPublicAboutLazyRoute
+  '/(app)/_public/contact': typeof appPublicContactLazyRoute
+  '/(app)/_public/fields': typeof appPublicFieldsLazyRoute
+  '/(app)/_public/investment': typeof appPublicInvestmentLazyRoute
+  '/(app)/_public/join': typeof appPublicJoinLazyRoute
+  '/(app)/_public/kit': typeof appPublicKitLazyRoute
+  '/(app)/_public/mission': typeof appPublicMissionLazyRoute
+  '/(app)/_public/privacy': typeof appPublicPrivacyLazyRoute
+  '/(app)/_public/rebelrec_': typeof appPublicRebelrecLazyRoute
+  '/(app)/_public/resources': typeof appPublicResourcesLazyRoute
+  '/(app)/_public/schedule': typeof appPublicScheduleLazyRoute
+  '/(app)/_public/status': typeof appPublicStatusLazyRoute
+  '/(app)/_public/teams': typeof appPublicTeamsLazyRoute
+  '/(app)/_public/terms': typeof appPublicTermsLazyRoute
+  '/(app)/_public/tryouts': typeof appPublicTryoutsLazyRoute
+  '/(app)/_public/unauthorized': typeof appPublicUnauthorizedLazyRoute
   '/(test)/_examples/examples_': typeof testExamplesExamplesLazyRoute
   '/(test)/_test/test/a_': typeof testTestTestARoute
+  '/(app)/_public/rebelrec/cup': typeof appPublicRebelrecCupLazyRoute
+  '/(app)/_public/rebelrec/faq': typeof appPublicRebelrecFaqLazyRoute
+  '/(app)/_public/rebelrec/registration': typeof appPublicRebelrecRegistrationLazyRoute
   '/(test)/_examples/examples/basic': typeof testExamplesExamplesBasicLazyRoute
   '/(test)/_examples/examples/colors': typeof testExamplesExamplesColorsLazyRoute
   '/(test)/_examples/examples/containers': typeof testExamplesExamplesContainersLazyRoute
@@ -645,6 +1076,7 @@ export interface FileRoutesById {
   '/(test)/_examples/examples/query': typeof testExamplesExamplesQueryLazyRoute
   '/(test)/_examples/examples/tables': typeof testExamplesExamplesTablesLazyRoute
   '/(test)/_examples/examples/typography': typeof testExamplesExamplesTypographyLazyRoute
+  '/(app)/_public/public/': typeof appPublicPublicIndexRoute
   '/(test)/_test/test/a/b_': typeof testTestTestABRoute
   '/(test)/_test/test/a/something': typeof testTestTestASomethingRoute
   '/(test)/_test/test/a/b/c': typeof testTestTestABCRoute
@@ -656,13 +1088,28 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | ''
-    | '/privacy'
-    | '/status'
-    | '/terms'
-    | '/unauthorized'
     | '/test'
+    | '/about'
+    | '/contact'
+    | '/fields'
+    | '/investment'
+    | '/join'
+    | '/kit'
+    | '/mission'
+    | '/privacy'
+    | '/rebelrec'
+    | '/resources'
+    | '/schedule'
+    | '/status'
+    | '/teams'
+    | '/terms'
+    | '/tryouts'
+    | '/unauthorized'
     | '/examples'
     | '/test/a'
+    | '/rebelrec/cup'
+    | '/rebelrec/faq'
+    | '/rebelrec/registration'
     | '/examples/basic'
     | '/examples/colors'
     | '/examples/containers'
@@ -674,6 +1121,7 @@ export interface FileRouteTypes {
     | '/examples/query'
     | '/examples/tables'
     | '/examples/typography'
+    | '/public'
     | '/test/a/b'
     | '/test/a/something'
     | '/test/a/b/c'
@@ -682,13 +1130,28 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | ''
-    | '/privacy'
-    | '/status'
-    | '/terms'
-    | '/unauthorized'
     | '/test'
+    | '/about'
+    | '/contact'
+    | '/fields'
+    | '/investment'
+    | '/join'
+    | '/kit'
+    | '/mission'
+    | '/privacy'
+    | '/rebelrec'
+    | '/resources'
+    | '/schedule'
+    | '/status'
+    | '/teams'
+    | '/terms'
+    | '/tryouts'
+    | '/unauthorized'
     | '/examples'
     | '/test/a'
+    | '/rebelrec/cup'
+    | '/rebelrec/faq'
+    | '/rebelrec/registration'
     | '/examples/basic'
     | '/examples/colors'
     | '/examples/containers'
@@ -700,23 +1163,41 @@ export interface FileRouteTypes {
     | '/examples/query'
     | '/examples/tables'
     | '/examples/typography'
+    | '/public'
     | '/test/a/b'
     | '/test/a/something'
     | '/test/a/b/c'
   id:
     | '__root__'
     | '/'
+    | '/(app)'
+    | '/(app)/_public'
     | '/(auth)/login'
     | '/(test)'
     | '/(test)/_examples'
     | '/(test)/_test'
-    | '/(app)/privacy'
-    | '/(app)/status'
-    | '/(app)/terms'
-    | '/(app)/unauthorized'
     | '/(test)/_test/test_'
+    | '/(app)/_public/about'
+    | '/(app)/_public/contact'
+    | '/(app)/_public/fields'
+    | '/(app)/_public/investment'
+    | '/(app)/_public/join'
+    | '/(app)/_public/kit'
+    | '/(app)/_public/mission'
+    | '/(app)/_public/privacy'
+    | '/(app)/_public/rebelrec_'
+    | '/(app)/_public/resources'
+    | '/(app)/_public/schedule'
+    | '/(app)/_public/status'
+    | '/(app)/_public/teams'
+    | '/(app)/_public/terms'
+    | '/(app)/_public/tryouts'
+    | '/(app)/_public/unauthorized'
     | '/(test)/_examples/examples_'
     | '/(test)/_test/test/a_'
+    | '/(app)/_public/rebelrec/cup'
+    | '/(app)/_public/rebelrec/faq'
+    | '/(app)/_public/rebelrec/registration'
     | '/(test)/_examples/examples/basic'
     | '/(test)/_examples/examples/colors'
     | '/(test)/_examples/examples/containers'
@@ -728,6 +1209,7 @@ export interface FileRouteTypes {
     | '/(test)/_examples/examples/query'
     | '/(test)/_examples/examples/tables'
     | '/(test)/_examples/examples/typography'
+    | '/(app)/_public/public/'
     | '/(test)/_test/test/a/b_'
     | '/(test)/_test/test/a/something'
     | '/(test)/_test/test/a/b/c'
@@ -736,22 +1218,16 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  appRoute: typeof appRouteWithChildren
   authLoginRoute: typeof authLoginRoute
   testRoute: typeof testRouteWithChildren
-  appPrivacyLazyRoute: typeof appPrivacyLazyRoute
-  appStatusLazyRoute: typeof appStatusLazyRoute
-  appTermsLazyRoute: typeof appTermsLazyRoute
-  appUnauthorizedLazyRoute: typeof appUnauthorizedLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  appRoute: appRouteWithChildren,
   authLoginRoute: authLoginRoute,
   testRoute: testRouteWithChildren,
-  appPrivacyLazyRoute: appPrivacyLazyRoute,
-  appStatusLazyRoute: appStatusLazyRoute,
-  appTermsLazyRoute: appTermsLazyRoute,
-  appUnauthorizedLazyRoute: appUnauthorizedLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -765,16 +1241,45 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/(app)",
         "/(auth)/login",
-        "/(test)",
-        "/(app)/privacy",
-        "/(app)/status",
-        "/(app)/terms",
-        "/(app)/unauthorized"
+        "/(test)"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/(app)": {
+      "filePath": "(app)",
+      "children": [
+        "/(app)/_public"
+      ]
+    },
+    "/(app)/_public": {
+      "filePath": "(app)/_public.tsx",
+      "parent": "/(app)",
+      "children": [
+        "/(app)/_public/about",
+        "/(app)/_public/contact",
+        "/(app)/_public/fields",
+        "/(app)/_public/investment",
+        "/(app)/_public/join",
+        "/(app)/_public/kit",
+        "/(app)/_public/mission",
+        "/(app)/_public/privacy",
+        "/(app)/_public/rebelrec_",
+        "/(app)/_public/resources",
+        "/(app)/_public/schedule",
+        "/(app)/_public/status",
+        "/(app)/_public/teams",
+        "/(app)/_public/terms",
+        "/(app)/_public/tryouts",
+        "/(app)/_public/unauthorized",
+        "/(app)/_public/rebelrec/cup",
+        "/(app)/_public/rebelrec/faq",
+        "/(app)/_public/rebelrec/registration",
+        "/(app)/_public/public/"
+      ]
     },
     "/(auth)/login": {
       "filePath": "(auth)/login.tsx"
@@ -815,21 +1320,73 @@ export const routeTree = rootRoute
         "/(test)/_test/test/a/b/c"
       ]
     },
-    "/(app)/privacy": {
-      "filePath": "(app)/privacy.lazy.tsx"
-    },
-    "/(app)/status": {
-      "filePath": "(app)/status.lazy.tsx"
-    },
-    "/(app)/terms": {
-      "filePath": "(app)/terms.lazy.tsx"
-    },
-    "/(app)/unauthorized": {
-      "filePath": "(app)/unauthorized.lazy.tsx"
-    },
     "/(test)/_test/test_": {
       "filePath": "(test)/_test/test_.tsx",
       "parent": "/(test)/_test"
+    },
+    "/(app)/_public/about": {
+      "filePath": "(app)/_public/about.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/contact": {
+      "filePath": "(app)/_public/contact.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/fields": {
+      "filePath": "(app)/_public/fields.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/investment": {
+      "filePath": "(app)/_public/investment.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/join": {
+      "filePath": "(app)/_public/join.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/kit": {
+      "filePath": "(app)/_public/kit.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/mission": {
+      "filePath": "(app)/_public/mission.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/privacy": {
+      "filePath": "(app)/_public/privacy.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/rebelrec_": {
+      "filePath": "(app)/_public/rebelrec_.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/resources": {
+      "filePath": "(app)/_public/resources.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/schedule": {
+      "filePath": "(app)/_public/schedule.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/status": {
+      "filePath": "(app)/_public/status.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/teams": {
+      "filePath": "(app)/_public/teams.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/terms": {
+      "filePath": "(app)/_public/terms.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/tryouts": {
+      "filePath": "(app)/_public/tryouts.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/unauthorized": {
+      "filePath": "(app)/_public/unauthorized.lazy.tsx",
+      "parent": "/(app)/_public"
     },
     "/(test)/_examples/examples_": {
       "filePath": "(test)/_examples/examples_.lazy.tsx",
@@ -838,6 +1395,18 @@ export const routeTree = rootRoute
     "/(test)/_test/test/a_": {
       "filePath": "(test)/_test/test.a_.tsx",
       "parent": "/(test)/_test"
+    },
+    "/(app)/_public/rebelrec/cup": {
+      "filePath": "(app)/_public/rebelrec.cup.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/rebelrec/faq": {
+      "filePath": "(app)/_public/rebelrec.faq.lazy.tsx",
+      "parent": "/(app)/_public"
+    },
+    "/(app)/_public/rebelrec/registration": {
+      "filePath": "(app)/_public/rebelrec.registration.lazy.tsx",
+      "parent": "/(app)/_public"
     },
     "/(test)/_examples/examples/basic": {
       "filePath": "(test)/_examples/examples.basic.lazy.tsx",
@@ -882,6 +1451,10 @@ export const routeTree = rootRoute
     "/(test)/_examples/examples/typography": {
       "filePath": "(test)/_examples/examples.typography.lazy.tsx",
       "parent": "/(test)/_examples"
+    },
+    "/(app)/_public/public/": {
+      "filePath": "(app)/_public/public.index.tsx",
+      "parent": "/(app)/_public"
     },
     "/(test)/_test/test/a/b_": {
       "filePath": "(test)/_test/test.a.b_.tsx",

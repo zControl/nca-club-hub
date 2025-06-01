@@ -1,5 +1,5 @@
-import { PageContainer } from "@/components/common/PageContainer";
-import { TableExample } from "@/examples/TableExample";
+import { PageContainer } from "@/components/common/page/PageContainer";
+import { TableExample } from "@/components/examples/TableExample";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/(test)/_examples/examples/tables")({

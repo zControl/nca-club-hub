@@ -1,5 +1,5 @@
-import { NotFound } from "@/components/common/NotFound";
-import { PageContainer } from "@/components/common/PageContainer";
+import { PageContainer } from "@/components/common/page/PageContainer";
+import { NotFoundPage } from "@/pages/NotFoundPage";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/(test)/_examples/examples_")({
@@ -12,5 +12,5 @@ export const Route = createLazyFileRoute("/(test)/_examples/examples_")({
       <div>This is a cookbook of UI components that are used in the app.</div>
     </PageContainer>
   ),
-  notFoundComponent: NotFound,
+  notFoundComponent: NotFoundPage,
 });
