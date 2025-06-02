@@ -1,9 +1,9 @@
+import button1 from "@/assets/hero/button-200x200-1.webp";
+import button2 from "@/assets/hero/button-200x200-2.webp";
+import button3 from "@/assets/hero/button-200x200-3.webp";
+import button4 from "@/assets/hero/button-200x200-4.webp";
 import { ImageButton } from "@/components/composites/ImageButton";
 import { Hero } from "@/components/ui/hero";
-import button1 from "/hero/button-200x200-1.webp";
-import button2 from "/hero/button-200x200-2.webp";
-import button3 from "/hero/button-200x200-3.webp";
-import button4 from "/hero/button-200x200-4.webp";
 
 export function HeroAppButtons() {
   return (

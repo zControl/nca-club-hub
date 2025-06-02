@@ -1,8 +1,8 @@
+import sponsor1 from "@/assets/sponsors/sponsor_1.png";
+import sponsor2 from "@/assets/sponsors/sponsor_2.png";
+import sponsor3 from "@/assets/sponsors/sponsor_3.png";
+import sponsor4 from "@/assets/sponsors/sponsor_4.png";
 import { Hero } from "@/components/ui/hero";
-import sponsor1 from "/sponsors/sponsor_1.png";
-import sponsor2 from "/sponsors/sponsor_2.png";
-import sponsor3 from "/sponsors/sponsor_3.png";
-import sponsor4 from "/sponsors/sponsor_4.png";
 
 export function HeroSponsors() {
   return (

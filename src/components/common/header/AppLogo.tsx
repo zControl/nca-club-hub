@@ -1,5 +1,5 @@
+import logo from "@/assets/logos/nca-logo-blue-red.png";
 import { Link } from "@tanstack/react-router";
-import logo from "/logos/nca-logo-blue-red.png";
 
 export function AppLogo() {
   return (

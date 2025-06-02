@@ -7,11 +7,11 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-import image1 from "/hero/hero-carousel-1.webp";
-import image2 from "/hero/hero-carousel-2.webp";
-import image3 from "/hero/hero-carousel-3.webp";
-import image4 from "/hero/hero-carousel-4.webp";
-import image5 from "/hero/hero-carousel-5.webp";
+import image1 from "@/assets/hero/hero-carousel-1.webp";
+import image2 from "@/assets/hero/hero-carousel-2.webp";
+import image3 from "@/assets/hero/hero-carousel-3.webp";
+import image4 from "@/assets/hero/hero-carousel-4.webp";
+import image5 from "@/assets/hero/hero-carousel-5.webp";
 
 export function HeroCarousel() {
   return (

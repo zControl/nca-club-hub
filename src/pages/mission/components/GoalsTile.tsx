@@ -1,10 +1,10 @@
 import { ContentPane } from "@/components/common/page/ContentPane";
 import { ImageInfoCard } from "@/components/composites/ImageInfoCard";
 
-import goal1 from "/goals/goal-1.webp";
-import goal2 from "/goals/goal-2.webp";
-import goal3 from "/goals/goal-3.webp";
-import goal4 from "/goals/goal-4.webp";
+import goal1 from "@/assets/goals/goal-1.webp";
+import goal2 from "@/assets/goals/goal-2.webp";
+import goal3 from "@/assets/goals/goal-3.webp";
+import goal4 from "@/assets/goals/goal-4.webp";
 
 const goals = [
   {

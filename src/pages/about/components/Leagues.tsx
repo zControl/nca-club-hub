@@ -3,10 +3,10 @@ import { LinkText } from "@/components/composites/LinkText";
 import { Image } from "@/components/ui/image";
 import { Header3, Paragraph, TextBlock } from "@/components/ui/typography";
 
-import usclub from "/leagues/us-club-soccer.png";
-import usyouth from "/leagues/us-youth-soccer.png";
-import wpl from "/leagues/wa-premier-league.png";
-import rcl from "/leagues/wa-regional-club-league.png";
+import usclub from "@/assets/leagues/us-club-soccer.png";
+import usyouth from "@/assets/leagues/us-youth-soccer.png";
+import wpl from "@/assets/leagues/wa-premier-league.png";
+import rcl from "@/assets/leagues/wa-regional-club-league.png";
 
 export function Leagues() {
   return (
