@@ -1,161 +1,71 @@
 export const boysTeamData = [
-    {
-      name: "NCA B12 White",
-      division: "U12",
-      longName: "NCA Boys 2012 White",
-      season: "2023-2024",
-      league: "Copa 3",
-      coaches: [
-        { name: "Zach", email: "mailto@foo.bar" },
-        { name: "Vaughan", email: "emailme@addressname.com" },
-      ],
-    },
-    {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-      {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-      {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-      {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-      {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-      {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-    // Add more team objects here as needed
-  ];
+  {
+    name: "NCA B15 Navy",
+    division: "U11",
+    longName: "NCA Boys 2015 Navy",
+    season: "2025-2026",
+    league: "Classic 1",
+    coaches: [
+      { name: "Zach", email: "mailto@foo.bar" },
+      { name: "Andrew", email: "emailme@addressname.com" },
+    ],
+  },
+  {
+    name: "NCA B15 Navy",
+    division: "U11",
+    longName: "NCA Boys 2015 Navy",
+    season: "2025-2026",
+    league: "Classic 1",
+    coaches: [
+      { name: "Zach", email: "mailto@foo.bar" },
+      { name: "Andrew", email: "emailme@addressname.com" },
+    ],
+  },
+  {
+    name: "NCA B15 Navy",
+    division: "U11",
+    longName: "NCA Boys 2015 Navy",
+    season: "2025-2026",
+    league: "Classic 1",
+    coaches: [
+      { name: "Zach", email: "mailto@foo.bar" },
+      { name: "Andrew", email: "emailme@addressname.com" },
+    ],
+  },
+];
 
-  export const girlsTeamData = [
-    {
-      name: "NCA B12 White",
-      division: "U12",
-      longName: "NCA Boys 2012 White",
-      season: "2023-2024",
-      league: "Copa 3",
-      coaches: [
-        { name: "Zach", email: "mailto@foo.bar" },
-        { name: "Vaughan", email: "emailme@addressname.com" },
-      ],
-    },
-    {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-      {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-      {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-      {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-      {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-      {
-        name: "NCA B12 White",
-        division: "U12",
-        longName: "NCA Boys 2012 White",
-        season: "2023-2024",
-        league: "Copa 3",
-        coaches: [
-          { name: "Zach", email: "mailto@foo.bar" },
-          { name: "Vaughan", email: "emailme@addressname.com" },
-        ],
-      },
-    // Add more team objects here as needed
-  ];
+export const girlsTeamData = [
+  {
+    name: "NCA B15 Navy",
+    division: "U11",
+    longName: "NCA Boys 2015 Navy",
+    season: "2025-2026",
+    league: "Classic 1",
+    coaches: [
+      { name: "Zach", email: "mailto@foo.bar" },
+      { name: "Andrew", email: "emailme@addressname.com" },
+    ],
+  },
+  {
+    name: "NCA B15 Navy",
+    division: "U11",
+    longName: "NCA Boys 2015 Navy",
+    season: "2025-2026",
+    league: "Classic 1",
+    coaches: [
+      { name: "Zach", email: "mailto@foo.bar" },
+      { name: "Andrew", email: "emailme@addressname.com" },
+    ],
+  },
+  {
+    name: "NCA B15 Navy",
+    division: "U11",
+    longName: "NCA Boys 2015 Navy",
+    season: "2025-2026",
+    league: "Classic 1",
+    coaches: [
+      { name: "Zach", email: "mailto@foo.bar" },
+      { name: "Andrew", email: "emailme@addressname.com" },
+    ],
+  },
+];

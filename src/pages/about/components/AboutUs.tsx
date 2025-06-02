@@ -69,6 +69,11 @@ export function AboutUs() {
               Our Mission
             </Button>
           </Link>
+          <Link to={"/contact"}>
+            <Button className="text-xl" variant="primary" size="lg">
+              Contact Us
+            </Button>
+          </Link>
           <Link to={"/investment"}>
             <Button className="text-xl" variant="primary" size="lg">
               The Investment

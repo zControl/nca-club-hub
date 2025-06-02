@@ -76,7 +76,6 @@ export function MailingListSignupForm() {
               )}
             />
             <div className="flex flex-col justify-around">
-              <h3>TODO: ADD CAPTCHA HERE</h3>
               <Button variant="primary" type="submit">
                 Submit
               </Button>
