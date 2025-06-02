@@ -1,4 +1,4 @@
-import { PageContainer } from "../page/PageContainer";
+import { PageContainer } from "@/components/common/page/PageContainer";
 
 export const ErrorPage = () => {
   return (
