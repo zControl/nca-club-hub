@@ -1,13 +1,11 @@
+import background from "@/assets/hero/hero-carousel-3.webp";
 import { ContentPane } from "@/components/common/page/ContentPane";
 import { Hero } from "@/components/ui/hero";
 import { TextBlock } from "@/components/ui/typography";
 
 export function MissionTile() {
   return (
-    <Hero
-      backgroundImageUrl="/hero/hero-carousel-3.webp"
-      className="opacity-90"
-    >
+    <Hero backgroundImageUrl={background} className="opacity-90">
       <ContentPane>
         <TextBlock className="max-w-4xl mx-auto text-2xl font-semibold">
           Our mission is to create THE soccer club of choice in Whatcom County.

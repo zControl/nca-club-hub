@@ -10,7 +10,7 @@ import { Link } from "@tanstack/react-router";
 
 export function AboutUs() {
   return (
-    <ContentPane wrapperClassName="bg-nca-blue" contentClassName="bg-card">
+    <ContentPane wrapperClassName="bg-nca-blue" contentClassName="bg-card p-6">
       <Header1>How it started</Header1>
       <Paragraph>
         North County Alliance FC began with a group of enthusiastic parents
@@ -61,7 +61,7 @@ export function AboutUs() {
         <TextBlock className="text-xl font-semibold">
           Creating excitement around team success and individual development
           will be the foundation of an elevated youth system for all families in
-          Whatcom County."
+          Whatcom County.
         </TextBlock>
         <div className="px-12 py-6 flex flex-row space-x-8 justify-center">
           <Link to={"/mission"}>
