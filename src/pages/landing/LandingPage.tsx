@@ -7,6 +7,7 @@ import { HeroCarousel } from "@/pages/landing/components/HeroCarousel";
 import { HeroFaq } from "@/pages/landing/components/HeroFaq";
 import { HeroInfoCards } from "@/pages/landing/components/HeroInfoCards";
 import { HeroNewsFeed } from "@/pages/landing/components/HeroNewsFeed";
+import { HeroNewsFlash } from "@/pages/landing/components/HeroNewsFlash";
 import { HeroSponsors } from "@/pages/landing/components/HeroSponsors";
 import { HeroTitle } from "@/pages/landing/components/HeroTitle";
 
@@ -20,7 +21,7 @@ export function LandingPage() {
         keywords="app, landing, page, family, board, famboard"
       >
         <div className="flex flex-col">
-          {/* <HeroNewsFlash /> */}
+          <HeroNewsFlash />
           <HeroCarousel />
           <HeroTitle />
           <HeroAppButtons />

@@ -4,7 +4,7 @@ import { FooterMenuLinks } from "@/components/common/footer/FooterMenuLinks";
 
 export const AppFooter = () => {
   return (
-    <footer className="bg-nca-sky p-2">
+    <footer className="bg-nca-sky text-nca-blue p-2">
       <FooterMenuLinks />
       <div className="container mx-auto w-1/2">
         <FooterLegal />

@@ -5,7 +5,7 @@ export function HeroNewsFlash() {
     <Hero>
       <div>
         News Flash!! This can be some important quick info that we want to
-        highlight.
+        highlight. It can have a "close" button.
       </div>
     </Hero>
   );

@@ -6,7 +6,7 @@ type ThemeProviderProps = {
   defaultTheme?: Theme;
 };
 
-const DEFAULT_THEME = "system";
+const DEFAULT_THEME = "light";
 
 export const ThemeProvider = ({
   children,
