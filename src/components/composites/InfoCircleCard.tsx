@@ -2,7 +2,7 @@ import {
   Card,
   CardAction,
   CardContent,
-  CardHeader,
+  CardDescription,
 } from "@/components/ui/card";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { type LucideIcon } from "lucide-react";
@@ -27,14 +27,12 @@ export function InfoCircleCard({
     <Card
       className={`border-nca-red rounded-full border-4 gap-2 py-4 ${cardSizeClasses}`}
     >
-      <CardHeader className="flex items-center justify-center">
-        {iconWithSize}
-      </CardHeader>
-      <CardAction className="self-center">{action}</CardAction>
-      <CardContent className="flex flex-col justify-between">
-        <div className="w-full max-h-24 text-center line-clamp-4">
+      <CardContent className="flex flex-col justify-between items-center gap-6">
+        <div>{iconWithSize}</div>
+        <CardDescription className="w-full max-h-24 text-center line-clamp-4">
           {description}
-        </div>
+        </CardDescription>
+        <CardAction className="self-center">{action}</CardAction>
       </CardContent>
     </Card>
   );

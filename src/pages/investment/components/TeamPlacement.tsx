@@ -1,21 +1,18 @@
 import { ContentPane } from "@/components/common/page/ContentPane";
 import { InfoCircleCard } from "@/components/composites/InfoCircleCard";
 import { Button } from "@/components/ui/button";
-import { Hero } from "@/components/ui/hero";
+import { Card, CardContent } from "@/components/ui/card";
 import { Header1 } from "@/components/ui/typography";
 import { FileDownIcon, ScrollTextIcon, VolleyballIcon } from "lucide-react";
 
 export function TeamPlacement() {
   return (
-    <ContentPane
-      wrapperClassName="bg-nca-blue"
-      contentClassName="text-white p-2"
-    >
-      <Hero>
-        <Header1 className="text-white uppercase mb-8">
+    <ContentPane wrapperClassName="bg-nca-blue">
+      <Card>
+        <Header1 className="uppercase mb-8 text-center">
           Team Placement Process
         </Header1>
-        <div className="flex flex-col md:flex-row items-center justify-around gap-8">
+        <CardContent className="grid grid-cols-1 sm:grid-cols-3 mx-auto items-center justify-around gap-8">
           <InfoCircleCard
             icon={FileDownIcon}
             description="Review our guide to know what to expect"
@@ -27,7 +24,7 @@ export function TeamPlacement() {
           />
           <InfoCircleCard
             icon={VolleyballIcon}
-            description="Attendyour tryout on the scheduled date"
+            description="Attend your tryout on the scheduled date"
             action={
               <Button variant={"highlight"} size={"sm"}>
                 View Schedule
@@ -43,8 +40,8 @@ export function TeamPlacement() {
               </Button>
             }
           />
-        </div>
-      </Hero>
+        </CardContent>
+      </Card>
     </ContentPane>
   );
 }
