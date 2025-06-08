@@ -10,35 +10,6 @@ export const getSeasonYear = () => {
   }
 };
 
-export function calculateAgeGroup(birthdateStr: string): string {
-  const birthdate = new Date(birthdateStr);
-  const today = new Date();
-  console.log(today);
-  const cutoffDate = new Date(today.getFullYear(), 8, 1); // Month is 0-indexed, 8 = September
-  console.log(cutoffDate);
-
-  // Adjust the cutoff year if today's date is before the cutoff
-  if (today < cutoffDate) {
-    cutoffDate.setFullYear(cutoffDate.getFullYear() - 1);
-  }
-
-  // Calculate the age at the cutoff date
-  let age = cutoffDate.getFullYear() - birthdate.getFullYear();
-  console.log(age);
-
-  // Subtract one year if the birthdate is after the cutoff date in the year
-  if (birthdate > new Date(cutoffDate.getFullYear(), birthdate.getMonth(), birthdate.getDate())) {
-    age--;
-  }
-  console.log(age);
-
-  // Determine the age group based on the age
-  const ageGroup = `U${age + 1}`;
-  console.log(ageGroup);
-
-  return ageGroup;
-}
-
 export const getSummerPlayerBirthYears = () => {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
@@ -51,4 +22,36 @@ export const getLeaguePlayerBirthYears = () => {
   const currentYear = currentDate.getFullYear();
   // Return the years for players who will be playing in the league only
   return `${currentYear - 1} - ${currentYear}`
+}
+
+// Function to determine team based on birthday
+export function determineTeamFromBirthday(day: string, month: string, year: string): string {
+  // Convert inputs to numbers
+  const birthDay = parseInt(day);
+  const birthMonth = parseInt(month);
+  const birthYear = parseInt(year);
+
+  // Create a Date object for the birthday
+  const birthDate = new Date(birthYear, birthMonth - 1, birthDay); // month is 0-indexed in JS Date
+
+  // Get current year
+  const currentYear = new Date().getFullYear();
+
+  // Calculate age as of September 1st of current year
+  const cutoffDate = new Date(currentYear, 8, 1); // September 1st (month is 0-indexed)
+
+  // Calculate years since birth on the cutoff date
+  let yearsSinceBirth = cutoffDate.getFullYear() - birthDate.getFullYear();
+
+  // Adjust if birthday hasn't occurred yet in the cutoff year
+  const birthDateThisYear = new Date(cutoffDate.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+  if (birthDateThisYear > cutoffDate) {
+    yearsSinceBirth--;
+  }
+
+  // Determine team based on age
+  // U10 means "under 10", so ages 8-9
+  // U11 means "under 11", so ages 9-10
+  // and so on
+  return `U${yearsSinceBirth + 1}`;
 }

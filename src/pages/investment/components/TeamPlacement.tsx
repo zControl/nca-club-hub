@@ -3,15 +3,17 @@ import { InfoCircleCard } from "@/components/composites/InfoCircleCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Header1 } from "@/components/ui/typography";
+import BirthdayForm from "@/features/ages/components/BirthdayForm";
 import { FileDownIcon, ScrollTextIcon, VolleyballIcon } from "lucide-react";
 
 export function TeamPlacement() {
   return (
     <ContentPane wrapperClassName="bg-nca-blue">
       <Card>
-        <Header1 className="uppercase mb-8 text-center">
+        <Header1 className="uppercase text-center">
           Team Placement Process
         </Header1>
+        <BirthdayForm />
         <CardContent className="grid grid-cols-1 sm:grid-cols-3 mx-auto items-center justify-around gap-8">
           <InfoCircleCard
             icon={FileDownIcon}

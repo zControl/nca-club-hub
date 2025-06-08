@@ -4,11 +4,8 @@ import { ContentPane } from "@/components/common/page/ContentPane";
 import { Button } from "@/components/ui/button";
 import { Header1, Header2 } from "@/components/ui/typography";
 import { PricingDetails } from "@/pages/investment/components/PricingDetails";
-import { calculateAgeGroup } from "@/utils/getSeasonYear";
 
 export function PricingStructure() {
-  const birthdate = "2015-07-30";
-  const ageGroup = calculateAgeGroup(birthdate);
   return (
     <>
       <div className="flex flex-col">
@@ -16,16 +13,13 @@ export function PricingStructure() {
           <Header1 className="text-white">FULLY TRANSPARENT PRICING</Header1>
           <Header2 className="text-white">NO CLUB FEE INCREASES</Header2>
         </ContentPane>
-        <ContentPane className="bg-nca-blue mx-auto text-center w-full py-6">
-          <p className="text-white">{ageGroup}</p>
-        </ContentPane>
-
         <div className="grid grid-cols-1 md:grid-cols-2">
           <PricingDetails
             backgroundImage={vertical1}
             color="red"
-            birthYear="2018, 2017, 2016"
-            description="A great price of only"
+            title="SUMMER REBELS"
+            birthYears="2016, 2017, 2018"
+            description="A great experience for only"
             price="$550"
             included="All-in, full cost, no add-ons!"
             coverage={[
@@ -50,8 +44,9 @@ export function PricingStructure() {
           <PricingDetails
             backgroundImage={vertical2}
             color="blue"
-            birthYear="2007-2015"
-            description="An extreme value compared to other clubs."
+            title="FULL YEAR CLUB TEAM"
+            birthYears="2007-2015"
+            description="An extreme value compared to other clubs"
             price="$1,935"
             included="All-in, full cost, no add-ons!"
             coverage={[

@@ -4,7 +4,8 @@ import { cn } from "@/lib/utils";
 interface PricingDetailsProps {
   backgroundImage: string;
   color: "red" | "blue";
-  birthYear: string;
+  title: string;
+  birthYears: string;
   description: string;
   included: string;
   price: string;
@@ -15,7 +16,8 @@ interface PricingDetailsProps {
 export function PricingDetails({
   backgroundImage,
   color,
-  birthYear,
+  title,
+  birthYears,
   description,
   price,
   included,
@@ -33,8 +35,8 @@ export function PricingDetails({
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className={cn("flex flex-col min-h-256 text-center", colorClass)}>
-        <Header2 color={color}>Born In</Header2>
-        <Header2 color={color}>{birthYear}</Header2>
+        <Header2 color={color}>{title}</Header2>
+        <Header2 color={color}>{birthYears}</Header2>
         <Header4 color={color}>{description}</Header4>
         <Header1 color={color} className="my-8">
           {price}
