@@ -113,7 +113,7 @@ const TextBlock = ({ children, className }: ParagraphProps) => {
     "flex justify-around p-4 m-2 border-2 border border-primary text-center rounded-lg bg-accent";
   return (
     <div className={cn(baseClasses, className)}>
-      <p>{children}</p>
+      <div>{children}</div>
     </div>
   );
 };

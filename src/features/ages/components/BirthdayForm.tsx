@@ -10,8 +10,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { ContentPane } from "@/components/common/page/ContentPane";
-import { Tile } from "@/components/composites/Tile";
 import { Button } from "@/components/ui/button";
 import { CardTitle } from "@/components/ui/card";
 import {
@@ -80,113 +78,103 @@ function BirthdayForm() {
   }
 
   return (
-    <ContentPane contentClassName="w-2/3">
-      <Tile
-        title="Determine Player Age Group"
-        description="Enter players birthday to see which team they belong with!"
-      >
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
-            <div className="grid grid-cols-1 gap-6 place-items-center">
-              <div className="flex flex-col md:flex-row gap-2">
-                <FormField
-                  control={form.control}
-                  name="month"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Month</FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger className="min-w-[130px]">
-                            <SelectValue placeholder="Select month" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          {months.map((month) => (
-                            <SelectItem key={month.value} value={month.value}>
-                              {month.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <div className="grid grid-cols-1 gap-6 place-items-center py-6">
+          <div className="flex flex-col gap-2">
+            <FormField
+              control={form.control}
+              name="month"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Month</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select month" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {months.map((month) => (
+                        <SelectItem key={month.value} value={month.value}>
+                          {month.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </FormItem>
+              )}
+            />
 
-                <FormField
-                  control={form.control}
-                  name="day"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Day</FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger className="min-w-[80px]">
-                            <SelectValue placeholder="Select day" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          {days.map((day) => (
-                            <SelectItem key={day.value} value={day.value}>
-                              {day.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
+            <FormField
+              control={form.control}
+              name="day"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Day</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="min-w-[80px]">
+                        <SelectValue placeholder="Select day" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {days.map((day) => (
+                        <SelectItem key={day.value} value={day.value}>
+                          {day.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </FormItem>
+              )}
+            />
 
-                <FormField
-                  control={form.control}
-                  name="year"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Year</FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger className="min-w-[100px]">
-                            <SelectValue placeholder="Select year" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          {years.map((year) => (
-                            <SelectItem key={year.value} value={year.value}>
-                              {year.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
-                <div className="place-self-start md:place-self-end">
-                  <Button variant={"primary"} type="submit">
-                    Submit
-                  </Button>
-                </div>
-              </div>
-              <div className="flex flex-col px-4 text-center">
-                <CardTitle>You should play with</CardTitle>
-                <Header1 className="text-highlight">{result}</Header1>
-              </div>
-              <Button size={"huge"} variant={"secondary"}>
-                Register Now
+            <FormField
+              control={form.control}
+              name="year"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Year</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="min-w-[100px]">
+                        <SelectValue placeholder="Select year" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {years.map((year) => (
+                        <SelectItem key={year.value} value={year.value}>
+                          {year.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </FormItem>
+              )}
+            />
+            <div className="flex justify-start">
+              <Button variant={"primary"} type="submit">
+                Submit
               </Button>
             </div>
-          </form>
-        </Form>
-      </Tile>
-    </ContentPane>
+          </div>
+          <div className="flex flex-col px-4 text-center">
+            <CardTitle>You should play with</CardTitle>
+            <Header1 className="text-highlight">{result}</Header1>
+          </div>
+        </div>
+      </form>
+    </Form>
   );
 }
 
