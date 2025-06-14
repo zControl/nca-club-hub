@@ -1,21 +1,22 @@
+import { ContentPane } from "@/components/common/page/ContentPane";
+import { Header1, TextBlock } from "@/components/ui/typography";
+import { getSeasonYear } from "@/utils/getSeasonYear";
+
 export function ClubFees() {
   return (
-    <>
-      <div className="flex flex-col">
-        <div className="w-full">
-          <div className="w-full h-24 bg-nca-blue text-primary-foreground text-center flex justify-center items-center text-4xl font-bold">
-            <p>Fully Transparent Pricing</p>
-          </div>
-        </div>
-        <div className="w-full flex flex-row justify-around text-primary-foreground text-center text-2xl">
-          <div className="bg-primary text-primary-foreground w-full h-80">
-            Left
-          </div>
-          <div className="bg-secondary text-secondary-foreground w-full">
-            Right
-          </div>
-        </div>
-      </div>
-    </>
+    <ContentPane
+      wrapperClassName="bg-nca-sky"
+      contentClassName="bg-nca-sky flex flex-col items-center"
+    >
+      <Header1 className="text-nca-sky-foreground">{getSeasonYear()}</Header1>
+      <Header1 className="text-nca-sky-foreground">Club Fees</Header1>
+      <TextBlock className="text-2xl">
+        North County Alliance was born out of a simple dream
+        <p className="text-2xl font-bold">
+          Make high quality select soccer available to families at affordable
+          prices.
+        </p>
+      </TextBlock>
+    </ContentPane>
   );
 }

@@ -11,6 +11,8 @@ const headingVariants = cva("m-2", {
       muted: "text-muted-foreground",
       accent: "text-accent-foreground",
       highlight: "text-highlight",
+      red: "text-nca-red-foreground",
+      blue: "text-nca-blue-foreground",
     },
   },
   defaultVariants: {
@@ -108,10 +110,10 @@ const BlockQuote = ({ children, className }: ParagraphProps) => {
 
 const TextBlock = ({ children, className }: ParagraphProps) => {
   const baseClasses =
-    "flex justify-around p-4 m-2 border-2 border text-center rounded-lg bg-accent";
+    "flex justify-around p-4 m-2 border-2 border border-primary text-center rounded-lg bg-accent";
   return (
     <div className={cn(baseClasses, className)}>
-      <p>{children}</p>
+      <div>{children}</div>
     </div>
   );
 };

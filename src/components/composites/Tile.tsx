@@ -31,7 +31,9 @@ export const Tile = ({
             <div>{menu}</div>
           </div>
         </CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription className="justify-self-start">
+          {description}
+        </CardDescription>
       </CardHeader>
       <CardContent>{children}</CardContent>
       <CardFooter>{footer}</CardFooter>
