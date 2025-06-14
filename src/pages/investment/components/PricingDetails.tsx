@@ -5,7 +5,7 @@ interface PricingDetailsProps {
   backgroundImage: string;
   color: "red" | "blue";
   title: string;
-  birthYears: string;
+  ageGroup: string;
   description: string;
   included: string;
   price: string;
@@ -17,7 +17,7 @@ export function PricingDetails({
   backgroundImage,
   color,
   title,
-  birthYears,
+  ageGroup,
   description,
   price,
   included,
@@ -36,7 +36,7 @@ export function PricingDetails({
     >
       <div className={cn("flex flex-col min-h-256 text-center", colorClass)}>
         <Header2 color={color}>{title}</Header2>
-        <Header2 color={color}>{birthYears}</Header2>
+        <Header2 color={color}>{ageGroup}</Header2>
         <Header4 color={color}>{description}</Header4>
         <Header1 color={color} className="my-8">
           {price}

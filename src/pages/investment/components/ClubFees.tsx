@@ -11,8 +11,11 @@ export function ClubFees() {
       <Header1 className="text-nca-sky-foreground">{getSeasonYear()}</Header1>
       <Header1 className="text-nca-sky-foreground">Club Fees</Header1>
       <TextBlock className="text-2xl">
-        North County Alliance was born out of a simple dream: make high quality
-        select soccer available to families at reasonable prices.
+        North County Alliance was born out of a simple dream
+        <p className="text-2xl font-bold">
+          Make high quality select soccer available to families at affordable
+          prices.
+        </p>
       </TextBlock>
     </ContentPane>
   );

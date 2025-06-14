@@ -2,23 +2,13 @@ import { ContentPane } from "@/components/common/page/ContentPane";
 import { InfoCircleCard } from "@/components/composites/InfoCircleCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Header1, TextBlock } from "@/components/ui/typography";
-import { AgeGroupCalculator } from "@/features/ages/components/AgeGroupCalculator";
+import { Header1 } from "@/components/ui/typography";
 import { FileDownIcon, ScrollTextIcon, VolleyballIcon } from "lucide-react";
 
 export function TeamPlacement() {
   return (
     <ContentPane wrapperClassName="bg-nca-blue">
       <Card>
-        <div>
-          <TextBlock className="text-2xl w-2/3 mx-auto">
-            <div className="flex flex-col gap-2">
-              <p>Unsure about your age group?</p>
-              <p>Check out out our calculator.</p>
-              <AgeGroupCalculator />
-            </div>
-          </TextBlock>
-        </div>
         <Header1 className="uppercase text-center">
           Team Placement Process
         </Header1>

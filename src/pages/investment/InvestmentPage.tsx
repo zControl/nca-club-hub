@@ -10,7 +10,6 @@ export function InvestmentPage() {
     { id: "club-fees", title: "Club Fees", children: <PricingStructure /> },
     { id: "placement", title: "Placement", children: <TeamPlacement /> },
     { id: "great-deal", title: "Great Deal", children: <GoodDeal /> },
-    { id: "sponsorship", title: "Sponsorship", children: <>sponsorship</> },
   ];
   return (
     <PageContainer
