@@ -26,7 +26,10 @@ export const LinkButton = ({
     <Button
       variant={variant}
       size={size}
-      className={cn("flex items-center mx-0 p-2 text-lg", className)}
+      className={cn(
+        "flex items-center py-2 px-4 text-lg hover:cursor-pointer",
+        className,
+      )}
       onClick={() => navigate({ to: href })}
       {...props}
     >
