@@ -17,7 +17,7 @@ export function AgeGroupCalculator() {
     <AlertDialog>
       <AlertDialogTrigger asChild className="w-auto  mx-auto">
         <Button variant={"highlight"} size={"lg"}>
-          Launch Age Group Calculator
+          Age Group Calculator
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
