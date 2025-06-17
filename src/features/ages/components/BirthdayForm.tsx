@@ -81,7 +81,8 @@ function BirthdayForm() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="grid grid-cols-1 gap-6 place-items-center py-6">
-          <div className="flex flex-col gap-2">
+          <FormLabel>Select Player Birthdate</FormLabel>
+          <div className="flex flex-col md:flex-row  gap-2">
             <FormField
               control={form.control}
               name="month"
@@ -162,11 +163,11 @@ function BirthdayForm() {
                 </FormItem>
               )}
             />
-            <div className="flex justify-start">
-              <Button variant={"primary"} type="submit">
-                Submit
-              </Button>
-            </div>
+          </div>
+          <div>
+            <Button variant={"primary"} type="submit">
+              CHECK AGE GROUP
+            </Button>
           </div>
           <div className="flex flex-col px-4 text-center">
             <CardTitle>You should play with</CardTitle>

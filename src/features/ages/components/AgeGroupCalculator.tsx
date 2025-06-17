@@ -9,7 +9,6 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import BirthdayForm from "@/features/ages/components/BirthdayForm";
 
 export function AgeGroupCalculator() {
@@ -21,15 +20,13 @@ export function AgeGroupCalculator() {
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
-        <ScrollArea className="max-h-[80vh]">
-          <AlertDialogHeader>
-            <AlertDialogTitle>Determine Player Age Group</AlertDialogTitle>
-            <AlertDialogDescription>
-              Enter player's birthday to determine their age group.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <BirthdayForm />
-        </ScrollArea>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Age Group Calculator</AlertDialogTitle>
+          <AlertDialogDescription>
+            Determine a players age group based on their date of birth.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <BirthdayForm />
         <AlertDialogFooter>
           <AlertDialogCancel>Close</AlertDialogCancel>
         </AlertDialogFooter>

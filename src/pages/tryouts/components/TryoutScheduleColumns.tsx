@@ -21,6 +21,19 @@ export const scheduleColumns: ColumnDef<TryoutScheduleTableColumns>[] = [
     },
   },
   {
+    id: "registration",
+    cell: ({ row }) => {
+      return (
+        <Button
+          variant="highlight"
+          onClick={() => window.open(row.original.registration, "_blank")}
+        >
+          Register
+        </Button>
+      );
+    },
+  },
+  {
     accessorKey: "firstSession",
     header: () => <div className={headerStyle}>First Session</div>,
     cell: ({ row }) => {
@@ -39,19 +52,6 @@ export const scheduleColumns: ColumnDef<TryoutScheduleTableColumns>[] = [
         <div className={cellStyle}>
           {formatDateTime(row.original.secondSession)}
         </div>
-      );
-    },
-  },
-  {
-    id: "registration",
-    cell: ({ row }) => {
-      return (
-        <Button
-          variant="highlight"
-          onClick={() => window.open(row.original.registration, "_blank")}
-        >
-          Register
-        </Button>
       );
     },
   },

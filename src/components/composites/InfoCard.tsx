@@ -27,24 +27,28 @@ export const InfoCard = ({
   loading,
 }: InfoCardProps) => {
   return (
-    <Card>
+    <Card className="bg-nca-blue text-nca-blue-foreground">
       <CardHeader>
-        <div className="flex flex-row justify-between items-stretch">
-          <div className="flex flex-col space-y-1 flex-grow">
-            <CardTitle>{title}</CardTitle>
-            <CardDescription>{description}</CardDescription>
-          </div>
+        <div className="flex flex-row gap-4 items-center">
           {icon && (
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center bg-nca-red p-4 text-nca-red-foreground rounded-full">
               {React.cloneElement(icon, {
-                className: "w-12 h-12 text-highlight",
+                className: "w-12 h-12 text-nca-red-foreground",
               })}
             </div>
           )}
+          <div className="flex flex-col space-y-1 text-left">
+            <CardTitle className="text-3xl font-semibold">{title}</CardTitle>
+            <CardDescription className="text-lg text-nca-blue-foreground">
+              {description}
+            </CardDescription>
+          </div>
         </div>
       </CardHeader>
-      <CardContent>{loading ? <Spinner size="lg" /> : children}</CardContent>
-      {footer && <CardFooter>{footer}</CardFooter>}
+      <CardContent className="text-start">
+        {loading ? <Spinner size="lg" /> : children}
+      </CardContent>
+      {footer && <CardFooter className="mx-auto">{footer}</CardFooter>}
     </Card>
   );
 };
