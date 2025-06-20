@@ -7,7 +7,10 @@ import { mockTryoutSchedule } from "@/pages/tryouts/data/getTryoutSchedule";
 
 export function TryoutScheduleTile() {
   return (
-    <ContentPane wrapperClassName="bg-nca-blue" contentClassName="bg-card p-6">
+    <ContentPane
+      wrapperClassName="bg-nca-blue"
+      contentClassName="bg-card rounded-md p-6"
+    >
       <div className="text-center text-lg font-semibold mb-4 flex flex-col gap-4">
         <AgeGroupCalculator />
         <div>

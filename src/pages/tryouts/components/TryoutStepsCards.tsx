@@ -16,8 +16,8 @@ export function TryoutStepsCards() {
           <BulletList
             items={[
               "Tryouts are completely FREE to attend",
-              "Find the perfect session for your age group",
-              "Take the first step toward joining the alliance",
+              "Find the correct session for your age group",
+              "Take the first step toward joining the alliance!",
             ]}
           />
         </InfoCard>
@@ -28,8 +28,8 @@ export function TryoutStepsCards() {
         >
           <BulletList
             items={[
-              "Wear cleats, shin guards, and athletic wear",
-              "Stay hydrated - bring a full water bottle",
+              "Wear cleats and shin guards",
+              "Stay hydrated - bring a water bottle",
               "Check in at the NCA tent 15 minutes early",
             ]}
           />
@@ -43,7 +43,7 @@ export function TryoutStepsCards() {
             items={[
               "Bring your best effort and energy",
               "Coaches evaluate effort, skills and teamwork",
-              "Results are typically shared within 72 hours",
+              "Results are shared within 72 hours after the last tryout",
             ]}
           />
         </InfoCard>
