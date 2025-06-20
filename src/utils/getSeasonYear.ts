@@ -26,32 +26,44 @@ export const getLeaguePlayerBirthYears = () => {
 
 // Function to determine team based on birthday
 export function determineTeamFromBirthday(day: string, month: string, year: string): string {
+  // Age Determination:
+  // A player's age group will be determined by their age on August 1st of the seasonal year.
+  // Example:
+  // If the season runs from August 1, 2026 to July 31, 2027, a player's age on August 1, 2026 will determine their age group for that season.
+
   // Convert inputs to numbers
   const birthDay = parseInt(day);
   const birthMonth = parseInt(month);
   const birthYear = parseInt(year);
 
+
   // Create a Date object for the birthday
-  const birthDate = new Date(birthYear, birthMonth - 1, birthDay); // month is 0-indexed in JS Date
+  const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
+  console.log(`Birthday: ${birthDate}`);
 
-  // Get current year
-  const currentYear = new Date().getFullYear();
+  // Get current date
+  const currentDate = new Date();
 
-  // Calculate age as of September 1st of current year
-  const cutoffDate = new Date(currentYear, 8, 1); // September 1st (month is 0-indexed)
+  // Determine the seasonal year
+  let seasonStartYear = currentDate.getFullYear();
+  if (currentDate.getMonth() < 4) { // 0=Jan, 1=Feb, 2=Mar, 3=Apr, 4=May
+    seasonStartYear = seasonStartYear - 1;
+  }
+
+  // Calculate age cutoff date (August 1st of the seasonal year)
+  const cutoffDate = new Date(seasonStartYear, 6, 31);
+  console.log(`Cutoff date: ${cutoffDate}`);
 
   // Calculate years since birth on the cutoff date
   let yearsSinceBirth = cutoffDate.getFullYear() - birthDate.getFullYear();
+  console.log(`Years since birth: ${yearsSinceBirth}`);
 
   // Adjust if birthday hasn't occurred yet in the cutoff year
   const birthDateThisYear = new Date(cutoffDate.getFullYear(), birthDate.getMonth(), birthDate.getDate());
   if (birthDateThisYear > cutoffDate) {
     yearsSinceBirth--;
+    console.log(`Adjusted years since birth: ${yearsSinceBirth}`);
   }
 
-  // Determine team based on age
-  // U10 means "under 10", so ages 8-9
-  // U11 means "under 11", so ages 9-10
-  // and so on
   return `U${yearsSinceBirth + 1}`;
 }

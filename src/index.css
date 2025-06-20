@@ -90,7 +90,7 @@
   --sidebar-ring: oklch(0.705 0.015 286.067);
   --warning: oklch(0.7697 0.1645 70.61);
   --highlight: oklch(0.6613 0.1704 256.31);
-  --header: oklch(0.8748 0 0);
+  --header: oklch(1 0 0);
   --header-foreground: oklch(0.1507 0 0);
   --nca-red: oklch(0.3999 0.1641 29.23);
   --nca-red-foreground: oklch(1 0 285.823);

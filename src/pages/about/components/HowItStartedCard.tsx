@@ -11,7 +11,10 @@ import {
 
 export function HowItStartedCard() {
   return (
-    <ContentPane wrapperClassName="bg-nca-blue" contentClassName="bg-card p-6">
+    <ContentPane
+      wrapperClassName="bg-nca-blue"
+      contentClassName="bg-card rounded-md p-6"
+    >
       <Header1>How it started</Header1>
       <Paragraph>
         North County Alliance FC began with a group of enthusiastic and
