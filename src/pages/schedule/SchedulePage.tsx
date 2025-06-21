@@ -1,11 +1,21 @@
 import { PageContainer } from "@/components/common/page/PageContainer";
+import { PageSections } from "@/components/common/page/PageSections";
 import { UnderConstruction } from "@/components/common/page/UnderConstruction";
+import { YearlyCalendar } from "@/pages/schedule/components/YearlyCalendar";
 export function SchedulePage() {
+  const sections = [
+    {
+      id: "yearly-calendar",
+      title: "Yearly Calendar",
+      children: <YearlyCalendar />,
+    },
+  ];
   return (
     <PageContainer
       title="Schedule"
       description="See what is happening at the North County Alliance"
     >
+      <PageSections sections={sections} />
       <UnderConstruction
         items={[
           {

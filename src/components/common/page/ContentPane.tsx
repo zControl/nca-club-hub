@@ -13,7 +13,7 @@ export function ContentPane({
 }: ContentProps) {
   return (
     <div className={cn("w-full py-6", wrapperClassName)} {...props}>
-      <div className={cn("mx-auto max-w-6xl", contentClassName)}>
+      <div className={cn("mx-auto max-w-7xl", contentClassName)}>
         {children}
       </div>
     </div>
