@@ -1,10 +1,9 @@
 import { ContentPane } from "@/components/common/page/ContentPane";
-import { Tile } from "@/components/composites/Tile";
 import { BulletList } from "@/components/ui/bullet-list";
 import { Header1, Paragraph } from "@/components/ui/typography";
 
 interface CalendarEvent {
-  name: string;
+  title: string;
 }
 
 interface MonthData {
@@ -15,28 +14,87 @@ interface MonthData {
 export function YearlyCalendar() {
   const calendarData: MonthData[] = [
     {
-      month: "APR - MAY",
-      events: [{ name: "Tryouts" }],
+      month: "MAY",
+      events: [{ title: "TRYOUTS" }],
     },
     {
-      month: "JUN - JULY - AUG",
+      month: "JUNE",
+      events: [
+        { title: "BEGIN TRAINING" },
+        { title: "FIRECRACKER TOURNAMENT" },
+      ],
+    },
+    {
+      month: "JULY",
       events: [
         {
-          name: "Summer Tournaments",
+          title: "WEEKLY TRAINING",
+        },
+        {
+          title: "ADDITIONAL TOURNAMENTS",
         },
       ],
     },
     {
-      month: "SEPT - OCT - NOV",
-      events: [{ name: "Fall Season" }],
+      month: "AUGUST",
+      events: [
+        {
+          title: "WEEKLY TRAINING",
+        },
+        {
+          title: "BOYS HS SEASON STARTS",
+        },
+      ],
     },
     {
-      month: "DEC - JAN",
-      events: [{ name: "Winter Break" }],
+      month: "SEPTEMBER",
+      events: [
+        {
+          title: "WEEKLY TRAINING",
+        },
+        {
+          title: "U11-U14 FALL SEASON STARTS",
+        },
+      ],
     },
     {
-      month: "FEB - MAR",
-      events: [{ name: "Spring Season" }],
+      month: "OCTOBER",
+      events: [
+        {
+          title: "WEEKLY TRAINING",
+        },
+        { title: "FALL SEASON CONTINUES" },
+      ],
+    },
+    {
+      month: "NOVEMBER",
+      events: [{ title: "FALL SEASON ENDS" }, { title: "BOYS HS STATE CUP" }],
+    },
+    {
+      month: "DECEMBER",
+      events: [{ title: "WINTER BREAK" }, { title: "GIRLS HS LEAGUE STARTS" }],
+    },
+    {
+      month: "JANUARY",
+      events: [{ title: "GIRLS HS LEAGUE STARTS" }],
+    },
+    {
+      month: "FEBRUARY",
+      events: [
+        { title: "WEEKLY TRAINING" },
+        { title: "U11-U14 SPRING SEASON STARTS" },
+      ],
+    },
+    {
+      month: "MARCH",
+      events: [
+        { title: "GIRLS HS LEAGUE ENDS" },
+        { title: "U11-U14 SPRING SEASON" },
+      ],
+    },
+    {
+      month: "APRIL",
+      events: [{ title: "GIRLS HS STATE CUP" }, { title: "U11-U14 STATE CUP" }],
     },
   ];
   return (
@@ -58,17 +116,20 @@ export function YearlyCalendar() {
           ]}
         />
       </Paragraph>
-      <div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
         {calendarData.map((item, index) => (
           <div key={index} className="flex-1 flex flex-col">
-            <div className="p-2 bg-nca-blue text-nca-blue-foreground font-bold text-center border-b-2 border-foreground">
+            <div className="p-2 bg-nca-blue text-nca-blue-foreground text-2xl font-bold text-center border-b-2 border-foreground">
               {item.month}
             </div>
-            <div className="px-2 py-6 bg-nca-red text-nca-red-foreground flex flex-grow flex-col">
+            <div className="flex flex-grow flex-col">
               {item.events.map((event, eventIndex) => (
-                <Tile title="Hello" description="World" key={eventIndex}>
-                  {event.name}
-                </Tile>
+                <div
+                  className="p-4 bg-nca-red text-nca-red-foreground text-xl font-semibold h-full flex-grow"
+                  key={eventIndex}
+                >
+                  {event.title}
+                </div>
               ))}
             </div>
           </div>

@@ -1,9 +1,14 @@
 import { PageContainer } from "@/components/common/page/PageContainer";
 import { PageSections } from "@/components/common/page/PageSections";
-import { UnderConstruction } from "@/components/common/page/UnderConstruction";
+import { EventCalendar } from "@/pages/schedule/components/EventCalendar";
 import { YearlyCalendar } from "@/pages/schedule/components/YearlyCalendar";
 export function SchedulePage() {
   const sections = [
+    {
+      id: "event-calendar",
+      title: "Event Calendar",
+      children: <EventCalendar />,
+    },
     {
       id: "yearly-calendar",
       title: "Yearly Calendar",
@@ -16,21 +21,6 @@ export function SchedulePage() {
       description="See what is happening at the North County Alliance"
     >
       <PageSections sections={sections} />
-      <UnderConstruction
-        items={[
-          {
-            title: "Upcoming Events",
-            description:
-              "Show the upcoming events, tryouts,  games, tournaments",
-          },
-          {
-            title: "Yearly Calendar",
-            description:
-              "Typical yearly calendar that shows the seasons, typical dates",
-          },
-          { title: "Schedule", description: "Club Calendar component" },
-        ]}
-      />
     </PageContainer>
   );
 }
