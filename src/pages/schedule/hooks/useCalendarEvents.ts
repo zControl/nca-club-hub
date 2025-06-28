@@ -8,11 +8,11 @@ export interface CalendarEvent {
   date: string;
   title: string;
   description?: string;
+  category?: string;
   startTime?: string;
   endTime?: string;
   location?: string;
   allDay?: boolean;
-  color?: string;
   url?: string;
 }
 

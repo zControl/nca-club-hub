@@ -1,3 +1,4 @@
+import construction from "@/assets/logos/under-construction-banner.png";
 import { ContentPane } from "@/components/common/page/ContentPane";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -10,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Image } from "@/components/ui/image";
 import { useCalendarEvents } from "@/pages/schedule/hooks/useCalendarEvents";
 import { formatDateFromTo } from "@/utils/formatDateTime";
 import { useState } from "react";
@@ -26,6 +28,7 @@ export function EventCalendar() {
 
   return (
     <ContentPane wrapperClassName="bg-nca-red">
+      <Image src={construction} alt="Calendar Background" />
       <Card className="w-fit py-4 mx-auto">
         <CardHeader>
           <CardTitle>Club Calendar</CardTitle>
@@ -68,11 +71,12 @@ export function EventCalendar() {
             {isLoading && <p>Loading events...</p>}
             {events.map((event) => (
               <div
-                key={event.title}
+                key={event.id}
                 className="bg-muted after:bg-primary/70 relative rounded-md p-2 pl-6 text-sm after:absolute after:inset-y-2 after:left-2 after:w-1 after:rounded-full"
               >
-                <div className="font-medium">{event.title}</div>
-                <div className="text-muted-foreground text-xs">
+                <div className="text-lg font-semibold">{event.title}</div>
+                <div className="text-md font-medium">{event.description}</div>
+                <div className="text-muted-foreground text-sm">
                   {formatDateFromTo(new Date(event.from), new Date(event.to))}
                 </div>
               </div>
