@@ -18,7 +18,9 @@ import { Route as testTestImport } from './routes/(test)/_test'
 import { Route as testExamplesImport } from './routes/(test)/_examples'
 import { Route as authLoginImport } from './routes/(auth)/login'
 import { Route as appPublicImport } from './routes/(app)/_public'
+import { Route as appMembersImport } from './routes/(app)/_members'
 import { Route as testTestTestImport } from './routes/(test)/_test/test_'
+import { Route as appMembersTrainingImport } from './routes/(app)/_members/training'
 import { Route as appPublicPublicIndexImport } from './routes/(app)/_public/public.index'
 import { Route as testTestTestAImport } from './routes/(test)/_test/test.a_'
 import { Route as testTestTestASomethingImport } from './routes/(test)/_test/test.a.something'
@@ -135,6 +137,11 @@ const authLoginRoute = authLoginImport.update({
 
 const appPublicRoute = appPublicImport.update({
   id: '/_public',
+  getParentRoute: () => appRoute,
+} as any)
+
+const appMembersRoute = appMembersImport.update({
+  id: '/_members',
   getParentRoute: () => appRoute,
 } as any)
 
@@ -298,6 +305,12 @@ const testTestTestRoute = testTestTestImport.update({
   id: '/test_',
   path: '/test',
   getParentRoute: () => testTestRoute,
+} as any)
+
+const appMembersTrainingRoute = appMembersTrainingImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => appMembersRoute,
 } as any)
 
 const appPublicPublicIndexRoute = appPublicPublicIndexImport.update({
@@ -519,12 +532,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof appImport
       parentRoute: typeof rootRoute
     }
-    '/(app)/_public': {
-      id: '/(app)/_public'
+    '/(app)/_members': {
+      id: '/(app)/_members'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof appPublicImport
+      preLoaderRoute: typeof appMembersImport
       parentRoute: typeof appRoute
+    }
+    '/(app)/_public': {
+      id: '/(app)/_public'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof appPublicImport
+      parentRoute: typeof appImport
     }
     '/(auth)/login': {
       id: '/(auth)/login'
@@ -553,6 +573,13 @@ declare module '@tanstack/react-router' {
       fullPath: ''
       preLoaderRoute: typeof testTestImport
       parentRoute: typeof testImport
+    }
+    '/(app)/_members/training': {
+      id: '/(app)/_members/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof appMembersTrainingImport
+      parentRoute: typeof appMembersImport
     }
     '/(test)/_test/test_': {
       id: '/(test)/_test/test_'
@@ -818,6 +845,18 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
+interface appMembersRouteChildren {
+  appMembersTrainingRoute: typeof appMembersTrainingRoute
+}
+
+const appMembersRouteChildren: appMembersRouteChildren = {
+  appMembersTrainingRoute: appMembersTrainingRoute,
+}
+
+const appMembersRouteWithChildren = appMembersRoute._addFileChildren(
+  appMembersRouteChildren,
+)
+
 interface appPublicRouteChildren {
   appPublicAboutLazyRoute: typeof appPublicAboutLazyRoute
   appPublicContactLazyRoute: typeof appPublicContactLazyRoute
@@ -870,10 +909,12 @@ const appPublicRouteWithChildren = appPublicRoute._addFileChildren(
 )
 
 interface appRouteChildren {
+  appMembersRoute: typeof appMembersRouteWithChildren
   appPublicRoute: typeof appPublicRouteWithChildren
 }
 
 const appRouteChildren: appRouteChildren = {
+  appMembersRoute: appMembersRouteWithChildren,
   appPublicRoute: appPublicRouteWithChildren,
 }
 
@@ -950,8 +991,9 @@ const testRouteWithChildren = testRoute._addFileChildren(testRouteChildren)
 
 export interface FileRoutesByFullPath {
   '/': typeof testExamplesRouteWithChildren
-  '/login': typeof authLoginRoute
   '': typeof testTestRouteWithChildren
+  '/login': typeof authLoginRoute
+  '/training': typeof appMembersTrainingRoute
   '/test': typeof testTestTestRoute
   '/about': typeof appPublicAboutLazyRoute
   '/contact': typeof appPublicContactLazyRoute
@@ -993,8 +1035,9 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof testExamplesRouteWithChildren
-  '/login': typeof authLoginRoute
   '': typeof testTestRouteWithChildren
+  '/login': typeof authLoginRoute
+  '/training': typeof appMembersTrainingRoute
   '/test': typeof testTestTestRoute
   '/about': typeof appPublicAboutLazyRoute
   '/contact': typeof appPublicContactLazyRoute
@@ -1038,11 +1081,13 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/(app)': typeof appRouteWithChildren
+  '/(app)/_members': typeof appMembersRouteWithChildren
   '/(app)/_public': typeof appPublicRouteWithChildren
   '/(auth)/login': typeof authLoginRoute
   '/(test)': typeof testRouteWithChildren
   '/(test)/_examples': typeof testExamplesRouteWithChildren
   '/(test)/_test': typeof testTestRouteWithChildren
+  '/(app)/_members/training': typeof appMembersTrainingRoute
   '/(test)/_test/test_': typeof testTestTestRoute
   '/(app)/_public/about': typeof appPublicAboutLazyRoute
   '/(app)/_public/contact': typeof appPublicContactLazyRoute
@@ -1086,8 +1131,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/login'
     | ''
+    | '/login'
+    | '/training'
     | '/test'
     | '/about'
     | '/contact'
@@ -1128,8 +1174,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/login'
     | ''
+    | '/login'
+    | '/training'
     | '/test'
     | '/about'
     | '/contact'
@@ -1171,11 +1218,13 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/(app)'
+    | '/(app)/_members'
     | '/(app)/_public'
     | '/(auth)/login'
     | '/(test)'
     | '/(test)/_examples'
     | '/(test)/_test'
+    | '/(app)/_members/training'
     | '/(test)/_test/test_'
     | '/(app)/_public/about'
     | '/(app)/_public/contact'
@@ -1252,7 +1301,15 @@ export const routeTree = rootRoute
     "/(app)": {
       "filePath": "(app)",
       "children": [
+        "/(app)/_members",
         "/(app)/_public"
+      ]
+    },
+    "/(app)/_members": {
+      "filePath": "(app)/_members.tsx",
+      "parent": "/(app)",
+      "children": [
+        "/(app)/_members/training"
       ]
     },
     "/(app)/_public": {
@@ -1319,6 +1376,10 @@ export const routeTree = rootRoute
         "/(test)/_test/test/a/something",
         "/(test)/_test/test/a/b/c"
       ]
+    },
+    "/(app)/_members/training": {
+      "filePath": "(app)/_members/training.tsx",
+      "parent": "/(app)/_members"
     },
     "/(test)/_test/test_": {
       "filePath": "(test)/_test/test_.tsx",
