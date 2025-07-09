@@ -103,6 +103,7 @@ export function SessionBoard() {
         }
       });
     }
+    console.log("Here are the items on the field:", items);
   }
 
   return (
