@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { DraggableChip } from "./DraggableChip";
+import { DraggableChip } from "../components/DraggableChip";
 
 interface ConeProps {
   id: string;

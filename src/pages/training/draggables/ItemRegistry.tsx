@@ -1,5 +1,5 @@
 // src/pages/training/components/ItemRegistry.tsx
-import { Cone } from "@/pages/training/components/Cone";
+import { Cone } from "@/pages/training/draggables/Cone";
 import { Player } from "./Player";
 import { type PlacedItem } from "./types";
 

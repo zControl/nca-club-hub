@@ -1,6 +1,6 @@
 import { Coin } from "@/components/ui/coin";
 import { type ReactElement } from "react";
-import { DraggableChip } from "./DraggableChip";
+import { DraggableChip } from "../components/DraggableChip";
 
 interface PlayerProps {
   id: string;

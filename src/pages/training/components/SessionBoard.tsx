@@ -1,13 +1,14 @@
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { Cone } from "@/pages/training/components/Cone";
 import { Droppable } from "@/pages/training/components/Droppable";
 import { Field } from "@/pages/training/components/Field";
-import { Player } from "@/pages/training/components/Player";
+import { Cone } from "@/pages/training/draggables/Cone";
+import { Player } from "@/pages/training/draggables/Player";
 import type {
   ConeItem,
   PlacedItem,
   PlayerItem,
-} from "@/pages/training/components/types";
+} from "@/pages/training/draggables/types";
+import { useItemStore } from "@/store/useItemStore";
 import {
   DndContext,
   DragOverlay,
@@ -21,7 +22,7 @@ import { IceCream2Icon, PlusCircleIcon } from "lucide-react";
 import { useState } from "react";
 
 export function SessionBoard() {
-  const [items, setItems] = useState<PlacedItem[]>([]);
+  const { setItems } = useItemStore();
   const [activeId, setActiveId] = useState<string | null>(null);
 
   // Use sensors for better drag behavior
@@ -103,7 +104,6 @@ export function SessionBoard() {
         }
       });
     }
-    console.log("Here are the items on the field:", items);
   }
 
   return (
@@ -134,7 +134,7 @@ export function SessionBoard() {
           </Card>
           <div className="flex-grow">
             <Droppable id="field-container">
-              <Field items={items} />
+              <Field />
             </Droppable>
             <DragOverlay>
               {activeId ? (
