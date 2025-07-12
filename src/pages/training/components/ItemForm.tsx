@@ -1,9 +1,8 @@
-// src/pages/training/components/ItemForm.tsx
 import {
   type ConeItem,
   type PlacedItem,
   type PlayerItem,
-} from "@/pages/training/draggables/types";
+} from "@/pages/training/draggables";
 import { useItemStore } from "@/store/useItemStore";
 import React from "react";
 
@@ -11,7 +10,7 @@ interface ItemFormProps {
   item: PlacedItem;
 }
 
-const PlayerForm: React.FC<{ item: PlayerItem }> = ({ item }) => {
+export function PlayerForm({ item }: { item: PlayerItem }) {
   const updateItem = useItemStore((state) => state.updateItem);
 
   const handleChange = (property: string, value: string | number) => {
@@ -47,9 +46,9 @@ const PlayerForm: React.FC<{ item: PlayerItem }> = ({ item }) => {
       </select>
     </>
   );
-};
+}
 
-const ConeForm: React.FC<{ item: ConeItem }> = ({ item }) => {
+export function ConeForm({ item }: { item: ConeItem }) {
   const updateItem = useItemStore((state) => state.updateItem);
 
   const handleChange = (property: string, value: string | number) => {
@@ -80,14 +79,14 @@ const ConeForm: React.FC<{ item: ConeItem }> = ({ item }) => {
       </select>
     </>
   );
-};
+}
 
 export const ItemForm: React.FC<ItemFormProps> = ({ item }) => {
   switch (item.type) {
     case "player":
-      return <PlayerForm item={item as PlayerItem} />;
+      return <PlayerForm item={item} />;
     case "cone":
-      return <ConeForm item={item as ConeItem} />;
+      return <ConeForm item={item} />;
     default:
       return null;
   }

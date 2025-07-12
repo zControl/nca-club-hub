@@ -1,13 +1,12 @@
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { Droppable } from "@/pages/training/components/Droppable";
 import { Field } from "@/pages/training/components/Field";
-import { Cone } from "@/pages/training/draggables/Cone";
-import { Player } from "@/pages/training/draggables/Player";
-import type {
-  ConeItem,
-  PlacedItem,
-  PlayerItem,
-} from "@/pages/training/draggables/types";
+import {
+  Cone,
+  Player,
+  type ConeItem,
+  type PlacedItem,
+  type PlayerItem,
+} from "@/pages/training/draggables";
 import { useItemStore } from "@/store/useItemStore";
 import {
   DndContext,
@@ -133,9 +132,7 @@ export function SessionBoard() {
             </div>
           </Card>
           <div className="flex-grow">
-            <Droppable id="field-container">
-              <Field />
-            </Droppable>
+            <Field />
             <DragOverlay>
               {activeId ? (
                 activeId === "player-template" ? (

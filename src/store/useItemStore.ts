@@ -13,12 +13,16 @@ export const useItemStore = create<ItemStore>((set) => ({
   items: [],
   selectedItemId: null,
   setSelectedItemId: (id) => set({ selectedItemId: id }),
-  updateItem: (updatedItem) => set((state) => ({
-    items: state.items.map((item) =>
+  updateItem: (updatedItem) => set((state) => {
+    const updatedItems = state.items.map((item) =>
       item.id === updatedItem.id ? updatedItem : item
-    ),
-  })),
-  setItems: (newItems) => set((state) => ({
-    items: typeof newItems === 'function' ? newItems(state.items) : newItems,
-  })),
+    );
+    console.log('updateItem:', updatedItems);
+    return { items: updatedItems };
+  }),
+  setItems: (newItems) => set((state) => {
+    const updatedItems = typeof newItems === 'function' ? newItems(state.items) : newItems;
+    console.log('setItems:', updatedItems);
+    return { items: updatedItems };
+  }),
 }));

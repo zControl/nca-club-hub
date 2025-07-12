@@ -3,8 +3,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { getItemComponent } from "@/pages/training/draggables/ItemRegistry";
+import { ItemComponent } from "@/pages/training/components/ItemComponent";
 import { useItemStore } from "@/store/useItemStore";
+import { useDroppable } from "@dnd-kit/core";
 import { useState } from "react";
 import { ItemForm } from "./ItemForm";
 
@@ -13,6 +14,10 @@ export function Field() {
   const selectedItem = items.find((item) => item.id === selectedItemId);
   const [popoverOpen, setPopoverOpen] = useState(false);
 
+  const { setNodeRef } = useDroppable({
+    id: "field-container",
+  });
+
   const handleItemClick = (itemId: string) => {
     setSelectedItemId(itemId === selectedItemId ? null : itemId);
     setPopoverOpen(itemId !== selectedItemId);
@@ -20,9 +25,11 @@ export function Field() {
   };
 
   return (
-    <div className="h-[600px] w-full bg-green-800 border-foreground border-2 relative">
+    <div
+      ref={setNodeRef}
+      className="h-[600px] w-full bg-green-800 border-foreground border-2 relative"
+    >
       {items.map((item) => {
-        const ItemComponent = getItemComponent(item);
         return (
           <Popover
             key={item.id}
@@ -40,7 +47,7 @@ export function Field() {
                 }}
                 onClick={() => handleItemClick(item.id)}
               >
-                <ItemComponent id={item.id} />
+                <ItemComponent item={item} />
               </div>
             </PopoverTrigger>
             {selectedItem && selectedItemId === item.id && (

@@ -1,6 +1,5 @@
-export interface BaseItem {
+interface BaseItem {
   id: string;
-  type: "player" | "cone";
   x: number;
   y: number;
 };
