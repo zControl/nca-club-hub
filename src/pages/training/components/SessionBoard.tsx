@@ -1,5 +1,7 @@
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Field } from "@/pages/training/components/Field";
+import { ItemsCard } from "@/pages/training/components/ItemsCard";
+import { ScenesCard } from "@/pages/training/components/ScenesCard";
+import { ToolsCard } from "@/pages/training/components/ToolsCard";
 import {
   Cone,
   Player,
@@ -17,7 +19,6 @@ import {
   type DragEndEvent,
   type DragStartEvent,
 } from "@dnd-kit/core";
-import { IceCream2Icon, PlusCircleIcon } from "lucide-react";
 import { useState } from "react";
 
 export function SessionBoard() {
@@ -48,6 +49,7 @@ export function SessionBoard() {
       const { x, y } = event.delta;
       const itemData = active.data?.current || {};
 
+      // update the items state in the store
       setItems((prev: PlacedItem[]) => {
         const existingItemIndex = prev.findIndex(
           (item) => item.id === active.id,
@@ -62,9 +64,9 @@ export function SessionBoard() {
             y: updatedItems[existingItemIndex].y + y,
           };
           console.log(
-            "Moved item: ",
+            "Dropped item: ",
             updatedItems[existingItemIndex].id,
-            "to: ",
+            "at: ",
             updatedItems[existingItemIndex].x,
             updatedItems[existingItemIndex].y,
           );
@@ -112,38 +114,23 @@ export function SessionBoard() {
       sensors={sensors}
     >
       <div className="flex flex-col gap-2">
-        <Card>
-          <CardTitle className="text-center">SCENES</CardTitle>
-          <CardContent className="flex flex-row gap-2 items-center justify-center">
-            <div className="h-24 w-24 bg-blue-300 flex items-center justify-center">
-              <IceCream2Icon size={64} />
-            </div>
-            <div className="h-24 w-24 bg-green-300 items-center flex justify-center">
-              <PlusCircleIcon size={64} />
-            </div>
-          </CardContent>
-        </Card>
+        <ScenesCard />
         <div className="flex flex-row gap-2">
-          <Card>
-            <CardTitle className="text-center">ITEMS</CardTitle>
-            <div className="flex flex-col gap-4 items-center px-2">
-              <Player id="player-template" />
-              <Cone id="cone-template" />
-            </div>
-          </Card>
+          <ItemsCard />
           <div className="flex-grow">
             <Field />
             <DragOverlay>
               {activeId ? (
                 activeId === "player-template" ? (
-                  <Player id="player-dragging" />
+                  <Player id="player-dragging" x={0} y={0} />
                 ) : activeId === "cone-template" ? (
-                  <Cone id="cone-dragging" />
+                  <Cone id="cone-dragging" x={0} y={0} />
                 ) : null
               ) : null}
             </DragOverlay>
           </div>
         </div>
+        <ToolsCard />
       </div>
     </DndContext>
   );

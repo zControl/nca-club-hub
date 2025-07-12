@@ -5,7 +5,7 @@ import { SessionBoard } from "@/pages/training/components/SessionBoard";
 export function TrainingPage() {
   return (
     <PageContainer title="Training" description="Training Session Planner">
-      <ContentPane>
+      <ContentPane contentClassName="max-w-full px-8">
         <SessionBoard />
       </ContentPane>
     </PageContainer>

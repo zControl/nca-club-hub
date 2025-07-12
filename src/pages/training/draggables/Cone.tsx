@@ -1,12 +1,13 @@
+import type { ConeItem } from "@/pages/training/draggables/types";
 import type { ReactElement } from "react";
 import { DraggableChip } from "../components/DraggableChip";
 
-interface ConeProps {
+/* interface ConeProps {
   id: string;
   size?: "small" | "medium" | "large";
   color?: "red" | "blue" | "yellow";
-}
-export function Cone(props: ConeProps): ReactElement {
+} */
+export function Cone(props: ConeItem): ReactElement {
   return (
     <DraggableChip
       id={props.id}

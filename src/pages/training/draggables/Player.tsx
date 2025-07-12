@@ -1,14 +1,15 @@
 import { Coin } from "@/components/ui/coin";
+import type { PlayerItem } from "@/pages/training/draggables/types";
 import { type ReactElement } from "react";
 import { DraggableChip } from "../components/DraggableChip";
 
-interface PlayerProps {
+/* interface PlayerProps {
   id: string;
   name?: string;
   number?: number;
   color?: "red" | "blue" | "yellow" | "green";
-}
-export function Player(props: PlayerProps): ReactElement {
+} */
+export function Player(props: PlayerItem): ReactElement {
   return (
     <DraggableChip
       id={props.id}
