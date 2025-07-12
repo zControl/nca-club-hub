@@ -44,6 +44,17 @@ export function PlayerForm({ item }: { item: PlayerItem }) {
         <option value="yellow">Yellow</option>
         <option value="green">Green</option>
       </select>
+      <label className="block text-sm">Size</label>
+      <select
+        value={item.color}
+        onChange={(e) => handleChange("size", e.target.value)}
+        className="w-full border p-1"
+      >
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="huge">Huge</option>
+      </select>
     </>
   );
 }

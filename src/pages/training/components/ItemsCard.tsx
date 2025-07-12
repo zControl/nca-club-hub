@@ -7,7 +7,7 @@ export function ItemsCard() {
       <CardTitle className="text-center">ITEMS</CardTitle>
       <div className="flex flex-col h-full">
         <div className="flex flex-col gap-4 items-center px-2 flex-grow">
-          <Player id="player-template" x={0} y={0} />
+          <Player id="player-template" x={0} y={0} number={99} />
           <Cone id="cone-template" x={0} y={0} />
         </div>
         <div className="mt-auto mx-auto">

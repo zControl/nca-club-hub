@@ -1,14 +1,8 @@
-import { Coin } from "@/components/ui/coin";
+import { ColorChip } from "@/components/ui/color-chip";
 import type { PlayerItem } from "@/pages/training/draggables/types";
 import { type ReactElement } from "react";
 import { DraggableChip } from "../components/DraggableChip";
 
-/* interface PlayerProps {
-  id: string;
-  name?: string;
-  number?: number;
-  color?: "red" | "blue" | "yellow" | "green";
-} */
 export function Player(props: PlayerItem): ReactElement {
   return (
     <DraggableChip
@@ -19,7 +13,7 @@ export function Player(props: PlayerItem): ReactElement {
       {props.name && (
         <span className="text-xs font-semibold text-white">{props.name}</span>
       )}
-      <Coin value={props.number || 99} />
+      <ColorChip value={props.number} color={props.color} size={props.size} />
     </DraggableChip>
   );
 }

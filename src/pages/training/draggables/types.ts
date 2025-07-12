@@ -1,3 +1,5 @@
+export type ItemColor = "red" | "blue" | "yellow" | "green";
+export type ItemSize = "small" | "medium" | "large" | "huge";
 interface BaseItem {
   id: string;
   x: number;
@@ -6,14 +8,15 @@ interface BaseItem {
 export interface PlayerItem extends BaseItem {
   type?: "player";
   name?: string;
-  color?: "red" | "blue" | "yellow" | "green";
+  color?: ItemColor;
+  size?: ItemSize;
   number?: number;
 };
 
 export interface ConeItem extends BaseItem {
   type?: "cone";
-  color?: "red" | "blue" | "yellow";
-  size?: "small" | "medium" | "large";
+  color?: ItemColor;
+  size?: ItemSize;
 };
 
 export type PlacedItem = PlayerItem | ConeItem;

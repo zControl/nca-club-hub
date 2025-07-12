@@ -26,7 +26,7 @@ export function DraggableChip(props: DraggableChipProps): ReactElement {
       style={style}
       {...listeners}
       {...attributes}
-      className={`cursor-move ${props.className || ""}`}
+      className={props.className || ""}
     >
       {props.children}
     </div>
