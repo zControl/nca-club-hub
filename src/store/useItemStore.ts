@@ -7,6 +7,8 @@ interface ItemStore {
   setSelectedItemId: (id: string | null) => void;
   updateItem: (updatedItem: PlacedItem) => void;
   setItems: (newItems: PlacedItem[] | ((prevItems: PlacedItem[]) => PlacedItem[])) => void;
+  duplicateItem: (id: string) => void;
+  deleteItem: (id: string) => void;
 }
 
 export const useItemStore = create<ItemStore>((set) => ({
@@ -23,6 +25,18 @@ export const useItemStore = create<ItemStore>((set) => ({
   setItems: (newItems) => set((state) => {
     const updatedItems = typeof newItems === 'function' ? newItems(state.items) : newItems;
     console.log('setItems:', updatedItems);
+    return { items: updatedItems };
+  }),
+  duplicateItem: (id) => set((state) => {
+    const itemToDuplicate = state.items.find((item) => item.id === id);
+    if (itemToDuplicate) {
+      const newItem = { ...itemToDuplicate, id: `${itemToDuplicate.type}-${Date.now().toString(36)}-${Math.floor(Math.random() * 1000)}` };
+      return { items: [...state.items, newItem] };
+    }
+    return state;
+  }),
+  deleteItem: (id) => set((state) => {
+    const updatedItems = state.items.filter((item) => item.id !== id);
     return { items: updatedItems };
   }),
 }));

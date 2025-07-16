@@ -24,10 +24,20 @@ export function Field() {
     console.log("Selected item:", itemId);
   };
 
+  const handleContainerClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  ) => {
+    if (e.target === e.currentTarget) {
+      setSelectedItemId(null);
+      setPopoverOpen(false);
+    }
+  };
+
   return (
     <div
       ref={setNodeRef}
       className="h-[600px] w-full bg-green-800 border-foreground border-2 relative"
+      onClick={handleContainerClick}
     >
       {items.map((item) => {
         return (
@@ -40,6 +50,7 @@ export function Field() {
               <div
                 style={{
                   position: "absolute",
+                  padding: "2px",
                   left: item.x,
                   top: item.y,
                   border:
@@ -52,7 +63,6 @@ export function Field() {
             </PopoverTrigger>
             {selectedItem && selectedItemId === item.id && (
               <PopoverContent>
-                <h3 className="font-bold mb-4">Properties</h3>
                 <div className="space-y-3">
                   <ItemForm item={selectedItem} />
                 </div>

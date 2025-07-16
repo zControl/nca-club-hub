@@ -6,15 +6,17 @@ interface BaseItem {
   y: number;
 };
 export interface PlayerItem extends BaseItem {
-  type?: "player";
+  type: "player";
   name?: string;
   color?: ItemColor;
   size?: ItemSize;
   number?: number;
+  showName?: boolean;
+  showNumber?: boolean;
 };
 
 export interface ConeItem extends BaseItem {
-  type?: "cone";
+  type: "cone";
   color?: ItemColor;
   size?: ItemSize;
 };

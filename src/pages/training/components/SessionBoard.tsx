@@ -72,9 +72,10 @@ export function SessionBoard() {
           );
           return updatedItems;
         } else {
+          // We are adding a new item, so set default properties
           const baseItem = {
             id: `${itemData.type}-${Date.now().toString(36)}-${Math.floor(Math.random() * 1000)}`,
-            type: itemData.type || "player",
+            type: itemData.type,
             x,
             y,
           };
@@ -86,6 +87,8 @@ export function SessionBoard() {
               name: itemData.name || "Player",
               color: itemData.color || "blue",
               number: itemData.number || 0,
+              showName: true,
+              showNumber: true,
             };
             console.log("Adding new player item:", newItem);
             return [...prev, newItem];
@@ -122,9 +125,9 @@ export function SessionBoard() {
             <DragOverlay>
               {activeId ? (
                 activeId === "player-template" ? (
-                  <Player id="player-dragging" x={0} y={0} />
+                  <Player type="player" id="player-dragging" x={0} y={0} />
                 ) : activeId === "cone-template" ? (
-                  <Cone id="cone-dragging" x={0} y={0} />
+                  <Cone type="cone" id="cone-dragging" x={0} y={0} />
                 ) : null
               ) : null}
             </DragOverlay>

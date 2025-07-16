@@ -10,10 +10,18 @@ export function Player(props: PlayerItem): ReactElement {
       data={{ type: "player" }}
       className="flex items-center justify-center"
     >
-      {props.name && (
-        <span className="text-xs font-semibold text-white">{props.name}</span>
-      )}
-      <ColorChip value={props.number} color={props.color} size={props.size} />
+      <div className="flex flex-col gap-1 items-center">
+        {props.showName && props.name && (
+          <span className="text-sm font-semibold text-white text-center max-w-18 overflow-auto wrap-anywhere">
+            {props.name}
+          </span>
+        )}
+        <ColorChip
+          value={props.showNumber ? props.number : undefined}
+          color={props.color}
+          size={props.size}
+        />
+      </div>
     </DraggableChip>
   );
 }
