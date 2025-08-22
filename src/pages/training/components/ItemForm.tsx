@@ -1,16 +1,22 @@
 import { Button } from "@/components/ui/button";
-import { colorVariants } from "@/components/ui/color-variants";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { colorVariants, sizeVariants } from "@/components/ui/variants";
 import { cn } from "@/lib/utils";
 import {
   type ConeItem,
   type ItemColor,
+  type ItemSize,
   type PlacedItem,
   type PlayerItem,
 } from "@/pages/training/draggables";
 import { useItemStore } from "@/store/useItemStore";
-import { CopyPlusIcon, EyeIcon, EyeOffIcon, Trash2Icon } from "lucide-react";
+import {
+  CopyPlusIcon,
+  EyeIcon,
+  EyeOffIcon,
+  Trash2Icon,
+  XIcon,
+} from "lucide-react";
 import React from "react";
 
 interface ItemFormProps {
@@ -32,19 +38,22 @@ export function ItemFormHeader({ item }: { item: PlayerItem }) {
   };
 
   return (
-    <div className="flex items-center justify-between">
-      <div className="flex flex-col gap-2">
-        <span className="font-semibold underline uppercase">{item.type}</span>
-        <span className="text-xs italic">{item.id}</span>
-      </div>
+    <div className="flex items-center justify-between border-b-4 border-muted pb-2">
       <div className="flex items-center justify-end gap-2">
-        <Button variant={"highlight"} size={"icon"} onClick={handleDuplicate}>
-          <CopyPlusIcon />
-        </Button>
         <Button variant={"destructive"} size={"icon"} onClick={handleDelete}>
           <Trash2Icon />
         </Button>
+        <Button variant={"highlight"} size={"icon"} onClick={handleDuplicate}>
+          <CopyPlusIcon />
+        </Button>
       </div>
+      <Button
+        variant={"ghost"}
+        size={"icon"}
+        onClick={() => setSelectedItemId(null)}
+      >
+        <XIcon />
+      </Button>
     </div>
   );
 }
@@ -60,17 +69,49 @@ export function ItemColorSelector({ item }: { item: PlacedItem }) {
 
   return (
     <>
-      <Label>Color</Label>
       <div className="flex flex-row justify-around gap-2 px-4">
         {colors.map((color) => (
           <div
             key={color}
             onClick={() => handleColorChange(color)}
             className={cn(
-              colorVariants({ color, size: "small" }),
-              color === item.color ? "border-2 border-white" : "",
+              colorVariants({ color }),
+              sizeVariants({ size: "small" }),
+              color === item.color ? "border-2 border-foreground" : "",
             )}
           />
+        ))}
+      </div>
+    </>
+  );
+}
+
+export function ItemSizeSelector({ item }: { item: PlacedItem }) {
+  const updateItem = useItemStore((state) => state.updateItem);
+
+  const sizes: ItemSize[] = ["small", "medium", "large", "huge"];
+
+  const handleSizeChange = (size: ItemSize) => {
+    updateItem({ ...item, size });
+  };
+
+  return (
+    <>
+      <div className="flex flex-row justify-around gap-2 px-4">
+        {sizes.map((size) => (
+          <div key={size} className="flex flex-col items-center">
+            <div
+              onClick={() => handleSizeChange(size as ItemSize)}
+              className={cn(
+                "flex items-center justify-center border cursor-pointer",
+                sizeVariants({ size }),
+                size === item.size
+                  ? "border-2 border-foreground"
+                  : "border border-foreground/30",
+              )}
+            />
+            <span className="mt-1 text-xs capitalize">{size}</span>
+          </div>
         ))}
       </div>
     </>
@@ -85,9 +126,8 @@ export function PlayerForm({ item }: { item: PlayerItem }) {
   };
 
   return (
-    <>
+    <div className="flex flex-col space-y-4">
       <ItemFormHeader item={item} />
-      <Label>Name</Label>
       <div className="flex items-center justify-normal gap-2">
         <div onClick={() => handleChange("showName", !item.showName)}>
           {item.showName ? <EyeIcon /> : <EyeOffIcon />}
@@ -98,7 +138,6 @@ export function PlayerForm({ item }: { item: PlayerItem }) {
           onChange={(e) => handleChange("name", e.target.value)}
         />
       </div>
-      <Label>Number</Label>
       <div className="flex items-center gap-2">
         <div onClick={() => handleChange("showNumber", !item.showNumber)}>
           {item.showNumber ? <EyeIcon /> : <EyeOffIcon />}
@@ -113,18 +152,8 @@ export function PlayerForm({ item }: { item: PlayerItem }) {
         />
       </div>
       <ItemColorSelector item={item} />
-      <label className="block text-sm">Size</label>
-      <select
-        value={item.color}
-        onChange={(e) => handleChange("size", e.target.value)}
-        className="w-full border p-1"
-      >
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-        <option value="huge">Huge</option>
-      </select>
-    </>
+      <ItemSizeSelector item={item} />
+    </div>
   );
 }
 

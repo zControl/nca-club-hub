@@ -18,9 +18,14 @@ export function Player(props: PlayerItem): ReactElement {
         )}
         <ColorChip
           value={props.showNumber ? props.number : undefined}
-          color={props.color}
+          color={props.color || "yellow"}
           size={props.size}
         />
+        {props.position && (
+          <span className="text-sm font-semibold text-white text-center max-w-18 overflow-auto wrap-anywhere">
+            {props.position.code}
+          </span>
+        )}
       </div>
     </DraggableChip>
   );

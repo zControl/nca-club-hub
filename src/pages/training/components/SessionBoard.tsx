@@ -6,8 +6,11 @@ import {
   Cone,
   Player,
   type ConeItem,
+  type ItemColor,
+  type ItemSize,
   type PlacedItem,
   type PlayerItem,
+  type Position,
 } from "@/pages/training/draggables";
 import { useItemStore } from "@/store/useItemStore";
 import {
@@ -44,19 +47,20 @@ export function SessionBoard() {
   function handleDragEnd(event: DragEndEvent) {
     setActiveId(null);
     const { active, over } = event;
-    // check if the item was dropped over the field container
+    // Check if the item was dropped over the field container
     if (over && over.id === "field-container") {
       const { x, y } = event.delta;
       const itemData = active.data?.current || {};
 
-      // update the items state in the store
+      // Update the items state in the store
       setItems((prev: PlacedItem[]) => {
         const existingItemIndex = prev.findIndex(
           (item) => item.id === active.id,
         );
 
+        // If the item already exists in the state, update its position
         if (existingItemIndex >= 0) {
-          // Update existing item position
+          // Update the position of the existing item
           const updatedItems = [...prev];
           updatedItems[existingItemIndex] = {
             ...updatedItems[existingItemIndex],
@@ -71,8 +75,9 @@ export function SessionBoard() {
             updatedItems[existingItemIndex].y,
           );
           return updatedItems;
+          // If the item doesn't exist in the state, add it
         } else {
-          // We are adding a new item, so set default properties
+          // Set default values for the new item
           const baseItem = {
             id: `${itemData.type}-${Date.now().toString(36)}-${Math.floor(Math.random() * 1000)}`,
             type: itemData.type,
@@ -80,16 +85,23 @@ export function SessionBoard() {
             y,
           };
 
-          // Add type-specific properties
+          const basePlayerItem = {
+            name: "New Player",
+            showName: true,
+            number: 0,
+            showNumber: true,
+            position: {
+              name: "None",
+              code: "N/A",
+              role: 0,
+            } as Position,
+            color: "yellow" as ItemColor,
+            size: "medium" as ItemSize,
+          };
+
+          // Check item type and add it to the state
           if (itemData.type === "player") {
-            const newItem: PlayerItem = {
-              ...baseItem,
-              name: itemData.name || "Player",
-              color: itemData.color || "blue",
-              number: itemData.number || 0,
-              showName: true,
-              showNumber: true,
-            };
+            const newItem: PlayerItem = { ...baseItem, ...basePlayerItem };
             console.log("Adding new player item:", newItem);
             return [...prev, newItem];
           } else if (itemData.type === "cone") {
@@ -101,7 +113,7 @@ export function SessionBoard() {
             console.log("Adding new cone item:", newItem);
             return [...prev, newItem];
           } else {
-            // If the item is not of type "player" or "cone", do not add it to the state
+            // If item type is unknown, return the previous state
             console.warn("Unknown item type:", itemData.type);
             return prev;
           }

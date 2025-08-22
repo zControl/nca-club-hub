@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const colorVariants = cva("hover:cursor-move", {
+export const colorVariants = cva("hover:cursor-move", {
   variants: {
     color: {
       default: "bg-yellow-400 border-yellow-600 text-yellow-800",
@@ -9,18 +9,17 @@ const colorVariants = cva("hover:cursor-move", {
       yellow: "bg-yellow-400 border-yellow-600 text-yellow-800",
       green: "bg-green-400 border-green-600 text-green-800",
     },
+  },
+});
+
+export const sizeVariants = cva("", {
+  variants: {
     size: {
-      default: "h-12 w-12 text-base",
+      default: "h-10 w-10 text-base",
       small: "h-8 w-8 text-xs",
       medium: "h-10 w-10 text-sm",
       large: "h-12 w-12 text-base",
       huge: "h-16 w-16 text-lg",
     },
   },
-  defaultVariants: {
-    color: "default",
-    size: "default",
-  },
 });
-
-export { colorVariants };
